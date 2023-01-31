@@ -13,7 +13,6 @@ export interface ILocateEvent extends IPublicModelLocateEvent {
      * 激活的感应器
      */
     sensor?: IPublicModelSensor;
-
 }
 
 

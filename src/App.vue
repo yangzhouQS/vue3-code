@@ -16,7 +16,7 @@
 <script setup lang="ts">
 import {ref, nextTick, onMounted, Ref} from 'vue'
 import {Dragon} from "./components/dragon/dragon";
-import {SimulatorHost} from "./components/dragon/workspace-area";
+import {SimulatorHost} from "./components/dragon/host";
 import {DragGhost} from "./components/dragon/designer/drag-ghost/drag-ghost";
 
 const dragon = new Dragon()

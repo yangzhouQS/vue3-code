@@ -39,6 +39,19 @@ export class SimulatorHost {
     setupDragAndClick() {
         const dom = this.dom!;
         dom.addEventListener('mousedown', (downEvent: MouseEvent) => {
+            // fix for popups close logic
+            document.dispatchEvent(new Event('mousedown'));
+
+            // 禁止原生拖拽
+            downEvent.stopPropagation();
+            downEvent.preventDefault();
+
+            const checkSelect = (e: MouseEvent) =>{
+                dom.removeEventListener('mouseup', checkSelect, true);
+
+            }
+
+            dom.addEventListener('mouseup', checkSelect, true);
         }, true)
         dom.addEventListener('click', (e: MouseEvent) => {
         }, true)
@@ -51,10 +64,10 @@ export class SimulatorHost {
     setupDetecting() {
         const dom = this.dom!;
         const hover = (e: MouseEvent) => {
-            console.log('鼠标进入')
+            // console.log('鼠标进入')
         }
         const leave = () => {
-            console.log('鼠标离开')
+            // console.log('鼠标离开')
         }
         dom.addEventListener('mouseover', hover, true)
         dom.addEventListener('mouseleave', leave, false)
