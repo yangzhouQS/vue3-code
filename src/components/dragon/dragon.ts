@@ -3,7 +3,7 @@ import {IPublicModelDragObject, IPublicModelNode, IPublicTypeDragObject} from ".
 import {IPublicModelLocateEvent} from "./locate-event";
 import {createModuleEventBus, IEventBus} from "./event-bus";
 import {IPublicModelSensor} from "./sensor";
-import {cursor} from "./Cursor/cursor";
+import {cursor} from "./cursor/cursor";
 import {setNativeSelection} from './utils/navtive-selection'
 
 export interface ILocateEvent extends IPublicModelLocateEvent {
@@ -174,7 +174,6 @@ export class Dragon implements IDragon {
             handleEvents((doc) => {
                 doc.addEventListener('keydown', checkKeydownEsc, false);
             });
-            console.log('locateEvent', locateEvent)
             this.emitter.emit('dragstart', locateEvent);
         }
 

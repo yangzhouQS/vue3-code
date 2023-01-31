@@ -12,6 +12,7 @@ export const DragGhost = defineComponent({
     setup(props) {
         const x = ref(0)
         const y = ref(0)
+        const display = ref('none')
         const title = ref()
         const dispose: any[] = []
 
@@ -21,7 +22,7 @@ export const DragGhost = defineComponent({
                 dispose.push(
                     // 拖拽对象开始拖拽
                     dragon.onDragstart((e => {
-
+                        display.value = 'block'
                         // 原生拖拽事件不处理
                         if (e.originalEvent.type.slice(0, 4) === 'drag') {
                             return;
@@ -39,6 +40,7 @@ export const DragGhost = defineComponent({
 
                     // 拖拽结束
                     dragon.onDragend((() => {
+                        display.value = 'none'
                         title.value = null
                         x.value = 0
                         y.value = 0
@@ -66,6 +68,7 @@ export const DragGhost = defineComponent({
 
         return () => {
             return <div class="assembox-ghost-group" style={{
+                display: display.value,
                 left: `${x.value}px`,
                 top: `${y.value}px`
             }}>
