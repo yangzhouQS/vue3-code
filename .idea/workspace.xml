@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47ae398e-164c-4671-92f7-3166716a5f2d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vue3-code.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vue3-code.iml" afterDir="false" />
+    <list default="true" id="47ae398e-164c-4671-92f7-3166716a5f2d" name="Changes" comment="拖拽类名">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dragon/Cursor/cursor.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dragon/cursor/cursor.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dragon/Cursor/cursor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dragon/cursor/cursor.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/dragon/designer/drag-ghost/drag-ghost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dragon/designer/drag-ghost/drag-ghost.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dragon/designer/drag-ghost/ghost.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dragon/designer/drag-ghost/ghost.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dragon/dragon.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dragon/dragon.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -73,8 +74,16 @@
       <option name="presentableId" value="Default" />
       <updated>1675154711198</updated>
       <workItem from="1675154712352" duration="17000" />
-      <workItem from="1675154809622" duration="516000" />
+      <workItem from="1675154809622" duration="2054000" />
     </task>
+    <task id="LOCAL-00001" summary="拖拽类名">
+      <created>1675155345517</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1675155345517</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -90,5 +99,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="拖拽类名" />
+    <option name="LAST_COMMIT_MESSAGE" value="拖拽类名" />
   </component>
 </project>

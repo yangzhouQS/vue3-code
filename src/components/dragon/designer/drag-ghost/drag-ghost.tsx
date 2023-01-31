@@ -21,7 +21,7 @@ export const DragGhost = defineComponent({
             if (dragon) {
                 dispose.push(
                     // 拖拽对象开始拖拽
-                    dragon.onDragstart((e => {
+                    dragon.onDragstart(((e: any) => {
                         display.value = 'block'
                         // 原生拖拽事件不处理
                         if (e.originalEvent.type.slice(0, 4) === 'drag') {
@@ -33,7 +33,7 @@ export const DragGhost = defineComponent({
                     })),
 
                     // 拖拽过程
-                    dragon.onDrag((e => {
+                    dragon.onDrag(((e: any) => {
                         x.value = e.globalX
                         y.value = e.globalY
                     })),
