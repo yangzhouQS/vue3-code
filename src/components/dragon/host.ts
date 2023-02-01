@@ -1,8 +1,14 @@
 import {IPublicModelNode} from "./drag-object";
 import {VNode, ComponentPublicInstance} from 'vue'
 import {createModuleEventBus, IEventBus} from "./event-bus";
+import Viewport from './viewport';
 
+/**
+ * 拖拽识别区域
+ */
 export class SimulatorHost {
+    readonly viewport = new Viewport();
+
     private _dom?: HTMLElement
     readonly emitter: IEventBus = createModuleEventBus('BuiltinSimulatorHost');
 
@@ -13,11 +19,17 @@ export class SimulatorHost {
     constructor() {
     }
 
+    mountViewport(viewport: HTMLElement | null) {
+        this.viewport.mount(viewport);
+    }
+
     async mountContent(dom: HTMLElement | null) {
         if (!dom || dom === this._dom) {
             return
         }
         this._dom = dom
+
+        this.mountViewport(dom)
 
 
         // 监听事件初始化
@@ -46,7 +58,7 @@ export class SimulatorHost {
             downEvent.stopPropagation();
             downEvent.preventDefault();
 
-            const checkSelect = (e: MouseEvent) =>{
+            const checkSelect = (e: MouseEvent) => {
                 dom.removeEventListener('mouseup', checkSelect, true);
 
             }

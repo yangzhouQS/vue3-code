@@ -83,6 +83,12 @@ export class Dragon implements IDragon {
 
     // 拖拽敏感板
     private sensors: IPublicModelSensor[] = [];
+    /**
+     * current active sensor, 可用于感应区高亮
+     */
+    private _activeSensor: IPublicModelSensor | undefined;
+
+
     // 拖拽状态
     private _dragging = false;
 
@@ -116,7 +122,7 @@ export class Dragon implements IDragon {
 
         // 拖拽的是否为节点对象，根据type判断 type === 'node'
         const newBie = !isDragNodeObject(dragObject);
-
+        let lastSensor: IPublicModelSensor | undefined;
         this._dragging = false;
 
         // esc按键取消检查
@@ -265,6 +271,24 @@ export class Dragon implements IDragon {
             return evt
         }
 
+        // 判断是否拖拽至感应区域
+        const chooseSensor = (e: ILocateEvent) => {
+            // 根据坐标判断是否进入识别感应区域
+            let sensor = e.sensor && e.sensor.isEnter(e) ? e.sensor : undefined
+            if (lastSensor) {
+                sensor = lastSensor
+            } else if (e.sensor) {
+                sensor = e.sensor
+            }
+
+            if (sensor) {
+                e.sensor = sensor
+                sensor.fixEvent(e)
+            }
+
+            this._activeSensor = sensor;
+            return sensor;
+        }
         // 检测是否为原生的drag拖拽事件
         if (isDragEvent(boostEvent)) {
             const {dataTransfer} = boostEvent;
@@ -321,6 +345,12 @@ export class Dragon implements IDragon {
         return () => {
             shell.removeEventListener('mousedown', mousedown)
         }
+    }
+
+
+    // 获取感应区域
+    private getWorkspaceArea(){
+
     }
 
     private setNativeSelection(enableFlag: boolean) {
