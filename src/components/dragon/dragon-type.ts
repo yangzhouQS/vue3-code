@@ -1,5 +1,6 @@
 import {IPublicModelDragObject, IPublicModelNode, IPublicTypeDragObject} from "./drag-object";
 import {IPublicModelLocateEvent} from "./locate-event";
+import {ComponentPublicInstance} from 'vue'
 
 export interface IPublicModelDragon {
     /**
@@ -65,4 +66,11 @@ export interface IPublicModelDragon {
     removeSensor(sensor: any): void;
 }
 
+export interface INode extends IPublicModelNode {
 
+}
+
+export interface DropContainer {
+    container: INode;
+    instance: ComponentPublicInstance;
+}

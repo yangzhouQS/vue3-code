@@ -2,11 +2,18 @@ import {IPublicModelNode} from "./drag-object";
 import {VNode, ComponentPublicInstance} from 'vue'
 import {createModuleEventBus, IEventBus} from "./event-bus";
 import Viewport from './viewport';
+import {IPublicModelSensor} from "./sensor";
+import {IPublicModelLocateEvent} from "./locate-event";
+import {IPublicModelDropLocation} from "./drop-location";
+import {ILocateEvent} from "./dragon";
+import {DropContainer} from "./dragon-type";
+import {CanvasPoint, IPublicTypeRect} from "./location";
+import {isElement} from "./utils/is-element";
 
 /**
  * 拖拽识别区域
  */
-export class SimulatorHost {
+export class SimulatorHost implements IPublicModelSensor {
     readonly viewport = new Viewport();
 
     private _dom?: HTMLElement
@@ -15,6 +22,8 @@ export class SimulatorHost {
     get dom(): HTMLElement {
         return this._dom as HTMLElement
     }
+
+    private sensing = false;
 
     constructor() {
     }
@@ -121,6 +130,59 @@ export class SimulatorHost {
             nodeId: '11'
         }
     }
+
+    readonly sensorAvailable: boolean;
+
+
+    // 取消激活
+    deactiveSensor(): void {
+        this.sensing = false;
+        // this.scroller.cancel();
+    }
+
+    // 给事件打补丁
+    fixEvent(e: ILocateEvent): ILocateEvent {
+        if (e.fixed) {
+            return e;
+        }
+        // 事件已订正
+        e.fixed = true;
+        return e;
+    }
+
+    /**
+     * 判断鼠标位置是否在感应区域
+     * 大于 left 小于 right
+     * 大于 top 小于 bottom
+     * @param e
+     */
+    isEnter(e: IPublicModelLocateEvent): boolean {
+        const rect = this.viewport.bounds;
+        return (
+            e.globalY >= rect.top &&
+            e.globalY <= rect.bottom &&
+            e.globalX >= rect.left &&
+            e.globalX <= rect.right
+        );
+    }
+
+    // ========= drag location logic: helper for locate ==========
+    // 定位并激活
+    locate(e: IPublicModelLocateEvent): IPublicModelDropLocation | undefined | null {
+        return undefined;
+    }
+
+    // 查找合适放置容器
+    getDropContainer(e: ILocateEvent): DropContainer | null {
+
+        return null
+    }
+
+    // 控制投放
+    handleAccept({container, instance}: DropContainer, e: ILocateEvent): boolean {
+
+        return true
+    }
 }
 
 
@@ -128,4 +190,66 @@ export interface NodeInstance {
     nodeId: string;
     instance: Element | VNode | ComponentPublicInstance<any> | object;
     node?: IPublicModelNode | null;
+}
+
+function isHTMLTag(name: string) {
+    return /^[a-z]\w*$/.test(name);
+}
+
+function isPointInRect(point: CanvasPoint, rect: IPublicTypeRect) {
+    return (
+        point.canvasY >= rect.top &&
+        point.canvasY <= rect.bottom &&
+        point.canvasX >= rect.left &&
+        point.canvasX <= rect.right
+    );
+}
+
+function distanceToRect(point: CanvasPoint, rect: IPublicTypeRect) {
+    let minX = Math.min(Math.abs(point.canvasX - rect.left), Math.abs(point.canvasX - rect.right));
+    let minY = Math.min(Math.abs(point.canvasY - rect.top), Math.abs(point.canvasY - rect.bottom));
+    if (point.canvasX >= rect.left && point.canvasX <= rect.right) {
+        minX = 0;
+    }
+    if (point.canvasY >= rect.top && point.canvasY <= rect.bottom) {
+        minY = 0;
+    }
+
+    return Math.sqrt(minX ** 2 + minY ** 2);
+}
+
+function distanceToEdge(point: CanvasPoint, rect: IPublicTypeRect) {
+    const distanceTop = Math.abs(point.canvasY - rect.top);
+    const distanceBottom = Math.abs(point.canvasY - rect.bottom);
+
+    return {
+        distance: Math.min(distanceTop, distanceBottom),
+        nearAfter: distanceBottom < distanceTop,
+    };
+}
+
+function isNearAfter(point: CanvasPoint, rect: IPublicTypeRect, inline: boolean) {
+    if (inline) {
+        return (
+            Math.abs(point.canvasX - rect.left) + Math.abs(point.canvasY - rect.top) >
+            Math.abs(point.canvasX - rect.right) + Math.abs(point.canvasY - rect.bottom)
+        );
+    }
+    return Math.abs(point.canvasY - rect.top) > Math.abs(point.canvasY - rect.bottom);
+}
+
+function getMatched(elements: Array<Element | Text>, selector: string): Element | null {
+    let firstQueried: Element | null = null;
+    for (const elem of elements) {
+        if (isElement(elem)) {
+            if (elem.matches(selector)) {
+                return elem;
+            }
+
+            if (!firstQueried) {
+                firstQueried = elem.querySelector(selector);
+            }
+        }
+    }
+    return firstQueried;
 }
