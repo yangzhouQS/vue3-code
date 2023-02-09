@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="338f3fc2-2fac-47d1-9334-fa355cd6abef" name="Changes" comment="vue-router">
-      <change afterPath="$PROJECT_DIR$/src/pages/demo.vue" afterDir="false" />
+    <list default="true" id="338f3fc2-2fac-47d1-9334-fa355cd6abef" name="Changes" comment="demo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vite-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/vite-env.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +98,7 @@
       <workItem from="1675824193837" duration="4000" />
       <workItem from="1675824224872" duration="2777000" />
       <workItem from="1675827008610" duration="7366000" />
-      <workItem from="1675921918878" duration="5307000" />
+      <workItem from="1675921918878" duration="7913000" />
     </task>
     <task id="LOCAL-00003" summary="shared">
       <created>1675824690315</created>
@@ -117,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675924193247</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="demo">
+      <created>1675934996482</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1675934996482</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +143,7 @@
     <MESSAGE value="获取感应区域" />
     <MESSAGE value="shared" />
     <MESSAGE value="vue-router" />
-    <option name="LAST_COMMIT_MESSAGE" value="vue-router" />
+    <MESSAGE value="demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="demo" />
   </component>
 </project>
