@@ -1,161 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="338f3fc2-2fac-47d1-9334-fa355cd6abef" name="Changes" comment="shared">
-      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App2.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/drivers/DragDropDriver.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/drivers/KeyboardDriver.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/drivers/MouseClickDriver.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/drivers/MouseMoveDriver.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/drivers/ViewportResizeDriver.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/drivers/ViewportScrollDriver.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/drivers/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/effects/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/effects/useAutoScrollEffect.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/effects/useContentEditableEffect.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/effects/useCursorEffect.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/effects/useDragDropEffect.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/effects/useFreeSelectionEffect.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/effects/useKeyboardEffect.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/effects/useResizeEffect.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/effects/useSelectionEffect.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/effects/useTranslateEffect.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/effects/useViewportEffect.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/effects/useWorkspaceEffect.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/cursor/AbstractCursorEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/cursor/DragMoveEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/cursor/DragStartEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/cursor/DragStopEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/cursor/MouseClickEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/cursor/MouseMoveEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/cursor/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/history/AbstractHistoryEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/history/HistoryGotoEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/history/HistoryPushEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/history/HistoryRedoEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/history/HistoryUndoEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/history/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/keyboard/AbstractKeyboardEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/keyboard/KeyDownEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/keyboard/KeyUpEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/keyboard/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/mutation/AbstractMutationNodeEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/mutation/AppendNodeEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/mutation/CloneNodeEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/mutation/DragNodeEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/mutation/DropNodeEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/mutation/FromNodeEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/mutation/HoverNodeEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/mutation/InsertAfterEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/mutation/InsertBeforeEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/mutation/InsertChildrenEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/mutation/PrependNodeEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/mutation/RemoveNodeEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/mutation/SelectNodeEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/mutation/UnSelectNodeEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/mutation/UpdateChildrenEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/mutation/UpdateNodePropsEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/mutation/UserSelectNodeEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/mutation/WrapNodeEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/mutation/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/viewport/AbstractViewportEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/viewport/ViewportResizeEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/viewport/ViewportScrollEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/viewport/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/workbench/AbstractWorkspaceEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/workbench/AddWorkspaceEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/workbench/RemoveWorkspaceEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/workbench/SwitchWorkspaceEvent.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/events/workbench/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/exports.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/externals.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/internals.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/models/Cursor.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/models/Dragon.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/models/Engine.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/models/History.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/models/Hover.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/models/Keyboard.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/models/Operation.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/models/Screen.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/models/Selection.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/models/Selector.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/models/Shortcut.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/models/TreeNode.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/models/Viewport.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/models/Workbench.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/models/Workspace.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/models/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/presets.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/registry.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/shortcuts/CursorSwitch.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/shortcuts/MultiSelection.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/shortcuts/NodeMutation.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/shortcuts/QuickSelection.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/shortcuts/UndoRedo.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/shortcuts/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/core/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/__tests__/action.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/__tests__/annotations.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/__tests__/array.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/__tests__/autorun.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/__tests__/batch.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/__tests__/collections-map.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/__tests__/collections-set.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/__tests__/collections-weakmap.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/__tests__/collections-weakset.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/__tests__/define.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/__tests__/externals.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/__tests__/hasCollected.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/__tests__/observable.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/__tests__/observe.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/__tests__/tracker.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/__tests__/untracked.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/action.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/annotations/box.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/annotations/computed.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/annotations/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/annotations/observable.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/annotations/ref.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/annotations/shallow.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/array.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/autorun.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/batch.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/checkers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/environment.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/externals.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/global.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/handlers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/internals.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/observable.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/observe.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/reaction.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/tracker.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/tree.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reactive/untracked.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/home.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/router/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="338f3fc2-2fac-47d1-9334-fa355cd6abef" name="Changes" comment="vue-router">
+      <change afterPath="$PROJECT_DIR$/src/pages/demo.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/animation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/animation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/array.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/array.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/element.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/event.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/lru.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/lru.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/request-idle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/request-idle.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/scroller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/scroller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/subscribable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/subscribable.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vite-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/vite-env.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -168,6 +18,7 @@
       <list>
         <option value="HTML File" />
         <option value="TypeScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -250,7 +101,7 @@
       <workItem from="1675824193837" duration="4000" />
       <workItem from="1675824224872" duration="2777000" />
       <workItem from="1675827008610" duration="7366000" />
-      <workItem from="1675921918878" duration="2139000" />
+      <workItem from="1675921918878" duration="5307000" />
     </task>
     <task id="LOCAL-00003" summary="shared">
       <created>1675824690315</created>
@@ -259,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675824690315</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="vue-router">
+      <created>1675924193247</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1675924193247</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,6 +138,7 @@
     <MESSAGE value="识别区域" />
     <MESSAGE value="获取感应区域" />
     <MESSAGE value="shared" />
-    <option name="LAST_COMMIT_MESSAGE" value="shared" />
+    <MESSAGE value="vue-router" />
+    <option name="LAST_COMMIT_MESSAGE" value="vue-router" />
   </component>
 </project>
