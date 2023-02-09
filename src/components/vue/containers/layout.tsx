@@ -22,9 +22,12 @@ export const Layout = defineComponent({
       }
     },
   },
-  setup() {
+  setup(props, {slots}) {
     return () => {
-      return <div>layout</div>
+      return <div>
+        layout
+        {slots.default?.()}
+      </div>
     }
   }
 })

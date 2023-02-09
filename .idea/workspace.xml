@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="338f3fc2-2fac-47d1-9334-fa355cd6abef" name="Changes" comment="@designable/shared">
-      <change afterPath="$PROJECT_DIR$/src/components/core/utils/propsFactory.ts" afterDir="false" />
+    <list default="true" id="338f3fc2-2fac-47d1-9334-fa355cd6abef" name="Changes" comment="组件属性注入技术">
+      <change afterPath="$PROJECT_DIR$/src/components/vue/hooks/provideGlobalSettings.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/vue/containers/designer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/vue/containers/designer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/vue/containers/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/vue/containers/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/vue/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/vue/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/vue/context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/vue/context.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/demo.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +107,7 @@
       <workItem from="1675824224872" duration="2777000" />
       <workItem from="1675827008610" duration="7366000" />
       <workItem from="1675921918878" duration="10101000" />
-      <workItem from="1675951446559" duration="4869000" />
+      <workItem from="1675951446559" duration="10105000" />
     </task>
     <task id="LOCAL-00003" summary="shared">
       <created>1675824690315</created>
@@ -149,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675952606622</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="props PropType">
+      <created>1675956397419</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1675956397419</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +184,8 @@
     <MESSAGE value="移除 formily" />
     <MESSAGE value="Designer" />
     <MESSAGE value="@designable/shared" />
-    <option name="LAST_COMMIT_MESSAGE" value="@designable/shared" />
+    <MESSAGE value="props PropType" />
+    <MESSAGE value="组件属性注入技术" />
+    <option name="LAST_COMMIT_MESSAGE" value="组件属性注入技术" />
   </component>
 </project>
