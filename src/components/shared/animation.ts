@@ -1,3 +1,8 @@
+/**
+ * 动画相关
+ * @param speed
+ * @param callback
+ */
 export const createUniformSpeedAnimation = (
   speed = 10,
   callback: (delta: number) => void

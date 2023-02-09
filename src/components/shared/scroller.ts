@@ -1,6 +1,6 @@
-import { IPoint } from './coordinate'
-import { createUniformSpeedAnimation, calcSpeedFactor } from './animation'
-import { isFn, isWindow } from './types'
+import {IPoint} from './coordinate'
+import {createUniformSpeedAnimation, calcSpeedFactor} from './animation'
+import {isFn, isWindow} from './types'
 
 const MAX_SPEED = 50 // px/s
 
@@ -18,8 +18,8 @@ export const calcAutoScrollBasicInfo = (
   viewport: DOMRect,
   maxSpeed = MAX_SPEED
 ): IAutoScrollBasicInfo | null => {
-  const { left, right, top, bottom } = viewport
-  const { x, y } = point
+  const {left, right, top, bottom} = viewport
+  const {x, y} = point
 
   let begin: number
   let end: number

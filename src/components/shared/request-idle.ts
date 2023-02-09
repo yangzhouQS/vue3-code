@@ -1,5 +1,5 @@
 import 'requestidlecallback'
-import { globalThisPolyfill } from './globalThisPolyfill'
+import {globalThisPolyfill} from './globalThisPolyfill'
 
 export interface IIdleDeadline {
   didTimeout: boolean

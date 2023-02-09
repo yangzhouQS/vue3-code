@@ -1,4 +1,4 @@
-import { isFn } from './types'
+import {isFn} from './types'
 
 const UNSUBSCRIBE_ID_SYMBOL = Symbol('UNSUBSCRIBE_ID_SYMBOL')
 

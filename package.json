@@ -9,11 +9,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@formily/json-schema": "^2.2.18",
+    "@formily/path": "^2.2.18",
+    "@formily/reactive": "^2.2.18",
+    "@juggle/resize-observer": "^3.4.0",
     "events": "^3.3.0",
-    "vue": "^3.2.41"
+    "requestidlecallback": "^0.3.0",
+    "vue": "^3.2.41",
+    "vue-router": "4"
   },
   "devDependencies": {
     "@types/events": "^3.0.0",
+    "@types/node": "^18.13.0",
     "@vitejs/plugin-vue": "^3.2.0",
     "@vitejs/plugin-vue-jsx": "^3.0.0",
     "less": "^4.1.3",
