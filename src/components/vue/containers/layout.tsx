@@ -2,7 +2,26 @@ import {defineComponent} from 'vue'
 
 export const Layout = defineComponent({
   name: "designer",
-  props: {},
+  props: {
+    theme: {
+      type: String,
+      default: () => {
+        return 'light'
+      }
+    },
+    prefixCls: {
+      type: String,
+      default: () => {
+        return 'dn-'
+      }
+    },
+    position: {
+      type: String,
+      default: () => {
+        return 'fixed'
+      }
+    },
+  },
   setup() {
     return () => {
       return <div>layout</div>

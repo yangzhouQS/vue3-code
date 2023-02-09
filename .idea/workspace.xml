@@ -1,33 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="338f3fc2-2fac-47d1-9334-fa355cd6abef" name="Changes" comment="移除 formily">
-      <change afterPath="$PROJECT_DIR$/src/components/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/containers/designer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/containers/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/containers/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/containers/simulator.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/containers/style.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/containers/viewport.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/containers/workbench.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/containers/workspace.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/context.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/hooks/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/locales/README.MD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/locales/global.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/locales/icons.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/locales/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/locales/operations.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/locales/panels.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/panels/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/simulators/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/theme.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/variables.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/widgets/index.ts" afterDir="false" />
+    <list default="true" id="338f3fc2-2fac-47d1-9334-fa355cd6abef" name="Changes" comment="@designable/shared">
+      <change afterPath="$PROJECT_DIR$/src/components/core/utils/propsFactory.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/demo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/vue/containers/designer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/vue/containers/designer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/vue/containers/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/vue/containers/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/vue/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/vue/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +44,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/qs/data/2025/demo/vue3-code/src/components/vue/hook",
+    "last_opened_file_path": "/home/qs/data/2025/demo/vue3-code/src/components/core/utils",
     "list.type.of.created.stylesheet": "Less",
     "nodejs_interpreter_path": "/home/qs/.nvm/versions/node/node/bin/node",
     "nodejs_package_manager_path": "yarn",
@@ -76,11 +55,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/core/utils" />
       <recent name="$PROJECT_DIR$/src/components/vue/hook" />
       <recent name="$PROJECT_DIR$/src/components/vue/simulators" />
       <recent name="$PROJECT_DIR$/src/components/vue/widgets" />
       <recent name="$PROJECT_DIR$/src/components/vue/locales" />
-      <recent name="$PROJECT_DIR$/src/components/vue/containers" />
     </key>
   </component>
   <component name="RunManager">
@@ -126,7 +105,7 @@
       <workItem from="1675824224872" duration="2777000" />
       <workItem from="1675827008610" duration="7366000" />
       <workItem from="1675921918878" duration="10101000" />
-      <workItem from="1675951446559" duration="1036000" />
+      <workItem from="1675951446559" duration="4869000" />
     </task>
     <task id="LOCAL-00003" summary="shared">
       <created>1675824690315</created>
@@ -156,7 +135,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675937926960</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Designer">
+      <created>1675952495841</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1675952495841</updated>
+    </task>
+    <task id="LOCAL-00008" summary="@designable/shared">
+      <created>1675952606622</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1675952606622</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,6 +173,8 @@
     <MESSAGE value="vue-router" />
     <MESSAGE value="demo" />
     <MESSAGE value="移除 formily" />
-    <option name="LAST_COMMIT_MESSAGE" value="移除 formily" />
+    <MESSAGE value="Designer" />
+    <MESSAGE value="@designable/shared" />
+    <option name="LAST_COMMIT_MESSAGE" value="@designable/shared" />
   </component>
 </project>
