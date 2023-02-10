@@ -5,13 +5,14 @@ import {
   toRefs,
 } from 'vue';
 // We use symbols as unique identifiers.
-export const UserSettingsStateSymbol = Symbol('User settings state provider identifier');
-export const UserSettingsUpdateSymbol = Symbol('User settings update provider identifier');
+export const GlobalSettingsStateSymbol = Symbol('global settings state provider identifier');
 export default {
   setup() {
     const state = reactive({
-      language: 'en',
+      prefixCls: 'en',
       theme: 'light',
+      variables: Object,
+      position: 'fixed',
     });
 
 
@@ -19,12 +20,12 @@ export default {
     // spreading in the consuming component.
     // Making the return value `readonly()` prevents
     // users from mutating global state.
-    provide(UserSettingsStateSymbol, toRefs(readonly(state)));
+    provide(GlobalSettingsStateSymbol, toRefs(readonly(state)));
 
     const update = (property, value) => {
       state[property] = value;
     };
-    provide(UserSettingsUpdateSymbol, update);
+    provide(GlobalSettingsStateSymbol, update);
   },
   render() {
     return this.$slots.default()

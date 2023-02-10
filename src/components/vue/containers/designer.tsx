@@ -4,7 +4,7 @@ import {each as $each} from 'lodash'
 import {Layout} from "./layout";
 import {GhostWidget} from "../widgets/ghost-widget";
 import {useGlobalContext} from "@/components/vue";
-
+import ProvideGlobalSettings from '@/components/vue/hooks/provide-global-settings'
 
 // https://markus.oberlehner.net/blog/context-and-provider-pattern-with-the-vue-3-composition-api/
 // 组件属性注入技术
@@ -70,19 +70,31 @@ export const Designer = defineComponent({
       }
     }
     return () => {
-      const classNme = [
-        "designer-container",
+      const className = [
+        "designer-container full-container",
         `${props.prefixCls}app`,
         {
           [`${props.prefixCls}${props.theme}`]: props.theme
         }
       ]
+      return <ProvideGlobalSettings>
+        <Layout
+          theme={props.theme}
+          prefixCls={props.prefixCls}
+          position={props.position}
+          ref={layoutRef}
+          class={className}
+        >
+          {slots.default?.()}
+          <GhostWidget/>
+        </Layout>
+      </ProvideGlobalSettings>
       return <Layout
         theme={props.theme}
         prefixCls={props.prefixCls}
         position={props.position}
         ref={layoutRef}
-        class={classNme}
+        class={className}
       >
         {slots.default?.()}
         <GhostWidget/>

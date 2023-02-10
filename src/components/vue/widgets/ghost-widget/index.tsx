@@ -15,7 +15,10 @@ export const GhostWidget = defineComponent({
 
     const refGhost = (dom: HTMLElement | null) => {
       if (dom) {
-
+        const transform = `perspective(1px) translate3d(${
+          cursor.position?.topClientX - 18
+        }px,${cursor.position?.topClientY - 12}px,0) scale(0.8)`
+        dom.style.transform = transform
       }
     }
     const renderNodes = (
@@ -26,15 +29,16 @@ export const GhostWidget = defineComponent({
         {draggingNodes.length > 1 ? "..." : ""}
         </span>
     )
-    if (!firstNode) {
-      return null
-    }
+
 
     return () => {
-      return <div>xxx</div>
-      /*return cursor.status === CursorStatus.Dragging ? (
-        <div class={className} ref={refGhost}>{renderNodes}</div>
-      ) : ''*/
+      if (!firstNode) {
+        return null
+      }
+      if (cursor.status === CursorStatus.Dragging) {
+        return <div className={className} ref={refGhost}>{renderNodes}</div>
+      }
+      return null
     }
   }
 })
