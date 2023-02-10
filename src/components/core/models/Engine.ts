@@ -1,10 +1,10 @@
-import { IEngineProps } from '../types'
-import { ITreeNode, TreeNode } from './TreeNode'
-import { Workbench } from './Workbench'
-import { Cursor } from './Cursor'
-import { Keyboard } from './Keyboard'
-import { Screen, ScreenType } from './Screen'
-import { Event, uid, globalThisPolyfill } from '../../shared'
+import {IEngineProps} from '../types'
+import {ITreeNode, TreeNode} from './TreeNode'
+import {Workbench} from './Workbench'
+import {Cursor} from './Cursor'
+import {Keyboard} from './Keyboard'
+import {Screen, ScreenType} from './Screen'
+import {Event, uid, globalThisPolyfill} from '../../shared'
 
 /**
  * 设计器引擎
@@ -104,4 +104,7 @@ export class Engine extends Event {
     nodeTranslateAttrName: 'data-designer-node-translate-handler',
     defaultScreenType: ScreenType.PC,
   }
+
+
+
 }

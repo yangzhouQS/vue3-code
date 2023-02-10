@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="338f3fc2-2fac-47d1-9334-fa355cd6abef" name="Changes" comment="组件属性注入技术">
-      <change afterPath="$PROJECT_DIR$/src/components/vue/hooks/render-context.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/widgets/ghost-widget/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/vue/widgets/ghost-widget/style.less" afterDir="false" />
+    <list default="true" id="338f3fc2-2fac-47d1-9334-fa355cd6abef" name="Changes" comment="创建设计器">
+      <change afterPath="$PROJECT_DIR$/src/components/core/common.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/vue/hooks/useCursor.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/vue/hooks/useDesigner.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/core/externals.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/externals.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/models/Engine.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/models/Engine.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/vue/containers/designer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/vue/containers/designer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/vue/context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/vue/context.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/vue/hooks/provideGlobalSettings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/vue/hooks/provideGlobalSettings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/vue/hooks/render-context.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/vue/widgets/ghost-widget/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/vue/widgets/ghost-widget/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +49,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/qs/data/2025/demo/vue3-code/src/components/core/utils",
+    "last_opened_file_path": "/home/qs/data/2025/demo/vue3-code/src/components/vue/hooks",
     "list.type.of.created.stylesheet": "Less",
     "nodejs_interpreter_path": "/home/qs/.nvm/versions/node/node/bin/node",
     "nodejs_package_manager_path": "yarn",
@@ -57,11 +60,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/vue/hooks" />
       <recent name="$PROJECT_DIR$/src/components/core/utils" />
       <recent name="$PROJECT_DIR$/src/components/vue/hook" />
       <recent name="$PROJECT_DIR$/src/components/vue/simulators" />
       <recent name="$PROJECT_DIR$/src/components/vue/widgets" />
-      <recent name="$PROJECT_DIR$/src/components/vue/locales" />
     </key>
   </component>
   <component name="RunManager">
@@ -109,7 +112,7 @@
       <workItem from="1675921918878" duration="10101000" />
       <workItem from="1675951446559" duration="10105000" />
       <workItem from="1675961602918" duration="100000" />
-      <workItem from="1675990972815" duration="5881000" />
+      <workItem from="1675990972815" duration="10379000" />
     </task>
     <task id="LOCAL-00003" summary="shared">
       <created>1675824690315</created>
@@ -160,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675956397419</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="创建设计器">
+      <created>1676009656538</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1676009656538</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,6 +198,7 @@
     <MESSAGE value="@designable/shared" />
     <MESSAGE value="props PropType" />
     <MESSAGE value="组件属性注入技术" />
-    <option name="LAST_COMMIT_MESSAGE" value="组件属性注入技术" />
+    <MESSAGE value="创建设计器" />
+    <option name="LAST_COMMIT_MESSAGE" value="创建设计器" />
   </component>
 </project>

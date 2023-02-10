@@ -2,6 +2,8 @@ import {defineComponent, defineProps, onMounted, ref, PropType, watchEffect, onU
 import {Engine} from "@/components/core";
 import {each as $each} from 'lodash'
 import {Layout} from "./layout";
+import {GhostWidget} from "../widgets/ghost-widget";
+import {useGlobalContext} from "@/components/vue";
 
 
 // https://markus.oberlehner.net/blog/context-and-provider-pattern-with-the-vue-3-composition-api/
@@ -40,6 +42,8 @@ export const Designer = defineComponent({
 
   },
   setup(props, {slots}) {
+    const {setEngine} = useGlobalContext()
+    setEngine(props.engine)
     const counter = ref(10)
 
     onMounted(() => {
@@ -67,14 +71,21 @@ export const Designer = defineComponent({
     }
     return () => {
       const classNme = [
-        "designer--xxx",
+        "designer-container",
         `${props.prefixCls}app`,
         {
           [`${props.prefixCls}${props.theme}`]: props.theme
         }
       ]
-      return <Layout {...props} ref={layoutRef} class={classNme}>
+      return <Layout
+        theme={props.theme}
+        prefixCls={props.prefixCls}
+        position={props.position}
+        ref={layoutRef}
+        class={classNme}
+      >
         {slots.default?.()}
+        <GhostWidget/>
       </Layout>
     }
   }

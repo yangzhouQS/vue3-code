@@ -1,8 +1,24 @@
 import {ref} from 'vue'
 import {createGlobalState} from '@vueuse/core'
+import {Engine} from "@/components/core";
 
+export const useGlobalContext = createGlobalState(() => {
+  const engine = ref<Engine>()
+
+  function setEngine(val: Engine) {
+    engine.value = val
+  }
+
+  return {
+    setEngine,
+    engine
+  }
+})
 export const DesignerComponentsContext = createGlobalState(() => {
-
+  const engine = ref<Engine>()
+  return {
+    engine
+  }
 })
 
 export const DesignerLayoutContext = createGlobalState(() => {

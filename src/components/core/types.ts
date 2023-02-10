@@ -28,6 +28,12 @@ export type IEngineProps<T = Event> = IEventProps<T> & {
   rootComponentName?: string
 }
 
+export type IPublicTypeEngineValueKey = (new (...args: any[]) => any) | symbol | string;
+
+export type IPublicTypeEngineGetResult<T, ClsType> = T extends undefined ? ClsType extends {
+  prototype: infer R;
+} ? R : any : T;
+
 export type IEngineContext = {
   workspace: Workspace
   workbench: Workbench
