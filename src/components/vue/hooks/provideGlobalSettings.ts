@@ -14,6 +14,7 @@ export default {
       theme: 'light',
     });
 
+
     // Using `toRefs()` makes it possible to use
     // spreading in the consuming component.
     // Making the return value `readonly()` prevents

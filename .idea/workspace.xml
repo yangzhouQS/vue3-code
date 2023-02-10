@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="338f3fc2-2fac-47d1-9334-fa355cd6abef" name="Changes" comment="组件属性注入技术">
-      <change afterPath="$PROJECT_DIR$/src/components/vue/hooks/provideGlobalSettings.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/vue/hooks/render-context.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/vue/widgets/ghost-widget/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/vue/widgets/ghost-widget/style.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/vue/containers/designer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/vue/containers/designer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/vue/containers/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/vue/containers/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/externals.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/externals.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/vue/context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/vue/context.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/demo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/vue/hooks/provideGlobalSettings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/vue/hooks/provideGlobalSettings.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +50,7 @@
     "list.type.of.created.stylesheet": "Less",
     "nodejs_interpreter_path": "/home/qs/.nvm/versions/node/node/bin/node",
     "nodejs_package_manager_path": "yarn",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "ts.external.directory.path": "/home/qs/data/2025/demo/vue3-code/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -108,6 +108,8 @@
       <workItem from="1675827008610" duration="7366000" />
       <workItem from="1675921918878" duration="10101000" />
       <workItem from="1675951446559" duration="10105000" />
+      <workItem from="1675961602918" duration="100000" />
+      <workItem from="1675990972815" duration="5881000" />
     </task>
     <task id="LOCAL-00003" summary="shared">
       <created>1675824690315</created>

@@ -58,6 +58,7 @@ export const createBehavior = (
   }, [])
 }
 
+// 创建资源
 export const createResource = (...sources: IResourceCreator[]): IResource[] => {
   return sources.reduce((buf, source) => {
     return buf.concat({
@@ -71,6 +72,7 @@ export const createResource = (...sources: IResourceCreator[]): IResource[] => {
   }, [])
 }
 
+// 创建设计器
 export const createDesigner = (props: IEngineProps<Engine> = {}) => {
   const drivers = props.drivers || []
   const effects = props.effects || []
