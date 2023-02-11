@@ -1,6 +1,6 @@
 import {defineComponent, ref, effect, Fragment, onMounted} from 'vue'
 import {usePrefix} from "@/components/vue/hooks/usePrefix";
-import {ComponentInstance} from "@/components/vue";
+import {ComponentInstance, TextWidget} from "@/components/vue";
 
 
 export interface ICompositePanelProps {
@@ -42,7 +42,7 @@ const parseItems = (slots: any): ComponentInstance[] => {
 }
 
 const findItem = (
-  items: ComponentInstance[],
+  items: any[],
   key: string | number
 ) => {
   for (let index = 0; index < items.length; index++) {
@@ -81,32 +81,48 @@ export const CompositePanel = defineComponent({
   setup(props, {slots}) {
     const prefix = usePrefix('composite-panel')
     const activeKeyRef = ref(null)
+    const pinning = ref(props.defaultPinning ?? false)
+    const visible = ref(props.defaultOpen ?? true)
     const activeKey = (
       props.defaultActiveKey ?? getDefaultKey(slots)
     )
     const items = parseItems(slots)
     // 默认激活组件
     const currentItem = findItem(items, activeKey)
+    activeKeyRef.value = activeKey
+    const content = currentItem?.children
     const renderContent = () => {
-      return <div class={`${prefix}-tabs-content`}>
+      if (!content || !visible) {
+        return null
+      }
+      return <div class={[`${prefix}-tabs-content`, {pinning: pinning.value}]}>
         <div class={`${prefix}-tabs-header`}>
-          <div class={`${prefix}-tabs-header-title`}></div>
+          <div class={`${prefix}-tabs-header-title`}>
+            <TextWidget>{currentItem.title}</TextWidget>
+          </div>
           <div class={`${prefix}-tabs-header-actions`}>
-            <div class={`${prefix}-tabs-header-extra`}></div>
+            <div class={`${prefix}-tabs-header-extra`}>
+              {content.extra?.()}
+            </div>
+            {
+              !pinning &&(<div>x</div>)
+            }
           </div>
         </div>
-        <div class={`${prefix}-tabs-body`}></div>
+        <div class={`${prefix}-tabs-body`}>
+          {content.default?.()}
+        </div>
       </div>
     }
     onMounted(() => {
     })
     return () => {
-      return <div>
+      return <Fragment>
         <div class={`${prefix}-tabs`}>
           {slots.default?.()}
         </div>
         {renderContent()}
-      </div>
+      </Fragment>
     }
   }
 })

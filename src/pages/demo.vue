@@ -4,10 +4,10 @@
       <StudioPanel>
         <!--组件操作区域-->
         <CompositePanel>
-          <CompositePanelItem title="组件">
+          <CompositePanelItem title="组件" icon="Component">
             xxx
           </CompositePanelItem>
-          <CompositePanelItem title="大纲">
+          <CompositePanelItem title="大纲" icon="Outline">
             xxx
           </CompositePanelItem>
         </CompositePanel>
