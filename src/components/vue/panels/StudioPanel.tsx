@@ -27,10 +27,12 @@ export const StudioPanelInternal = defineComponent({
 
 export const StudioPanel = defineComponent({
   name: 'StudioPanel',
-  setup() {
+  setup(_, {slots}) {
     return () => {
       return <Layout>
-        <StudioPanelInternal/>
+        <StudioPanelInternal>
+          {slots.default?.()}
+        </StudioPanelInternal>
       </Layout>
     }
   }

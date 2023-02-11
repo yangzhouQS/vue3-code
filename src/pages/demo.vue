@@ -2,7 +2,17 @@
   <Designer :engine="engine" class="x111">
     <workbench>
       <StudioPanel>
-        <WorkspacePanel>
+        <!--组件操作区域-->
+        <CompositePanel>
+          <CompositePanelItem title="组件">
+            xxx
+          </CompositePanelItem>
+          <CompositePanelItem title="大纲">
+            xxx
+          </CompositePanelItem>
+        </CompositePanel>
+        <!--工作区域-->
+<!--        <WorkspacePanel>
           <ToolbarPanel>
 
           </ToolbarPanel>
@@ -12,7 +22,7 @@
         </WorkspacePanel>
         <SettingsPanel>
           SettingsForm
-        </SettingsPanel>
+        </SettingsPanel>-->
       </StudioPanel>
     </workbench>
   </Designer>
@@ -28,6 +38,7 @@ import {SettingsPanel} from "@/components/vue/panels/SettingsPanel";
 import {WorkspacePanel} from "@/components/vue/panels/WorkspacePanel";
 import {ToolbarPanel} from "@/components/vue/panels/ToolbarPanel";
 import {ViewportPanel} from "@/components/vue/panels/ViewportPanel";
+import {CompositePanel, CompositePanelItem} from "@/components/vue/panels/CompositePanel";
 
 const engine = createDesigner()
 </script>

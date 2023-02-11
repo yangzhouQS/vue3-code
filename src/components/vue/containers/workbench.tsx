@@ -9,7 +9,7 @@ export const Workbench = defineComponent({
     const workbench = useWorkbench()
     return () => {
       return (
-        <Workspace id={workbench.currentWorkspace?.id}>
+        <Workspace id='Workspace'>
           {slots.default?.()}
         </Workspace>
       )
