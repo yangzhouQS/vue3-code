@@ -75,38 +75,11 @@ export const Designer = defineComponent({
       console.log('watchEffect')
     })
 
+    effect(()=>{
+    })
 
     return () => {
-      /*return <ProvideGlobalSettings>
-        <Layout
-          theme={props.theme}
-          prefixCls={props.prefixCls}
-          position={props.position}
-          ref={layoutRef}
-          class={className}
-        >
-          {slots.default?.()}
-          <GhostWidget/>
-        </Layout>
-      </ProvideGlobalSettings>*/
-      const theme2 = ref('light')
-      const onClick = () => {
-        console.log(`toggle:`, theme2.value)
-        theme2.value = theme2.value === 'dark' ? 'light' : 'dark'
-        console.log('toggle theme end:', theme2.value)
-
-        layout.setTheme(theme2.value)
-        layout.setPosition('absolute')
-        // console.log('layout.layoutState', layout.layoutState)
-        // layout.setState(Object.assign(layout.layoutState.value,
-        //   {
-        //     position: 'absolute',
-        //     theme: theme2.value
-        //   }
-        // ))
-        console.log(layout)
-      }
-      return <Layout>
+      return <Layout isDesigner={true}>
         {slots.default?.()}
         <GhostWidget/>
       </Layout>

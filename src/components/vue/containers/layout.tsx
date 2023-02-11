@@ -6,6 +6,10 @@ export const Layout = defineComponent({
   name: "designer",
   inheritAttrs: false,
   props: {
+    isDesigner: {
+      type: Boolean,
+      default: false
+    }
     /*  theme: {
           type: String,
           default: 'light'
@@ -50,6 +54,13 @@ export const Layout = defineComponent({
       }
     ]
     return () => {
+
+      // 普通容器
+      if (!props.isDesigner) {
+        return <Fragment>{slots.default?.()}</Fragment>
+      }
+
+      // 设计器初始化
       return <div ref={layoutRef} class={className}>
         {slots.default?.()}
       </div>
