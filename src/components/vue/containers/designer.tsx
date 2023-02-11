@@ -9,6 +9,7 @@ import {Layout} from "./layout";
 import {GhostWidget} from "../widgets/ghost-widget";
 import {useGlobalContext} from "@/components/vue";
 import ProvideGlobalSettings from '@/components/vue/hooks/provide-global-settings'
+import {useLayoutContext} from "@/components/vue/hooks/LayoutContext";
 
 // https://markus.oberlehner.net/blog/context-and-provider-pattern-with-the-vue-3-composition-api/
 // 组件属性注入技术
@@ -49,6 +50,8 @@ export const Designer = defineComponent({
     const {setEngine} = useGlobalContext()
     setEngine(props.engine)
     const counter = ref(10)
+
+    const layout = useLayoutContext()
 
     onMounted(() => {
       console.log('onMounted')
@@ -98,6 +101,10 @@ export const Designer = defineComponent({
         console.log(`toggle:`, theme2.value)
         theme2.value = theme2.value === 'dark' ? 'light' : 'dark'
         console.log('toggle theme end:', theme2.value)
+
+        layout.setTheme(theme2.value)
+        layout.setPosition('absolute')
+        console.log(layout)
       }
       return <Layout
         theme={props.theme}
@@ -106,10 +113,12 @@ export const Designer = defineComponent({
         ref={layoutRef}
         class={className}
       >
+        <p>layout.layoutState {layout.layoutState.position}</p>
+        <p>layout.layoutState {layout.layoutState.theme}</p>
         <p>designer theme = {theme2.value}</p>
         <button onClick={onClick}>切换</button>
         {slots.default?.()}
-        <GhostWidget/>
+        <GhostWidget theme={theme2.value}/>
       </Layout>
     }
   }
