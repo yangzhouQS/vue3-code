@@ -1,11 +1,11 @@
-import {defineComponent} from 'vue'
+import {defineComponent,Fragment} from 'vue'
 
 export const Workspace = defineComponent({
   name: "workspace",
   props: {},
   setup(_, {slots}) {
     return () => {
-      return <div>{slots.default?.()}</div>
+      return <Fragment>{slots.default?.()}</Fragment>
     }
   }
 })

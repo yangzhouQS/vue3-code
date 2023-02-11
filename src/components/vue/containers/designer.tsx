@@ -7,9 +7,6 @@ import {
 import {Engine} from "@/components/core";
 import {Layout} from "./layout";
 import {GhostWidget} from "../widgets/ghost-widget";
-import {useGlobalContext} from "@/components/vue";
-import ProvideGlobalSettings from '@/components/vue/hooks/provide-global-settings'
-import {useLayoutContext} from "@/components/vue/hooks/LayoutContext";
 
 // https://markus.oberlehner.net/blog/context-and-provider-pattern-with-the-vue-3-composition-api/
 // 组件属性注入技术
@@ -52,12 +49,6 @@ export const Designer = defineComponent({
     provide('theme',props.theme)
     provide('position',props.position)
     provide('engine',props.engine)
-
-    const {setEngine} = useGlobalContext()
-    setEngine(props.engine)
-    const counter = ref(10)
-
-    const layout = useLayoutContext()
 
     onMounted(() => {
       console.log('onMounted')

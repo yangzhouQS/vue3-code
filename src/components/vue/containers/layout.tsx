@@ -47,17 +47,16 @@ export const Layout = defineComponent({
       }
     }
     const className = [
-      "designer-container full-container",
+      "designer-container full-container xxx",
       `${layout.prefixCls}app`,
       {
         [`${layout.prefixCls}${layout.theme}`]: layout.theme
       }
     ]
     return () => {
-
       // 普通容器
       if (!props.isDesigner) {
-        return <Fragment>{slots.default?.()}</Fragment>
+        return <Fragment >{slots.default?.()}</Fragment>
       }
 
       // 设计器初始化
