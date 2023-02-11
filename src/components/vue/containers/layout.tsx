@@ -6,7 +6,7 @@ export const Layout = defineComponent({
   name: "designer",
   inheritAttrs: false,
   props: {
-    /*    theme: {
+    /*  theme: {
           type: String,
           default: 'light'
         },
@@ -50,9 +50,6 @@ export const Layout = defineComponent({
       }
     ]
     return () => {
-      if (layout) {
-        return <Fragment>{slots.default?.()}</Fragment>
-      }
       return <div ref={layoutRef} class={className}>
         {slots.default?.()}
       </div>

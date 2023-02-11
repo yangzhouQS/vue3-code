@@ -3,9 +3,9 @@ import {defineComponent} from 'vue'
 export const Workspace = defineComponent({
   name: "workspace",
   props: {},
-  setup() {
+  setup(_, {slots}) {
     return () => {
-      return <div>workspace</div>
+      return <div>{slots.default?.()}</div>
     }
   }
 })
