@@ -104,6 +104,13 @@ export const Designer = defineComponent({
 
         layout.setTheme(theme2.value)
         layout.setPosition('absolute')
+        // console.log('layout.layoutState', layout.layoutState)
+        // layout.setState(Object.assign(layout.layoutState.value,
+        //   {
+        //     position: 'absolute',
+        //     theme: theme2.value
+        //   }
+        // ))
         console.log(layout)
       }
       return <Layout
@@ -113,12 +120,8 @@ export const Designer = defineComponent({
         ref={layoutRef}
         class={className}
       >
-        <p>layout.layoutState {layout.layoutState.position}</p>
-        <p>layout.layoutState {layout.layoutState.theme}</p>
-        <p>designer theme = {theme2.value}</p>
-        <button onClick={onClick}>切换</button>
         {slots.default?.()}
-        <GhostWidget theme={theme2.value}/>
+        <GhostWidget/>
       </Layout>
     }
   }

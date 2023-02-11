@@ -6,10 +6,6 @@ import {CursorStatus} from "@/components/core";
 export const GhostWidget = defineComponent({
   name: 'GhostWidget',
   props: {
-    theme: {
-      type: String,
-      default: 'light'
-    }
   },
   setup(props, {slots}) {
     const designer = useDesigner()
@@ -38,8 +34,6 @@ export const GhostWidget = defineComponent({
 
 
     return () => {
-      return <div> host = {props.theme}xxx</div>
-
       if (!firstNode) {
         return null
       }

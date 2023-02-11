@@ -1,5 +1,5 @@
 import {createGlobalState} from '@vueuse/core'
-import {ref, reactive} from 'vue'
+import {ref, reactive, toRefs} from 'vue'
 
 export const useLayoutContext = createGlobalState(
   () => {
@@ -19,8 +19,8 @@ export const useLayoutContext = createGlobalState(
        count.value++
      }*/
 
-    function setState(theme: string) {
-      layoutState.theme = theme
+    function setState(state: object) {
+      Object.assign(layoutState.values, state)
     }
 
 
@@ -32,6 +32,6 @@ export const useLayoutContext = createGlobalState(
       layoutState.position = position
     }
 
-    return {layoutState, setTheme, setPosition}
+    return {layoutState, setTheme, setPosition, setState}
   }
 )
