@@ -1,7 +1,6 @@
-import {Engine} from "@/components/core";
-import {useGlobalContext} from "@/components/vue";
+import {inject} from 'vue'
 
-export const useDesigner = (): Engine => {
-  const {engine} = useGlobalContext()
-  return engine.value as Engine
+export const useDesigner = () => {
+  const engine = inject('engine')
+  return engine
 }

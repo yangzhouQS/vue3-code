@@ -1,10 +1,10 @@
 import {
   defineComponent, defineProps, onMounted, ref,
   PropType, watchEffect, onUnmounted,
-  effect
+  effect,
+  provide
 } from 'vue'
 import {Engine} from "@/components/core";
-import {each as $each} from 'lodash'
 import {Layout} from "./layout";
 import {GhostWidget} from "../widgets/ghost-widget";
 import {useGlobalContext} from "@/components/vue";
@@ -47,6 +47,12 @@ export const Designer = defineComponent({
 
   },
   setup(props, {slots}) {
+    provide('variables',props.variables)
+    provide('prefixCls',props.prefixCls)
+    provide('theme',props.theme)
+    provide('position',props.position)
+    provide('engine',props.engine)
+
     const {setEngine} = useGlobalContext()
     setEngine(props.engine)
     const counter = ref(10)
@@ -69,21 +75,8 @@ export const Designer = defineComponent({
       console.log('watchEffect')
     })
 
-    const layoutRef = (dom: HTMLElement | null) => {
-      if (dom) {
-        $each(props.variables, (value: any, key: string) => {
-          dom.style.setProperty(`--${key}`, value)
-        })
-      }
-    }
+
     return () => {
-      const className = [
-        "designer-container full-container",
-        `${props.prefixCls}app`,
-        {
-          [`${props.prefixCls}${props.theme}`]: props.theme
-        }
-      ]
       /*return <ProvideGlobalSettings>
         <Layout
           theme={props.theme}
@@ -113,13 +106,7 @@ export const Designer = defineComponent({
         // ))
         console.log(layout)
       }
-      return <Layout
-        theme={props.theme}
-        prefixCls={props.prefixCls}
-        position={props.position}
-        ref={layoutRef}
-        class={className}
-      >
+      return <Layout>
         {slots.default?.()}
         <GhostWidget/>
       </Layout>
