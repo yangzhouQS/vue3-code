@@ -1,13 +1,11 @@
-import {defineComponent} from 'vue'
+import {defineComponent, effect, watch} from 'vue'
 
 export const Layout = defineComponent({
   name: "designer",
   props: {
     theme: {
       type: String,
-      default: () => {
-        return 'light'
-      }
+      default: 'light'
     },
     prefixCls: {
       type: String,
@@ -23,9 +21,16 @@ export const Layout = defineComponent({
     },
   },
   setup(props, {slots}) {
+    effect(() => {
+      console.log('layout: ', props.theme)
+    })
+    watch(
+      () => props.theme,
+      (val) => {
+        console.log(val)
+      })
     return () => {
       return <div>
-        layout
         {slots.default?.()}
       </div>
     }

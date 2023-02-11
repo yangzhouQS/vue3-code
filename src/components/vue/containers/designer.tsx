@@ -1,4 +1,8 @@
-import {defineComponent, defineProps, onMounted, ref, PropType, watchEffect, onUnmounted} from 'vue'
+import {
+  defineComponent, defineProps, onMounted, ref,
+  PropType, watchEffect, onUnmounted,
+  effect
+} from 'vue'
 import {Engine} from "@/components/core";
 import {each as $each} from 'lodash'
 import {Layout} from "./layout";
@@ -77,7 +81,7 @@ export const Designer = defineComponent({
           [`${props.prefixCls}${props.theme}`]: props.theme
         }
       ]
-      return <ProvideGlobalSettings>
+      /*return <ProvideGlobalSettings>
         <Layout
           theme={props.theme}
           prefixCls={props.prefixCls}
@@ -88,7 +92,13 @@ export const Designer = defineComponent({
           {slots.default?.()}
           <GhostWidget/>
         </Layout>
-      </ProvideGlobalSettings>
+      </ProvideGlobalSettings>*/
+      const theme2 = ref('light')
+      const onClick = () => {
+        console.log(`toggle:`, theme2.value)
+        theme2.value = theme2.value === 'dark' ? 'light' : 'dark'
+        console.log('toggle theme end:', theme2.value)
+      }
       return <Layout
         theme={props.theme}
         prefixCls={props.prefixCls}
@@ -96,6 +106,8 @@ export const Designer = defineComponent({
         ref={layoutRef}
         class={className}
       >
+        <p>designer theme = {theme2.value}</p>
+        <button onClick={onClick}>切换</button>
         {slots.default?.()}
         <GhostWidget/>
       </Layout>
