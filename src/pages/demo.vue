@@ -18,10 +18,10 @@
         <WorkspacePanel>
           <ToolbarPanel>
             <DesignerToolsWidget/>
-            <ViewToolsWidget/>{' '}
+            <ViewToolsWidget/>
           </ToolbarPanel>
           <ViewportPanel>
-
+            <ViewPanel/>
           </ViewportPanel>
         </WorkspacePanel>
         <SettingsPanel title="属性配置">
@@ -48,6 +48,7 @@ import {ResourceWidget} from "@/components/vue/widgets/ResourceWidget";
 import {SettingsForm} from "@/components/vue-settings-form/SettingsForm";
 import {DesignerToolsWidget} from "@/components/vue/widgets/DesignerToolsWidget";
 import {ViewToolsWidget} from "@/components/vue/widgets/ViewToolsWidget";
+import {ViewPanel} from "@/components/vue/panels/ViewPanel";
 
 const Input = createResource({
   title: '输入框',
