@@ -30,7 +30,7 @@ export const Layout = defineComponent({
   setup(props, {slots}) {
     const layout = useDesignerLayout()
     effect(() => {
-      console.log('layout: ', layout.theme)
+      // console.log('layout: ', layout.theme)
     })
     watch(
       () => layout.theme,

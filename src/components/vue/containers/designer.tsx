@@ -4,10 +4,12 @@ import {
   effect,
   provide
 } from 'vue'
-import {Engine} from "@/components/core";
+import {Engine, GlobalRegistry} from "@/components/core";
 import {Layout} from "./layout";
 import {GhostWidget} from "../widgets/ghost-widget";
+import * as Icons from "../icons"
 
+GlobalRegistry.registerDesignerIcons(Icons)
 // https://markus.oberlehner.net/blog/context-and-provider-pattern-with-the-vue-3-composition-api/
 // 组件属性注入技术
 export const Designer = defineComponent({
@@ -44,11 +46,11 @@ export const Designer = defineComponent({
 
   },
   setup(props, {slots}) {
-    provide('variables',props.variables)
-    provide('prefixCls',props.prefixCls)
-    provide('theme',props.theme)
-    provide('position',props.position)
-    provide('engine',props.engine)
+    provide('variables', props.variables)
+    provide('prefixCls', props.prefixCls)
+    provide('theme', props.theme)
+    provide('position', props.position)
+    provide('engine', props.engine)
 
     onMounted(() => {
       console.log('onMounted')
@@ -66,7 +68,7 @@ export const Designer = defineComponent({
       console.log('watchEffect')
     })
 
-    effect(()=>{
+    effect(() => {
     })
 
     return () => {

@@ -5,14 +5,14 @@
         <!--组件操作区域-->
         <CompositePanel>
           <CompositePanelItem title="组件" icon="Component">
-            xxx
+            xxx 组件
           </CompositePanelItem>
           <CompositePanelItem title="大纲" icon="Outline">
-            xxx
+            xxx 大纲
           </CompositePanelItem>
         </CompositePanel>
         <!--工作区域-->
-<!--        <WorkspacePanel>
+        <!--<WorkspacePanel>
           <ToolbarPanel>
 
           </ToolbarPanel>

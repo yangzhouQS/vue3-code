@@ -1,6 +1,7 @@
 import {defineComponent, ref, effect, Fragment, onMounted} from 'vue'
 import {usePrefix} from "@/components/vue/hooks/usePrefix";
 import {ComponentInstance, TextWidget} from "@/components/vue";
+import {IconWidget} from "@/components/vue/widgets/IconWidget";
 
 
 export interface ICompositePanelProps {
@@ -86,11 +87,26 @@ export const CompositePanel = defineComponent({
     const activeKey = (
       props.defaultActiveKey ?? getDefaultKey(slots)
     )
+
+    /*CompositePanel 子项*/
     const items = parseItems(slots)
     // 默认激活组件
     const currentItem = findItem(items, activeKey)
     activeKeyRef.value = activeKey
     const content = currentItem?.children
+    const setPinning = (iconState: boolean) => {
+      pinning.value = !!iconState
+      console.log(pinning.value, iconState)
+    }
+    const setVisible = (closeState: boolean) => {
+      debugger
+      visible.value = !!closeState
+      console.log(visible.value, closeState)
+    }
+    const setActiveKey = (activeKey: any) => {
+      activeKeyRef.value = activeKey
+      debugger
+    }
     const renderContent = () => {
       if (!content || !visible) {
         return null
@@ -105,8 +121,30 @@ export const CompositePanel = defineComponent({
               {content.extra?.()}
             </div>
             {
-              !pinning &&(<div>x</div>)
+              !pinning && (<IconWidget
+                infer="PushPinOutlined"
+                class={prefix + '-tabs-header-pin'}
+                onClick={() => {
+                  setPinning(!pinning)
+                }}
+              />)
             }
+            {
+              pinning && (<IconWidget
+                infer="PushPinFilled"
+                class={prefix + '-tabs-header-pin-filled'}
+                onClick={() => {
+                  setPinning(!pinning)
+                }}
+              />)
+            }
+
+            <IconWidget
+              infer="Close"
+              class={prefix + '-tabs-header-close'}
+              onClick={setVisible}
+            />
+            <span onClick={setVisible}></span>
           </div>
         </div>
         <div class={`${prefix}-tabs-body`}>
@@ -117,12 +155,61 @@ export const CompositePanel = defineComponent({
     onMounted(() => {
     })
     return () => {
-      return <Fragment>
+      return <div class={[
+        prefix,
+        {[`direction-${props.direction}`]: !!props.direction},
+      ]}>
         <div class={`${prefix}-tabs`}>
-          {slots.default?.()}
+          {items.map((item: any, index) => {
+            const takeTab = () => {
+              if (item.href) {
+                return <a href={item.href}>{item.icon}</a>
+              }
+              return (<IconWidget
+                infer={item.icon}
+              />)
+            }
+            const shape = item.shape ?? 'tab'
+            const Comp = shape === 'link' ? 'a' : 'div'
+            return (
+              <Comp
+                class={[
+                  prefix + '-tabs-pane',
+                  {
+                    active: activeKey === item.key,
+                  }
+                ]}
+                key={index}
+                href={item.href}
+                onClick={(e: any) => {
+                  if (shape === 'tab') {
+                    if (activeKey === item.key) {
+                      setVisible(!visible)
+                    } else {
+                      setVisible(true)
+                    }
+
+                    if (!props?.activeKey || !props?.onChange) {
+                      setActiveKey(item.key)
+                    }
+                  }
+                  item.onClick?.(e)
+                  props.onChange?.(item.key)
+                }}
+              >
+                {props.showNavTitle && item.title ? (
+                  <div class={prefix + '-tabs-pane-title'}>
+                    <TextWidget>{item.title}</TextWidget>
+                  </div>
+                ) : null}
+                {takeTab()}
+              </Comp>
+            )
+
+          })}
         </div>
         {renderContent()}
-      </Fragment>
+      </div>
     }
   }
 })
