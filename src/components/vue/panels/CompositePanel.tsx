@@ -66,7 +66,10 @@ export const CompositePanel = defineComponent({
   props: {
     direction: String, // 'left' | 'right'
     showNavTitle: Boolean,
-    defaultOpen: Boolean,
+    defaultOpen: {
+      type: Boolean,
+      default: null
+    },
     defaultPinning: Boolean,
     defaultActiveKey: Number,
     activeKey: [String, Number],
@@ -77,38 +80,52 @@ export const CompositePanel = defineComponent({
         }
       }
     },
-    title: String
+    shape: {  //  'tab' | 'button' | 'link'
+      type: String,
+      default: 'tab'
+    },
+    onItemClick: {
+      type: Function,
+      default: () => {
+      }
+    },
+    title: String,
   },
   setup(props, {slots}) {
     const prefix = usePrefix('composite-panel')
     const activeKeyRef = ref(null)
     const pinning = ref(props.defaultPinning ?? false)
-    const visible = ref(props.defaultOpen ?? true)
-    const activeKey = (
-      props.defaultActiveKey ?? getDefaultKey(slots)
-    )
 
+    // 控制面板
+    const visible = ref(props.defaultOpen ?? true)
+
+    // 默认激活的tab key
+    const activeKey = ref((
+      props.defaultActiveKey ?? getDefaultKey(slots)
+    ))
     /*CompositePanel 子项*/
     const items = parseItems(slots)
     // 默认激活组件
-    const currentItem = findItem(items, activeKey)
+    const currentItem = findItem(items, activeKey.value)
     activeKeyRef.value = activeKey
     const content = currentItem?.children
     const setPinning = (iconState: boolean) => {
       pinning.value = !!iconState
-      console.log(pinning.value, iconState)
     }
+
+    // 控制切换面板
     const setVisible = (closeState: boolean) => {
-      debugger
-      visible.value = !!closeState
-      console.log(visible.value, closeState)
+      console.log('start', visible.value, closeState)
+      visible.value = closeState
+      console.log('end', visible.value, closeState)
     }
-    const setActiveKey = (activeKey: any) => {
-      activeKeyRef.value = activeKey
-      debugger
+
+    // 控制切换tab
+    const setActiveKey = (key: number) => {
+      activeKey.value = key
     }
     const renderContent = () => {
-      if (!content || !visible) {
+      if (!content || !visible.value) {
         return null
       }
       return <div class={[`${prefix}-tabs-content`, {pinning: pinning.value}]}>
@@ -144,7 +161,6 @@ export const CompositePanel = defineComponent({
               class={prefix + '-tabs-header-close'}
               onClick={setVisible}
             />
-            <span onClick={setVisible}></span>
           </div>
         </div>
         <div class={`${prefix}-tabs-body`}>
@@ -152,8 +168,7 @@ export const CompositePanel = defineComponent({
         </div>
       </div>
     }
-    onMounted(() => {
-    })
+
     return () => {
       return <div class={[
         prefix,
@@ -169,22 +184,23 @@ export const CompositePanel = defineComponent({
                 infer={item.icon}
               />)
             }
-            const shape = item.shape ?? 'tab'
+            const shape = props.shape ?? 'tab'
             const Comp = shape === 'link' ? 'a' : 'div'
             return (
               <Comp
                 class={[
                   prefix + '-tabs-pane',
                   {
-                    active: activeKey === item.key,
+                    active: activeKey.value === item.key,
                   }
                 ]}
                 key={index}
                 href={item.href}
                 onClick={(e: any) => {
+
                   if (shape === 'tab') {
-                    if (activeKey === item.key) {
-                      setVisible(!visible)
+                    if (activeKey.value === item.key) {
+                      setVisible(!visible.value)
                     } else {
                       setVisible(true)
                     }
@@ -193,7 +209,7 @@ export const CompositePanel = defineComponent({
                       setActiveKey(item.key)
                     }
                   }
-                  item.onClick?.(e)
+                  props.onItemClick?.(e)
                   props.onChange?.(item.key)
                 }}
               >
