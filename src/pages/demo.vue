@@ -6,9 +6,10 @@
         <CompositePanel>
           <CompositePanelItem title="组件" icon="Component">
             xxx 组件
+            <ResourceWidget/>
           </CompositePanelItem>
           <CompositePanelItem title="大纲" icon="Outline">
-            xxx 大纲
+            <OutlineTreeWidget/>
           </CompositePanelItem>
         </CompositePanel>
         <!--工作区域-->
@@ -39,6 +40,8 @@ import {WorkspacePanel} from "@/components/vue/panels/WorkspacePanel";
 import {ToolbarPanel} from "@/components/vue/panels/ToolbarPanel";
 import {ViewportPanel} from "@/components/vue/panels/ViewportPanel";
 import {CompositePanel, CompositePanelItem} from "@/components/vue/panels/CompositePanel";
+import {OutlineTreeWidget} from "@/components/vue/widgets/OutlineWidget";
+import {ResourceWidget} from "@/components/vue/widgets/ResourceWidget";
 
 const engine = createDesigner()
 </script>
