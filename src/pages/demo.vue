@@ -5,8 +5,10 @@
         <!--组件操作区域-->
         <CompositePanel>
           <CompositePanelItem title="组件" icon="Component">
-            xxx 组件
-            <ResourceWidget/>
+            <ResourceWidget title="基础组件" :sources="[Input,Button]"/>
+            <ResourceWidget title="Form 表单组件" :sources="[Input,Button]"/>
+            <ResourceWidget title="展示组件" :sources="[Image,Tag]"/>
+            <ResourceWidget title="反馈组件" :sources="[Alert]"/>
           </CompositePanelItem>
           <CompositePanelItem title="大纲" icon="Outline">
             <OutlineTreeWidget/>
@@ -32,7 +34,7 @@
 <script setup lang="ts">
 
 import {Designer} from "@/components/vue";
-import {createDesigner} from "@/components/core";
+import {createDesigner, createResource} from "@/components/core";
 import {Workbench} from "@/components/vue/containers/workbench";
 import {StudioPanel} from "@/components/vue/panels/StudioPanel";
 import {SettingsPanel} from "@/components/vue/panels/SettingsPanel";
@@ -43,6 +45,77 @@ import {CompositePanel, CompositePanelItem} from "@/components/vue/panels/Compos
 import {OutlineTreeWidget} from "@/components/vue/widgets/OutlineWidget";
 import {ResourceWidget} from "@/components/vue/widgets/ResourceWidget";
 
+const Input = createResource({
+  title: '输入框',
+  icon: 'InputSource',
+  elements: [
+    {
+      componentName: 'ElInput',
+      props: {
+        title: '输入框',
+        type: 'string',
+        placeholder: 'string',
+      },
+    },
+  ],
+})
+const Button = createResource({
+  title: '按钮',
+  icon: 'ButtonSource',
+  elements: [
+    {
+      componentName: 'ElButton',
+      props: {
+        title: '按钮',
+        size: 'string',
+        icon: 'string',
+      },
+    },
+  ],
+})
+
+// 反馈组件
+const Alert = createResource({
+  title: 'Alert 提示',
+  icon: 'AlertSource',
+  elements: [
+    {
+      componentName: 'ElAlert',
+      props: {
+        title: 'string',
+        type: 'string',
+      },
+    },
+  ],
+})
+
+// 展示组件
+const Image = createResource({
+  title: 'Image 图片',
+  icon: 'ImageSource',
+  elements: [
+    {
+      componentName: 'ElImage',
+      props: {
+        src: 'string',
+        alt: 'string',
+      },
+    },
+  ],
+})
+const Tag = createResource({
+  title: 'Tag 标签',
+  icon: 'TagSource',
+  elements: [
+    {
+      componentName: 'ElTag',
+      props: {
+        type: 'string',
+        size: 'string',
+      },
+    },
+  ],
+})
 const engine = createDesigner()
 </script>
 

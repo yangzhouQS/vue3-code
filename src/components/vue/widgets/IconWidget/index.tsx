@@ -1,7 +1,7 @@
 import {defineComponent, h} from 'vue'
 import {usePrefix} from "@/components/vue/hooks/usePrefix";
 import {useRegistry} from "@/components/vue/hooks/useRegistry";
-import {isFn, isPlainObj, isStr} from "@/components/shared";
+import {isFn, isHTMLElement, isPlainObj, isStr} from "@/components/shared";
 import {isVueComponent} from "@/components/shared/utils";
 
 const isNumSize = (val: any) => /^[\d.]+$/.test(val)
@@ -38,6 +38,31 @@ export const IconWidget = defineComponent({
         return h(infer, {attrs, style: {width, height, fill: 'currentColor',}}, slots.default?.())
       } else if (isVueComponent(infer)) {
         return h(infer, {attrs, style: {width, height, fill: 'currentColor',}}, slots.default?.())
+      }else if (isPlainObj(infer)){
+        if (infer.type === 'svg') {
+          return h(infer, {
+            height,
+            width,
+            fill: 'currentColor',
+            viewBox: infer.props.viewBox || '0 0 1024 1024',
+            focusable: 'false',
+            'aria-hidden': 'true',
+          })
+        } else if (infer.type === 'path' || infer.type === 'g') {
+          return (
+            <svg
+              viewBox="0 0 1024 1024"
+              height={height}
+              width={width}
+              fill="currentColor"
+              focusable="false"
+              aria-hidden="true"
+            >
+              {infer}
+            </svg>
+          )
+        }
+        return infer
       }
       return infer
     }

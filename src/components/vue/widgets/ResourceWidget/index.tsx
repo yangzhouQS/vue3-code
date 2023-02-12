@@ -33,27 +33,28 @@ export const ResourceWidget = defineComponent({
     const expand = ref(props.defaultExpand)
     const setExpand = (val: boolean) => {
       expand.value = val
+      console.log("expand.value", expand.value)
     }
     const renderNode = (source: IResource) => {
-      const { node, icon, title, thumb, span } = source
+      const {node, icon, title, thumb, span} = source
 
       return (
         <div
           class={prefix + '-item'}
-          style={{ gridColumnStart: `span ${span || 1}` }}
+          style={{gridColumnStart: `span ${span || 1}`}}
           key={node.id}
           data-designer-source-id={node.id}
         >
-          {thumb && <img class={prefix + '-item-thumb'} src={thumb} />}
-          {icon && isVueComponent(icon) ? (
-            <>{icon}</>
-          ) : (
+          {thumb && <img class={prefix + '-item-thumb'} src={thumb}/>}
+          {
             <IconWidget
               class={prefix + '-item-icon'}
               infer={icon}
-              style={{ width: 150, height: 40 }}
+              width={'150px'}
+              height={'40px'}
+              style={{width: `150px`, height: `40px`}}
             />
-          )}
+          }
           <span class={prefix + '-item-text'}>
             {
               <TextWidget>
@@ -74,6 +75,8 @@ export const ResourceWidget = defineComponent({
       return buf
     }, [])
 
+
+    /*单个分组*/
     const remainItems = props.sources.reduce((length, source: any) => {
       return length + (source?.span ?? 1)
     }, 0) % 3
@@ -86,7 +89,7 @@ export const ResourceWidget = defineComponent({
           onClick={(e) => {
             e.stopPropagation()
             e.preventDefault()
-            setExpand(!expand)
+            setExpand(!expand.value)
           }}
         >
           <div class={prefix + '-header-expand'}>
@@ -97,10 +100,7 @@ export const ResourceWidget = defineComponent({
           </div>
         </div>
         <div class={prefix + '-content-wrapper'}>
-          <div
-            class={prefix + '-item-remain'}
-            style={{gridColumnStart: `span ${3 - remainItems}`}}
-          >
+          <div class={prefix + '-content'}>
             {sources.map(isFn(props.children) ? props.children : renderNode)}
 
             {remainItems ? (

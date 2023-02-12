@@ -16,6 +16,7 @@
     "@formily/vue": "^2.2.18",
     "@juggle/resize-observer": "^3.4.0",
     "@vueuse/core": "^9.12.0",
+    "element-plus": "^2.2.30",
     "events": "^3.3.0",
     "lodash": "^4.17.21",
     "requestidlecallback": "^0.3.0",
@@ -24,8 +25,8 @@
   },
   "devDependencies": {
     "@types/events": "^3.0.0",
-    "@types/node": "^18.13.0",
     "@types/lodash": "^4.14.191",
+    "@types/node": "^18.13.0",
     "@vitejs/plugin-vue": "^3.2.0",
     "@vitejs/plugin-vue-jsx": "^3.0.0",
     "less": "^4.1.3",
