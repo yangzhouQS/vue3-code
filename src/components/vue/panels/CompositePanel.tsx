@@ -1,4 +1,4 @@
-import {defineComponent, ref, effect, Fragment, onMounted} from 'vue'
+import {defineComponent, ref, effect, Fragment, onMounted, computed} from 'vue'
 import {usePrefix} from "@/components/vue/hooks/usePrefix";
 import {ComponentInstance, TextWidget} from "@/components/vue";
 import {IconWidget} from "@/components/vue/widgets/IconWidget";
@@ -106,26 +106,35 @@ export const CompositePanel = defineComponent({
     /*CompositePanel 子项*/
     const items = parseItems(slots)
     // 默认激活组件
-    const currentItem = findItem(items, activeKey.value)
+    let currentItem = findItem(items, activeKey.value)
     activeKeyRef.value = activeKey
-    const content = currentItem?.children
+    let oldKey = null
+    const content = computed(() => {
+      oldKey = activeKey.value
+      return currentItem?.children
+    })
+
     const setPinning = (iconState: boolean) => {
       pinning.value = !!iconState
     }
 
     // 控制切换面板
     const setVisible = (closeState: boolean) => {
-      console.log('start', visible.value, closeState)
       visible.value = closeState
-      console.log('end', visible.value, closeState)
+      console.log('visible.value', visible.value, closeState)
     }
 
     // 控制切换tab
     const setActiveKey = (key: number) => {
       activeKey.value = key
+      console.log('activeKey.value', activeKey.value)
     }
+
+    effect(() => {
+      currentItem = findItem(items, activeKey.value)
+    })
     const renderContent = () => {
-      if (!content || !visible.value) {
+      if (!content.value || !visible.value) {
         return null
       }
       return <div class={[`${prefix}-tabs-content`, {pinning: pinning.value}]}>
@@ -135,7 +144,7 @@ export const CompositePanel = defineComponent({
           </div>
           <div class={`${prefix}-tabs-header-actions`}>
             <div class={`${prefix}-tabs-header-extra`}>
-              {content.extra?.()}
+              {content?.value?.extra?.()}
             </div>
             {
               !pinning && (<IconWidget
@@ -164,7 +173,7 @@ export const CompositePanel = defineComponent({
           </div>
         </div>
         <div class={`${prefix}-tabs-body`}>
-          {content.default?.()}
+          {content.value?.default?.()}
         </div>
       </div>
     }
