@@ -21,7 +21,12 @@
             <ViewToolsWidget/>
           </ToolbarPanel>
           <ViewportPanel>
-            <ViewPanel/>
+            <ViewPanel type="DESIGNABLE">
+              <Content/>
+            </ViewPanel>
+            <ViewPanel type="JSONTREE">
+              hello JSONTREE
+            </ViewPanel>
           </ViewportPanel>
         </WorkspacePanel>
         <SettingsPanel title="属性配置">
@@ -49,6 +54,7 @@ import {SettingsForm} from "@/components/vue-settings-form/SettingsForm";
 import {DesignerToolsWidget} from "@/components/vue/widgets/DesignerToolsWidget";
 import {ViewToolsWidget} from "@/components/vue/widgets/ViewToolsWidget";
 import {ViewPanel} from "@/components/vue/panels/ViewPanel";
+import {Content} from "@/pages/content";
 
 const Input = createResource({
   title: '输入框',

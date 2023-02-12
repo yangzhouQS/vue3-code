@@ -1,10 +1,20 @@
-import {defineComponent, ref} from 'vue'
+import {defineComponent, ref, Fragment} from 'vue'
 import {useWorkbench} from "@/components/vue/hooks/useWorkbench";
 import {useTree} from "@/components/vue/hooks/useTree";
 import {Viewport} from "@/components/vue";
 
+
+export type WorkbenchTypes =
+  | 'DESIGNABLE'
+  | 'PREVIEW'
+  | 'JSONTREE'
+  | 'MARKUP'
+  | (string & {})
+
+
 export const ViewPanel = defineComponent({
   name: 'ViewPanel',
+  inheritAttrs: false,
   props: {
     scrollable: {
       type: Boolean,
@@ -14,16 +24,18 @@ export const ViewPanel = defineComponent({
       type: Array,
       default: true,
     },
-    type: {
-      type: Boolean,
-      default: true,
+    type: { // WorkbenchTypes
+      type: String,
+      default: () => {
+        return ''
+      },
     },
     dragTipsDirection: { // 'left' | 'right'
       type: String,
       default: true,
     },
   },
-  setup(props) {
+  setup(props, {slots}) {
     const visible = ref(true)
     const workbench = useWorkbench()
     const tree = useTree()
@@ -32,7 +44,9 @@ export const ViewPanel = defineComponent({
     }
 
     const render = () => {
-
+      console.log(props)
+      console.log(slots)
+      return <Fragment>{slots.default?.()}</Fragment>
     }
 
     if (workbench.type === 'DESIGNABLE') {
