@@ -17,7 +17,8 @@
         <!--工作区域-->
         <WorkspacePanel>
           <ToolbarPanel>
-
+            <DesignerToolsWidget/>
+            <ViewToolsWidget/>{' '}
           </ToolbarPanel>
           <ViewportPanel>
 
@@ -45,6 +46,8 @@ import {CompositePanel, CompositePanelItem} from "@/components/vue/panels/Compos
 import {OutlineTreeWidget} from "@/components/vue/widgets/OutlineWidget";
 import {ResourceWidget} from "@/components/vue/widgets/ResourceWidget";
 import {SettingsForm} from "@/components/vue-settings-form/SettingsForm";
+import {DesignerToolsWidget} from "@/components/vue/widgets/DesignerToolsWidget";
+import {ViewToolsWidget} from "@/components/vue/widgets/ViewToolsWidget";
 
 const Input = createResource({
   title: '输入框',
