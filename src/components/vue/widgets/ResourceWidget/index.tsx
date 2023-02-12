@@ -1,11 +1,10 @@
-import {defineComponent, Fragment, ref} from 'vue'
+import {defineComponent, ref} from 'vue'
 import {usePrefix} from "@/components/vue/hooks/usePrefix";
 import './style.less'
 import {IconWidget} from "@/components/vue/widgets/IconWidget";
 import {TextWidget} from "@/components/vue";
 import {isFn} from "@/components/shared";
 import {IResource, isResourceHost, isResourceList} from "@/components/core";
-import {isVueComponent} from "@/components/shared/utils";
 
 export const ResourceWidget = defineComponent({
   name: 'ResourceWidget',
@@ -33,7 +32,6 @@ export const ResourceWidget = defineComponent({
     const expand = ref(props.defaultExpand)
     const setExpand = (val: boolean) => {
       expand.value = val
-      console.log("expand.value", expand.value)
     }
     const renderNode = (source: IResource) => {
       const {node, icon, title, thumb, span} = source

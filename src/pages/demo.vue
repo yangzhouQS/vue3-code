@@ -15,7 +15,7 @@
           </CompositePanelItem>
         </CompositePanel>
         <!--工作区域-->
-        <!--<WorkspacePanel>
+        <WorkspacePanel>
           <ToolbarPanel>
 
           </ToolbarPanel>
@@ -23,9 +23,9 @@
 
           </ViewportPanel>
         </WorkspacePanel>
-        <SettingsPanel>
-          SettingsForm
-        </SettingsPanel>-->
+        <SettingsPanel title="属性配置">
+          <SettingsForm upload-action="https://www.mocky.io/v2/5cc8019d300000980a055e76"/>
+        </SettingsPanel>
       </StudioPanel>
     </workbench>
   </Designer>
@@ -44,6 +44,7 @@ import {ViewportPanel} from "@/components/vue/panels/ViewportPanel";
 import {CompositePanel, CompositePanelItem} from "@/components/vue/panels/CompositePanel";
 import {OutlineTreeWidget} from "@/components/vue/widgets/OutlineWidget";
 import {ResourceWidget} from "@/components/vue/widgets/ResourceWidget";
+import {SettingsForm} from "@/components/vue-settings-form/SettingsForm";
 
 const Input = createResource({
   title: '输入框',

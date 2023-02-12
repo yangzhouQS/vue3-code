@@ -38,7 +38,7 @@ export const IconWidget = defineComponent({
         return h(infer, {attrs, style: {width, height, fill: 'currentColor',}}, slots.default?.())
       } else if (isVueComponent(infer)) {
         return h(infer, {attrs, style: {width, height, fill: 'currentColor',}}, slots.default?.())
-      }else if (isPlainObj(infer)){
+      } else if (isPlainObj(infer)) {
         if (infer.type === 'svg') {
           return h(infer, {
             height,
@@ -77,6 +77,7 @@ export const IconWidget = defineComponent({
           ...props.style,
           cursor: props.onClick ? 'pointer' : props.style?.cursor
         }}
+        onClick={props.onClick}
       >
         {takeIcon(props.infer)}
       </span>
