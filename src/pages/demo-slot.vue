@@ -1,7 +1,11 @@
 <template>
   <div class="demo-slot full-container">
     <el-button type="primary" @click="onClick">点击测试</el-button>
-    <a-slot-demo/>
+    <!--    <a-slot-demo/>-->
+    <b-slot-demo :ref="mountRef">
+      <span slot="title">hello title</span>
+      <span slot="name">hello name</span>
+    </b-slot-demo>
   </div>
 </template>
 
@@ -9,6 +13,16 @@
 import {observable, autorun, batch} from "@formily/reactive"
 import {observer} from '@formily/reactive-vue'
 import {ASlotDemo} from "@/pages/demo-slot/A-slot-demo";
+import BSlotDemo from "@/pages/demo-slot/B-slot-demo.vue";
+
+
+const mountRef = (dom: HTMLLIElement | null) => {
+  if (dom) {
+    console.log(dom)
+    debugger
+  }
+}
+
 
 const obs = observable({})
 const handler = () => {
