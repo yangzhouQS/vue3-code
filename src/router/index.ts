@@ -1,7 +1,7 @@
 import {createRouter, createWebHashHistory} from 'vue-router';
 import Home from 'pages/home.vue';
 import Demo from 'pages/demo.vue';
-import Test from 'pages/test';
+import Test from '@/pages/demo-test';
 import DemoSlot from 'pages/demo-slot.vue';
 
 const routes = [
