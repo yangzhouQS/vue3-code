@@ -3,9 +3,17 @@
     <el-button type="primary" @click="onClick">点击测试</el-button>
     <!--    <a-slot-demo/>-->
     <b-slot-demo :ref="mountRef">
+      <span slot="tree-title">tree - hello title</span>
+      <span slot="tree-lab">tree - hello lab</span>
       <span slot="title">hello title</span>
       <span slot="name">hello name</span>
     </b-slot-demo>
+    <div style="width: 600px;margin: 0 auto;">
+      <div style="width: 260px;height: 100px;border: 1px solid #333333;">
+        <ellipsis :text="text" :height="100" :tooltip="true">
+        </ellipsis>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -14,12 +22,13 @@ import {observable, autorun, batch} from "@formily/reactive"
 import {observer} from '@formily/reactive-vue'
 import {ASlotDemo} from "@/pages/demo-slot/A-slot-demo";
 import BSlotDemo from "@/pages/demo-slot/B-slot-demo.vue";
+import Ellipsis from "@/components/ellipsis/ellipsis.vue";
+import {ref} from 'vue'
 
-
+const text = ref('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci atque, dignissimos earum eius esse ex inventore itaque laboriosam laborum modi nam natus obcaecati placeat qui quos repellendus sed similique sit soluta tempora, unde vero voluptate! Aperiam, deserunt explicabo labore officiis perspiciatis placeat provident repellat sed suscipit voluptatibus. Accusamus animi aut cum, delectus ea impedit laudantium maxime modi, nisi omnis quis reiciendis totam unde? Aperiam architecto consectetur consequuntur dicta ea earum eos esse eum iste, iure laboriosam maiores maxime minima minus mollitia necessitatibus nihil non provident quae quasi quia quidem ratione repellendus, sint soluta tenetur vero voluptas voluptate voluptatem, voluptatum.')
 const mountRef = (dom: HTMLLIElement | null) => {
   if (dom) {
     console.log(dom)
-    debugger
   }
 }
 
@@ -44,7 +53,6 @@ autorun(() => {
 })
 
 const onClick = () => {
-  // 使用 batch 模式，将更新进行合并：
   batch(() => {
     handler()
   })

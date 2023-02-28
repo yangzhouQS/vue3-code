@@ -1,6 +1,12 @@
 <template>
   <div class="B-slot-demo">
     B-slot-demo
+    <div class="tree-title">
+      <slot name="tree-title"></slot>
+    </div>
+    <div class="tree-lab">
+      <slot name="tree-lab"></slot>
+    </div>
     <p class="title">
       <slot name="title">{{ title }}</slot>
     </p>
@@ -14,6 +20,9 @@
 </template>
 
 <script>
+import pickSubCompSlots from "@/utils/pick-sub-comp-slots";
+import {useSlots} from 'vue'
+
 export default {
   name: "B-slot-demo",
   props: {
