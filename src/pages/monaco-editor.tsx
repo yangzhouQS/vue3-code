@@ -3,23 +3,8 @@ import type {editor} from 'monaco-editor';
 import * as monaco from 'monaco-editor'
 import './index.css'
 import "monaco-editor/min/vs/loader"
-self.MonacoEnvironment = {
-  getWorkerUrl: function (moduleId, label) {
-    if (label === 'json') {
-      return './json.worker.bundle.js';
-    }
-    if (label === 'css' || label === 'scss' || label === 'less') {
-      return './css.worker.bundle.js';
-    }
-    if (label === 'html' || label === 'handlebars' || label === 'razor') {
-      return './html.worker.bundle.js';
-    }
-    if (label === 'typescript' || label === 'javascript') {
-      return './ts.worker.bundle.js';
-    }
-    return './editor.worker.bundle.js';
-  }
-};
+import {getSingletonMonaco} from "@/pages/monaco-editor/get-singleton-monaco";
+
 // require.config("monaco-editor/min/vs")
 export const MonacoEditor = defineComponent({
   name: 'MonacoEditor',
@@ -67,6 +52,7 @@ export const MonacoEditor = defineComponent({
     onMounted(() => {
 
     })
+    const editor = getSingletonMonaco(props.options)
     const initEditor = (dom) => {
       if (!dom) return
       monaco.editor.create(dom, {
