@@ -76,9 +76,11 @@ export const Canvas = defineComponent({
   setup() {
     return () => {
       return (
-        <div class={'lc-simulator'}>
-          <BemTools/>
-          <Content/>
+        <div class={'class="lc-simulator-canvas lc-simulator-device-default"'}>
+          <div class={'lc-simulator-canvas-viewport'}>
+            <BemTools/>
+            <Content/>
+          </div>
         </div>
       )
     }
@@ -104,8 +106,8 @@ export const Content = defineComponent({
 
     const frameStyle: any = {
       transform: `scale(1)`,
-      height: "1200px",
-      width: "600px",
+      height: "100%",
+      width: "100%",
     };
 
     return () => {
