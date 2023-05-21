@@ -28,9 +28,12 @@ export const DesignerView = defineComponent({
     return () => {
       return (
         <div class={'lc-designer'}>
+          {/*拖拽模拟器位置*/}
+
+          {/*工程项目视图*/}
           <ProjectView/>
         </div>
-      )
+      );
     }
   }
 })

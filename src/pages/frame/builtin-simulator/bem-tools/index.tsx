@@ -10,7 +10,7 @@ export const BemTools = defineComponent({
     return () => {
       return (
         <div class={'lc-bem-tools'} style="transform: translate(0px, 0px);">
-          BemTools
+
         </div>
       )
     }

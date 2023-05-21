@@ -8,9 +8,11 @@ import {ScrollBar} from "@/pages/scroll/scroll";
 import Tabs from "@/pages/tabs/tabs.vue";
 import {HostView} from "@/pages/frame/builtin-simulator/host-view";
 import {DesignerView} from "@/pages/frame/builtin-simulator";
+import {TestEmit} from "@/pages/emit/emit";
 
 const routes = [
   {path: '/', component: Home},
+  {path: '/emit', component: TestEmit},
   {path: '/demo', component: Demo},
   {path: '/test', component: Test},
   {path: '/demo-slot', component: DemoSlot},

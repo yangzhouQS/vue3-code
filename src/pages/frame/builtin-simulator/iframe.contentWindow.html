@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<iframe id="app" src="./demo.html"></iframe>
+<script>
+  const iframe = document.getElementById('app')
+
+  console.log(app.contentWindow)
+
+  const win = iframe.contentWindow;
+  const doc = iframe.contentDocument;
+
+  doc.write("世界你好")
+</script>
+</body>
+</html>

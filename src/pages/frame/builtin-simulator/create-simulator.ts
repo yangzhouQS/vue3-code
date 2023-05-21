@@ -1,4 +1,5 @@
 import {BuiltinSimulatorHost} from "@/pages/frame/builtin-simulator/host";
+import {CSSUrlLibraryAsset, JSUrlLibraryAsset} from "@/pages/frame/config";
 
 /**
  * 插件渲染器，处理依赖
@@ -11,22 +12,17 @@ export function createSimulator(
   const win: any = iframe.contentWindow;
   const doc = iframe.contentDocument!;
 
+  win.AssemCodeEngine = {};
+  win.AssemHost = host;
   win._ = window._;
 
-  const styles: any = {};
-  const scripts: any = {};
+  const styleFrags = CSSUrlLibraryAsset.map((url) => {
+    return `<link rel="stylesheet" href="${url}" />`
+  }).join('');
 
-
-  const styleFrags = Object.keys(styles)
-    .map((key) => {
-      return `${styles[key].join('\n')}<meta level="${key}" />`;
-    })
-    .join('');
-  const scriptFrags = Object.keys(scripts)
-    .map((key) => {
-      return scripts[key].join('\n');
-    })
-    .join('');
+  const scriptFrags = JSUrlLibraryAsset.map((url) => {
+    return `<script src="${url}"></script>`
+  }).join('');
 
   doc.open();
   doc.write(`
@@ -34,15 +30,44 @@ export function createSimulator(
 <html class="engine-design-mode">
   <head><meta charset="utf-8"/>
     ${styleFrags}
+
+    <style>
+    html,body{
+    width: 100%;
+    height: 100%;
+    }
+    *{
+    margin: 0;padding: 0;
+    }
+</style>
   </head>
   <body>
     ${scriptFrags}
+
+
+    <div id="app">
+    {{ message }}
+    <br>
+    <input type="text" v-model="message">
+    </div>
+
+<script>
+  const { createApp } = Vue
+
+  createApp({
+    data() {
+      return {
+        message: 'Hello Vue!'
+      }
+    }
+  }).mount('#app')
+</script>
   </body>
 </html>`);
   doc.close();
 
   return new Promise((resolve) => {
-    const renderer = win.SimulatorRenderer;
+    const renderer = win.AssemRenderer;
     if (renderer) {
       return resolve(renderer);
     }

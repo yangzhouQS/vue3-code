@@ -1,4 +1,5 @@
 import {BuiltinSimulatorRenderer} from "@/pages/frame/builtin-simulator/renderer";
+import {createSimulator} from "@/pages/frame/builtin-simulator/create-simulator";
 
 
 export class BuiltinSimulatorHost {
@@ -16,7 +17,7 @@ export class BuiltinSimulatorHost {
     //
   }
 
-  mountContentFrame(iframe: HTMLIFrameElement | null) {
+  async mountContentFrame(iframe: HTMLIFrameElement | null) {
     if (!iframe || this._iframe === iframe) {
       return;
     }
@@ -26,9 +27,9 @@ export class BuiltinSimulatorHost {
     this._contentWindow = iframe.contentWindow!;
     this._contentDocument = this._contentWindow.document;
 
-
     // wait 准备 iframe 内容、依赖库注入
 
-
+    // <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    await createSimulator(this, iframe)
   }
 }
