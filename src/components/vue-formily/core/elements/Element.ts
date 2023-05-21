@@ -1,4 +1,4 @@
-import { isString, merge } from '@vue-formily/util';
+import { isString, merge } from '../../vue-formily-util';
 import { ElementOptions, ElementSchema } from './types';
 import { genHtmlName, genProps } from '../../helpers';
 import { throwFormilyError } from '../../utils';

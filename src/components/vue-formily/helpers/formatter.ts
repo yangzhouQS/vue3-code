@@ -1,4 +1,4 @@
-import { isFunction, isString } from '@vue-formily/util';
+import { isFunction, isString } from '../vue-formily-util';
 
 export type Format = (...args: any[]) => string;
 

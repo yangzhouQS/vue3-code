@@ -1,4 +1,4 @@
-import { merge } from '@vue-formily/util';
+import { merge } from './vue-formily-util';
 import { ElementOptions, FormSchema, ReadonlySchema } from './core/elements/types';
 import { ValidationRuleSchema } from './core/validations/types';
 import Form from './core/elements/Form';

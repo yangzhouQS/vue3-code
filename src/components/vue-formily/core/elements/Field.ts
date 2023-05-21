@@ -1,4 +1,4 @@
-import { isNumeric } from '@vue-formily/util';
+import { isNumeric } from '../../vue-formily-util';
 import { FieldSchema, FieldType, FieldValue, ReadonlySchema } from './types';
 
 import Element, { ElementData } from './Element';
