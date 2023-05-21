@@ -1,8 +1,8 @@
-import { findIndex, isNumber } from '@vue-formily/util';
-import { RuleSchema, Validator } from './types';
+import {findIndex, isNumber} from '../../vue-formily-util';
+import {RuleSchema, Validator} from './types';
 import Rule from './Rule';
 import Objeto from '../Objeto';
-import { isUndefined, throwFormilyError } from '../../utils';
+import {isUndefined, throwFormilyError} from '../../utils';
 
 type InternalValidationRuleSchema = Validator | RuleSchema;
 
@@ -55,7 +55,7 @@ export default class Validation extends Objeto {
     return filtered.length ? filtered : null;
   }
 
-  addRule(ruleOrSchema: Rule | InternalValidationRuleSchema, { at }: { at?: number } = {}): Rule {
+  addRule(ruleOrSchema: Rule | InternalValidationRuleSchema, {at}: { at?: number } = {}): Rule {
     const rule = new Rule(ruleOrSchema, this);
     const name = rule.name;
 
@@ -73,7 +73,7 @@ export default class Validation extends Objeto {
   }
 
   removeRule(remove: Rule | string) {
-    const index = findIndex(this.rules, ({ name }) => {
+    const index = findIndex(this.rules, ({name}) => {
       const n = remove instanceof Rule ? remove.name : remove;
 
       return name === n;

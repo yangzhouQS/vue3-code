@@ -9,9 +9,11 @@ import Tabs from "@/pages/tabs/tabs.vue";
 import {HostView} from "@/pages/frame/builtin-simulator/host-view";
 import {DesignerView} from "@/pages/frame/builtin-simulator";
 import {TestEmit} from "@/pages/emit/emit";
+import {Formily} from "@/pages/formily/formily";
 
 const routes = [
   {path: '/', component: Home},
+  {path: '/formily', component: Formily},
   {path: '/emit', component: TestEmit},
   {path: '/demo', component: Demo},
   {path: '/test', component: Test},

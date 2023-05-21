@@ -1,4 +1,4 @@
-import { isFunction, isPlainObject, isString, merge } from '@vue-formily/util';
+import { isFunction, isPlainObject, isString, merge } from '../../vue-formily-util';
 import { RuleSchema, Validator } from './types';
 
 import Objeto from '../Objeto';
