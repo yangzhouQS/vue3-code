@@ -1,11 +1,11 @@
-import { App, ComponentInternalInstance, getCurrentInstance } from 'vue';
-import { Field, Group, Collection, Form } from './core/elements';
-import { VueFormilyConfig, VueFormilyPlugin } from './types';
-import { FormInstance } from './core/elements/instanceTypes';
-import Formily, { VueFormilyOptions } from './Formily';
+import {App, ComponentInternalInstance, getCurrentInstance} from 'vue';
+import {Field, Group, Collection, Form} from './core/elements';
+import {VueFormilyConfig, VueFormilyPlugin} from './types';
+import {FormInstance} from './core/elements/instanceTypes';
+import Formily, {VueFormilyOptions} from './Formily';
 import Objeto from './core/Objeto';
 import Evento from './core/Evento';
-import { def, logMessage, throwFormilyError } from './utils';
+import {def, logMessage, throwFormilyError} from './utils';
 
 declare module '@vue/runtime-core' {
   export interface ComponentCustomProperties {
@@ -105,8 +105,11 @@ const VueFormily = {
   createFormily
 };
 
-export type { VueFormilyOptions };
-export type { VueFormilyConfig, VueFormilyPlugin, Localizer } from './types';
+export type {VueFormilyOptions};
+export type {
+  VueFormilyConfig,
+  VueFormilyPlugin, Localizer
+} from './types';
 export type {
   ElementOptions,
   ElementSchema,
@@ -133,11 +136,22 @@ export type {
   CollectionInstance,
   CollectionItemInstance
 } from './core/elements/instanceTypes';
-export type { Validator, RuleSchema, ValidationRuleSchema } from './core/validations/types';
-export type { EventHandler, EventOptions, EventElement } from './core/Evento';
+export type {
+  Validator,
+  RuleSchema,
+  ValidationRuleSchema
+} from './core/validations/types';
+export type {
+  EventHandler,
+  EventOptions,
+  EventElement
+} from './core/Evento';
 
 export * from './core/validations';
-export { Field, Group, Collection, Form, Objeto, Formily, Evento };
-export { defineSchema } from './defineSchema';
-export { createFormily, VueFormily };
+export {
+  Field, Group, Collection,
+  Form, Objeto, Formily, Evento
+};
+export {defineSchema} from './defineSchema';
+export {createFormily, VueFormily};
 export default VueFormily;

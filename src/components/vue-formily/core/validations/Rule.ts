@@ -1,8 +1,8 @@
-import { isFunction, isPlainObject, isString, merge } from '../../vue-formily-util';
-import { RuleSchema, Validator } from './types';
+import {isFunction, isPlainObject, isString, merge} from '../../vue-formily-util';
+import {RuleSchema, Validator} from './types';
 
 import Objeto from '../Objeto';
-import { ValidationInstance } from '../elements/instanceTypes';
+import {ValidationInstance} from '../elements/instanceTypes';
 
 export type RuleData = {
   r: {
@@ -20,11 +20,13 @@ export default class Rule extends Objeto {
   message?: string | ((...args: any[]) => string);
   validator!: Validator;
 
-  constructor(rule: Rule | RuleSchema | Validator, container: ValidationInstance | null = null) {
+  constructor(rule: Rule | RuleSchema | Validator,
+              container: ValidationInstance | null = null
+  ) {
     super();
 
     const data = this._d;
-    const { r } = data;
+    const {r} = data;
 
     data.name = rule.name || Date.now();
     data.container = container;
@@ -80,7 +82,7 @@ export default class Rule extends Objeto {
 
     this.emit('validate', this);
 
-    const { r } = this._d;
+    const {r} = this._d;
 
     let error: string | null = null;
     let valid = true;

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      /*background-color: rgba(0, 0, 0, 0.3);*/
+      background-color: rgba(70, 241, 156, 0.75) !important;
+      border-radius: 5px;
+    }
+
+    .container {
+      border: 2px solid #2c82f3;
+      width: 1000px;
+      height: 400px;
+      overflow: hidden;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+<script>
+  window.onload = () => {
+    const container = document.getElementById('container')
+    container.onscroll = () => {
+      console.log(container.scrollHeight, container.scrollTop)
+    }
+    const content = document.getElementById('content')
+    content.addEventListener('scroll', () => {
+      console.log(content.scrollHeight, content.scrollTop, content.scrollWidth, content.scrollLeft)
+    }, {passive: true})
+  }
+</script>
+<div class="container" id="container">
+  <div style="height: 40px;background: #5a99cc">
+    title
+  </div>
+  <div style="flex: 1;overflow: auto" id="content">
+    <div style="height: 6000px;background: #eee"></div>
+  </div>
+</div>
+</body>
+</html>
