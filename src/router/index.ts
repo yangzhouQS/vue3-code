@@ -6,10 +6,11 @@ import DemoSlot from 'pages/demo-slot.vue';
 import {MonacoEditor} from "@/pages/monaco-editor";
 import {ScrollBar} from "@/pages/scroll/scroll";
 import Tabs from "@/pages/tabs/tabs.vue";
-import {HostView} from "@/pages/frame/builtin-simulator/host-view";
 import {DesignerView} from "@/pages/frame/builtin-simulator";
 import {TestEmit} from "@/pages/emit/emit";
 import {Formily} from "@/pages/formily/formily";
+import {HocRender} from "@/pages/hoc-render/hoc-render";
+import {VmUpdate} from "@/pages/vm-update";
 
 const routes = [
   {path: '/', component: Home},
@@ -22,6 +23,8 @@ const routes = [
   {path: '/scroll', component: ScrollBar},
   {path: '/tabs', component: Tabs},
   {path: '/frame', component: DesignerView},
+  {path: '/hoc-render', component: HocRender},
+  {path: '/vm-update', component: VmUpdate},
 ]
 export const router = createRouter({
   // 4. 内部提供了 history 模式的实现。为了简单起见，我们在这里使用 hash 模式。

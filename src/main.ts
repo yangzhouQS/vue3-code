@@ -9,6 +9,7 @@ import {createFormily} from "@/components/vue-formily";
 
 const formily = createFormily();
 const app = createApp(App)
+
 app.use(formily, {})
 app.use(router)
 app.use(ElementPlus)

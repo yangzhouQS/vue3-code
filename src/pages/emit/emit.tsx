@@ -11,6 +11,7 @@ import {
   computed
 } from "vue"
 import type {EffectScope} from 'vue'
+import ResourceConsumer from "@/pages/emit/resource-consumer";
 
 interface IViewport {
   get width(): number
@@ -113,6 +114,30 @@ export const TestEmit = defineComponent({
     }
   },
   setup(props) {
+
+    const index = ref(0);
+    const dataIndex = computed(() => index)
+    const message = () => {
+
+    }
+
+    const componentsConsumer = new ResourceConsumer(() => {
+      // 为消费者提供的数据
+      return dataIndex.value
+    });
+
+
+    componentsConsumer.consume((data: any) => {
+      console.log('生产者提供数据 =>', data)
+    })
+
+
+    // 消费一次
+    ;(async () => {
+      const ret = await componentsConsumer.waitFirstConsume()
+      console.log(ret)
+    })()
+
     // editHooks()
     const host = new SimRender()
     // const host = reactive(_host)
@@ -121,6 +146,10 @@ export const TestEmit = defineComponent({
 
     // methods
     const methods = {
+      consumer: () => {
+        console.log('consumer')
+        index.value += 10
+      },
       test: () => {
         host.viewport.width = 10;
         host.viewport.height = 10;
@@ -142,6 +171,7 @@ export const TestEmit = defineComponent({
       return (
         <div class={'full-container hello pa-5'}>
           <el-button type="primary" onClick={methods.test}>测试</el-button>
+          <el-button type="danger" onClick={methods.consumer}>消费数据</el-button>
           <div class={'red-border'} style={viewportStyle.value}>
 
           </div>

@@ -1,5 +1,4 @@
 import {defineComponent, ref, h} from 'vue'
-import TestDemo from "@/pages/test-demo";
 import {observable, action, autorun, define, model} from '@formily/reactive'
 import {observer} from '@formily/reactive-vue'
 
