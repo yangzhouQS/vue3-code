@@ -11,6 +11,7 @@ import {TestEmit} from "@/pages/emit/emit";
 import {Formily} from "@/pages/formily/formily";
 import {HocRender} from "@/pages/hoc-render/hoc-render";
 import {VmUpdate} from "@/pages/vm-update";
+import {SpaceContainer} from "@/pages/space/space";
 
 const routes = [
   {path: '/', component: Home},
@@ -25,6 +26,7 @@ const routes = [
   {path: '/frame', component: DesignerView},
   {path: '/hoc-render', component: HocRender},
   {path: '/vm-update', component: VmUpdate},
+  {path: '/space', component: SpaceContainer},
 ]
 export const router = createRouter({
   // 4. 内部提供了 history 模式的实现。为了简单起见，我们在这里使用 hash 模式。

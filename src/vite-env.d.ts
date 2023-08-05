@@ -6,9 +6,11 @@ declare module '*.vue' {
   export default component
 }
 
-declare module "*.tsx"{
+declare module "*.tsx" {
   interface HTMLAttributes<T> {
     // Preact supports using "class" instead of "classname" - need to teach typescript
     class: any;
+
+    [key: string]: any
   }
 }
