@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  let quantity = 2; // 商品数量
+  const product = {
+    price: 10,
+    quantity: quantity
+  }
+
+  let total = 0;
+  const effect = () => {
+    // getter 操作
+    total = product.price * quantity
+  }
+  effect()
+  console.log(`商品总价：${total}`);
+
+  Object.defineProperty(product, 'quantity', {
+    set(value) { // setter修改商品数量
+      quantity = value
+
+      // 触发商品价格的重新计算
+      effect()
+    },
+    get() {
+      return product.quantity
+    }
+  })
+
+  // setter操作
+  product.quantity = 5;
+
+
+  //   修改商品总价格，
+  console.log(`商品总价：${total}`);
+</script>
+</body>
+</html>

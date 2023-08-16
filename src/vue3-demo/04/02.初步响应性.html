@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  const product = {
+    price: 10,
+    quantity: 2
+  }
+
+  let total = 0;
+  const effect = () => {
+    // getter 操作
+    total = product.price * product.quantity
+  }
+  effect()
+  console.log(`商品总价：${total}`);
+
+  // setter操作
+  product.quantity = 5;
+
+  // 获取商品实时最新价格，有setter操作时重新计算商品价格
+  effect()
+  //   修改商品总价格，
+  console.log(`商品总价：${total}`);
+</script>
+</body>
+</html>
