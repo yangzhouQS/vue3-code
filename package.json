@@ -22,7 +22,6 @@
     "@monaco-editor/loader": "^1.3.2",
     "@vueuse/core": "^10.3.0",
     "chart-render": "^0.1.9",
-    "drag-drop-stage-component": "^1.0.35",
     "element-plus": "^2.3.9",
     "events": "^3.3.0",
     "form-render": "^2.0.11",

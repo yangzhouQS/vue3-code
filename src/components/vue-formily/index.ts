@@ -59,7 +59,7 @@ function createFormily() {
           let forms = this.$root[alias];
 
           if (!forms) {
-            forms = this.$root[alias] = {};
+            forms = this.$root[alias] = {avc:10086};
           }
 
           return {
