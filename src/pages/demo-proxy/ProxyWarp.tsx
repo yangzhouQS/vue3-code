@@ -1,16 +1,17 @@
 import { defineComponent, onMounted, ref, getCurrentInstance } from "vue"
 import { RuntimeScope } from "@/pages/demo-proxy/scope";
+import { initProvide } from "@/pages/demo-proxy/utils";
 
 export const ProxyWarp = defineComponent({
     name: 'ProxyWarp',
     props: {
-        proxiKey: {
+        proxyKey: {
             type: [ Symbol, String ],
             required: true,
         }
     },
     inheritAttrs: false,
-    setup(props, { slots,attrs }) {
+    setup(props, { slots, attrs }) {
         console.log(attrs);
         // 将全局属性配置应用到 scope 中
         const instance = getCurrentInstance()!;
@@ -18,8 +19,8 @@ export const ProxyWarp = defineComponent({
         console.log(scope);
 
         return () => {
-            if (props.proxiKey) {
-
+            if (props.proxyKey) {
+                initProvide(scope.$.parent, props.proxyKey, { data: scope.$.data })
             }
             return (
                 <>

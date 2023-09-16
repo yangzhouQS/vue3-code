@@ -47,7 +47,6 @@ export const DemoProxy = defineComponent({
     props: {
         proxiKey: {
             type: [ Symbol, String ],
-            required: true,
         }
     },
     setup() {
@@ -70,7 +69,7 @@ export const DemoProxy = defineComponent({
                 <div class={'full-container'}>
                     DemoProxy
                     <ProxyWarp
-                        proxiKey={"hello"}
+                        proxyKey={"hello"}
                         onAdd={(val) => {
                             console.log(val);
                         }}

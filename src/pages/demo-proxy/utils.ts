@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import * as Vue from 'vue';
 
 const {hasOwnProperty} = Object.prototype;
 export const hasOwn = (object, property) => hasOwnProperty.call(object, property);

@@ -21,8 +21,8 @@ const baseProxi = {
     attrs: emptyObject,
     props: emptyObject,
 };
-export const ProxiInject = defineComponent({
-    name: 'ProxiInject',
+export const ProxyInject = defineComponent({
+    name: 'ProxyInject',
     props: {
         title: {
             type: String,
