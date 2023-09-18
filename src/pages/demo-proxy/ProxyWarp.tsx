@@ -4,10 +4,13 @@ import {
     inject,
     provide,
     onUnmounted,
+    watch,
+    h
 } from "vue"
 import { RuntimeScope } from "@/pages/demo-proxy/scope";
 import { debounce, initProvide } from "@/pages/demo-proxy/utils";
 import { useRendererContext } from "@/pages/demo-proxy/reneder-context";
+import { leafProps, splitLeafProps } from "@/pages/demo-proxy/use";
 
 const HOC_NODE_KEY: InjectionKey<{ rerenderSlots: () => void }> = Symbol('hocNode');
 
@@ -39,16 +42,15 @@ const useHocNode = (rerenderSlots: () => void) => {
 
 export const ProxyWarp = defineComponent({
     name: 'ProxyWarp',
-    props: {
+    /*props: {
         proxyKey: {
             type: [ Symbol, String ],
             required: true,
         }
-    },
+    },*/
     inheritAttrs: false,
+    props: leafProps,
     setup(props, { slots, attrs }) {
-
-
         console.log(attrs);
         // 将全局属性配置应用到 scope 中
         const instance = getCurrentInstance()!;
@@ -59,7 +61,7 @@ export const ProxyWarp = defineComponent({
 
         }
 
-        const { rerender, rerenderRoot, rerenderParent } = useHocNode(()=>{
+        const { rerender, rerenderRoot, rerenderParent } = useHocNode(() => {
             console.log('update');
         });
 
@@ -71,15 +73,24 @@ export const ProxyWarp = defineComponent({
             })
         );
 
+        watch(() => attrs, (val) => {
+            console.log(val);
+        })
+
+        //   提取props和eventListener
+
         console.log('rerenderParent');
-        console.log(rerenderParent);
+        // console.log(rerenderParent);
         return () => {
-            if (props.proxyKey) {
+           /* if (props.proxyKey) {
                 initProvide(scope.$.parent, props.proxyKey, { data: scope.$.data })
-            }
+            }*/
+            const compProps = splitLeafProps(attrs)[1]
+            console.log(JSON.stringify(compProps,null,2));
             return (
                 <>
-                    {slots.default?.()}
+                    {/*{slots.default?.()}*/}
+                    {h(slots.default, compProps)}
                 </>
             )
         }

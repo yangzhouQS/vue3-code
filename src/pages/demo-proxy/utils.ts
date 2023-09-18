@@ -1,4 +1,5 @@
 import * as Vue from 'vue';
+import { isArray, isFunction, isString } from "@/components/vue-formily/vue-formily-util";
 
 const {hasOwnProperty} = Object.prototype;
 export const hasOwn = (object, property) => hasOwnProperty.call(object, property);
@@ -76,4 +77,41 @@ export function debounce<T extends () => unknown>(fn: T, ms?: number): () => voi
             }, ms);
         };
     }
+}
+
+
+export const createObjectSpliter = (
+    speicalProps: string | string[] | ((prop: string) => boolean)
+) => {
+    const propsSet = new Set(
+        isString(speicalProps)
+            ? speicalProps.split(',')
+            : isArray(speicalProps)
+                ? speicalProps
+                : []
+    );
+
+    const has = isFunction(speicalProps)
+        ? speicalProps
+        : (prop: string) => propsSet.has(prop);
+
+    return <T>(o: Record<string, T>): [Record<string, T>, Record<string, T>, number] => {
+        const keys = Object.keys(o);
+        if (keys.every((k) => !has(k))) return [{}, o, 0];
+
+        let count = 0;
+        const left: Record<string, T> = {};
+        const right: Record<string, T> = {};
+
+        for (const key of keys) {
+            if (has(key)) {
+                left[key] = o[key];
+                count++;
+            } else {
+                right[key] = o[key];
+            }
+        }
+
+        return [left, right, count];
+    };
 }

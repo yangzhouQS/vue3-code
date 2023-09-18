@@ -1,17 +1,12 @@
-import { defineComponent, onMounted, ref } from "vue"
+import { defineComponent, onMounted, ref, computed } from "vue"
 import { ProxyWarp } from "@/pages/demo-proxy/ProxyWarp";
 
 
-export const Page = defineComponent({
-    name: 'Page',
+export const PageButton = defineComponent({
+    name: 'PageButton',
     emits: [ 'add' ],
-    props: {
-        title: {
-            type: String,
-            default: ''
-        }
-    },
-    setup(props, { emit }) {
+    props: {},
+    setup(props, { emit, attrs }) {
         // data
         const menuConfig = ref([])
 
@@ -25,17 +20,21 @@ export const Page = defineComponent({
             }
         }
 
-        onMounted(() => {
+        const comProps = computed({
+            get: () => {
+                console.log('attrs', attrs);
+                return attrs ?? {};
+            },
+            set: (val: any) => {
 
+            }
         })
 
         return () => {
             return (
-                <div class={'full-container'}>
-                    <el-button onClick={methods.handleOnClick}>
-                        测试按钮
-                    </el-button>
-                </div>
+                <el-button onClick={methods.handleOnClick} {...comProps.value}>
+                    page 测试按钮
+                </el-button>
             )
         }
     }
@@ -51,12 +50,25 @@ export const DemoProxy = defineComponent({
     },
     setup() {
         // data
-        const menuConfig = ref([])
+        const type = ref('default')
+        const proxyRef = ref()
 
         // methods
         const methods = {
             loadData: () => {
 
+            },
+            handleClick: () => {
+                const v = Date.now() % 3
+                if (v === 0) {
+                    type.value = 'primary'
+                } else if (v === 1) {
+                    type.value = 'danger'
+                } else if (v === 2) {
+                    type.value = 'warning'
+                }
+
+                console.log(proxyRef.value);
             }
         }
 
@@ -68,15 +80,25 @@ export const DemoProxy = defineComponent({
             return (
                 <div class={'full-container'}>
                     DemoProxy
+                    <el-button
+                        type="primary"
+                        onClick={methods.handleClick}
+                    >
+                        测试按钮
+                    </el-button>
+                    <br/>
                     <ProxyWarp
                         proxyKey={"hello"}
+                        __comp={'el-button'}
                         onAdd={(val) => {
                             console.log(val);
                         }}
                         a={1}
                         b={'hello'}
+                        type={type.value}
+                        ref={proxyRef}
                     >
-                        <Page/>
+                        <PageButton/>
                     </ProxyWarp>
                 </div>
             )

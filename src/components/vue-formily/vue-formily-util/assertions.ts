@@ -20,6 +20,9 @@ export function isString(value: any): value is string {
   return typeof value === 'string';
 }
 
+export function isArray(val: any): val is any[] {
+  return Array.isArray(val);
+}
 /**
  * Check if the input string contains only numeric characters.
  */
