@@ -24,7 +24,7 @@ export const initProvide = (parent, key, object) => {
     }
 
     const providedEntry = parent._provided[key];
-    if (providedEntry) {
+    /*if (providedEntry) {
         for (const prop in object) {
             if (hasOwn(object, prop)) {
                 Vue.set(providedEntry, prop, object[prop]);
@@ -32,7 +32,7 @@ export const initProvide = (parent, key, object) => {
         }
     } else {
         parent._provided[key] = Vue.observable(object);
-    }
+    }*/
 };
 
 export const computeProps = (propsDecl, attributes) => {
@@ -51,3 +51,29 @@ export const computeProps = (propsDecl, attributes) => {
 
     return {attrs: attributes, props};
 };
+
+
+export function debounce<T extends () => unknown>(fn: T, ms?: number): () => void {
+    let timerId: any = null;
+
+    if (!ms) {
+        return function (this: unknown) {
+            if (!timerId) {
+                timerId = setTimeout(() => {
+                    timerId = null;
+                    fn.apply(this);
+                });
+            }
+        };
+    } else {
+        return function (this: unknown) {
+            if (timerId) {
+                clearTimeout(timerId);
+            }
+            timerId = setTimeout(() => {
+                timerId = null;
+                fn.apply(this);
+            }, ms);
+        };
+    }
+}
