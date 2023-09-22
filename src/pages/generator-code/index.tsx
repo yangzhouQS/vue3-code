@@ -9,9 +9,9 @@ export const GeneratorCode = defineComponent({
       default: ''
     }
   },
-  setup() {
+  setup: function () {
     // data
-    const menuConfig = ref([])
+    const allTables = ref([])
 
     // methods
     const methods = {
@@ -19,9 +19,11 @@ export const GeneratorCode = defineComponent({
 
       },
       loadAllTables: async () => {
-        const data = await request.get('/allTables')
-        console.log(data)
-        debugger
+        try {
+          allTables.value = await request.get('/allTables')
+        } catch (e) {
+
+        }
       }
     }
 
@@ -33,10 +35,28 @@ export const GeneratorCode = defineComponent({
       return (
         <div className={'full-container d-flex'}>
           <div
-            style={{width: '200px'}}
+            style={{width: '300px'}}
             className={'border-solid border'}
           >
-            1
+            <el-scrollbar style={{height: '100%'}}>
+              {allTables.value.map((table) => {
+                return <div
+                  className={'table-item d-flex justify-space-between pa-1'}
+                  key={table.table_name}
+                  title={table.table_comment || table.table_name}
+                >
+                  <div className={'flex-1 text-truncate'} >
+                    {table.table_name}
+                  </div>
+                  <div
+                    style={{width: '100px'}}
+                    className={'text-truncate text-right'}
+                  >
+                    {table.table_comment}
+                  </div>
+                </div>
+              })}
+            </el-scrollbar>
           </div>
 
           <div style={{width: '200px'}} className={'border-solid border mx-2'}>
