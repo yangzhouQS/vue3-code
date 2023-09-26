@@ -43,6 +43,7 @@
     "vue-router": "4"
   },
   "devDependencies": {
+    "ts-node": "^10.9.1",
     "@types/events": "^3.0.0",
     "@types/lodash": "^4.14.196",
     "@types/node": "^20.4.7",
