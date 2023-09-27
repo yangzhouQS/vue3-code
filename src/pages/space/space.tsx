@@ -1,8 +1,21 @@
-import {
-  defineComponent, onMounted, ref, renderSlot
-} from "vue"
 import hooks, {appContext, appProperties, getComponentName, getRealParent, useRouter} from "@/utils/helpers";
+import type {
+  ExtractPropTypes,
+  StyleValue,
+  VNode,
+  VNodeArrayChildren,
+  VNodeChild,
+} from 'vue'
 
+import {
+  onMounted, ref,
+  createTextVNode,
+  createVNode,
+  defineComponent,
+  isVNode,
+  renderSlot,
+} from 'vue'
+import {ElButton} from 'element-plus'
 export const SpaceContainer = defineComponent({
   name: 'SpaceContainer',
   props: {
@@ -26,7 +39,6 @@ export const SpaceContainer = defineComponent({
 
     const realParent = getRealParent(hooks.getCurrentInstance())
     console.log(realParent)
-    debugger
 
 
     // methods
@@ -41,14 +53,36 @@ export const SpaceContainer = defineComponent({
     })
 
     return () => {
-      return (
+      return (<Space>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+      </Space>)
+      /*return (
+        <div className={'full-container'}>
+          <el-space
+            direction={'vertical'}
+            alignment={'center'}
+            size={6}
+            fill={true}
+            fillRatio={100}
+            style={"width: '99%'"}
+            warp={true}
+          >
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+          </el-space>
+        </div>
         <Space>
           <div>1</div>
           <div>2</div>
           <div>3</div>
           <div>4</div>
         </Space>
-      )
+      )*/
     }
   }
 })
@@ -66,11 +100,50 @@ export const Space = defineComponent({
 
     })
 
+    function extractChildren(
+      children: VNodeArrayChildren,
+      parentKey = '',
+      extractedChildren: VNode[] = []
+    ) {
+      children.forEach((child,loopKey)=>{
+        extractedChildren.push(
+          createVNode(
+            'div',
+            {
+              class:'a-a',
+              style: {
+                width: '100px',
+                height: '100px',
+                backgroundColor: '#000',
+              },
+              key: `LoopKey${parentKey + loopKey}`,
+            },
+            {
+              default: () => [child],
+            },
+          )
+        )
+
+        return extractedChildren
+      })
+    }
+
     return () => {
-      const children = renderSlot(slots, 'default')
+      const children = renderSlot(slots, 'default', { key: 0 }, () => [])
+      let extractedChildren = extractChildren(children.children)
+
+      return createVNode(
+        'div',
+        {
+          class: 'xxxxx',
+          style: {background: 'red'},
+        },
+        extractedChildren,
+      )
+
+
       return (
         <div className={'full-container'}>
-          xxx
           {children}
         </div>
       )
