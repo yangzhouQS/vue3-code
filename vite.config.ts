@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from "path"
@@ -12,6 +13,14 @@ export default defineConfig({
     vue(),
     vueJsx({})
   ],
+  test: {
+    globals: true,
+    // 配置测试环境，因为测试是在node下进行的，所以需要模拟浏览器环境，按照jsdom和happydom都是可以的
+    environment: 'jsdom',
+    testTransformMode: {
+      web: [/\.[jt]sx$/]
+    }
+  },
   resolve: {
     alias: {
       '@': resolve('src'),
