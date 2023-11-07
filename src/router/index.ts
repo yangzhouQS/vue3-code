@@ -14,31 +14,38 @@ import {VmUpdate} from "@/pages/vm-update";
 import {SpaceContainer} from "@/pages/space/space";
 import {GraphDemo} from "@/pages/graph-test/graph-demo";
 import {GeneratorCode} from "@/pages/generator-code";
-import { DemoProxy } from "@/pages/demo-proxy/demo-proxy";
+import {DemoProxy} from "@/pages/demo-proxy/demo-proxy";
 import {ScenaRuler} from "@/pages/scena-ruler/scena-ruler";
 import {gesto} from "@/pages/scena-ruler/gesto";
 import {TablePage} from "@/pages/table/table";
+import Dropdown from "@/pages/dropdown/dropdown.vue";
+import {FlowPage} from "@/pages/flow/flow";
+import {MainPage} from "@/pages/main-page";
+import {FlowChart} from "@/pages/flow/flowchart";
 
-const routes = [
-  {path: '/', component: Home},
-  {path: '/formily', component: Formily},
+export const routes = [
+  {path: '/', component: MainPage},
+  {path: '/formily', component: Formily, title: "formily配置"},
   {path: '/emit', component: TestEmit},
   {path: '/demo', component: Demo},
   {path: '/test', component: Test},
-  {path: '/demo-slot', component: DemoSlot},
-  {path: '/monaco-editor', component: MonacoEditor},
-  {path: '/scroll', component: ScrollBar},
-  {path: '/tabs', component: Tabs},
-  {path: '/frame', component: DesignerView},
-  {path: '/hoc-render', component: HocRender},
-  {path: '/vm-update', component: VmUpdate},
-  {path: '/space', component: SpaceContainer},
-  {path: '/graph-demo', component: GraphDemo},
-  {path: '/generator-code', component: GeneratorCode},
-  {path: '/demo-proxy', component: DemoProxy},
+  {path: '/demo-slot', component: DemoSlot, title: "插槽"},
+  {path: '/monaco-editor', component: MonacoEditor, title: '代码编辑器'},
+  {path: '/scroll', component: ScrollBar, title: '滚动条'},
+  {path: '/tabs', component: Tabs, title: "tabs组件"},
+  {path: '/frame', component: DesignerView, title: "frame测试"},
+  {path: '/hoc-render', component: HocRender, title: "组件hoc"},
+  {path: '/vm-update', component: VmUpdate, title: "组件更新"},
+  {path: '/space', component: SpaceContainer, title: "space仿写"},
+  {path: '/graph-demo', component: GraphDemo, title: "graph图结构"},
+  {path: '/generator-code', component: GeneratorCode, title: "代码生成"},
+  {path: '/demo-proxy', component: DemoProxy, title: "代理"},
   {path: '/scena-ruler', component: ScenaRuler},
   {path: '/gesto', component: gesto},
-  {path: '/table-page', component: TablePage},
+  {path: '/table-page', component: TablePage, title: "表格"},
+  {path: '/dropdown', component: Dropdown, title: "下拉菜单调试"},
+  {path: '/flow-page', component: FlowPage, title: "BPMN"},
+  {path: '/flow-chart', component: FlowChart, title: "流程图"},
 ]
 export const router = createRouter({
   // 4. 内部提供了 history 模式的实现。为了简单起见，我们在这里使用 hash 模式。

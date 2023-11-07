@@ -5,7 +5,7 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "strict": false,
-    "jsx": "preserve",
+    "jsx": "react",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
@@ -25,13 +25,22 @@
     },
     "types": [
       "vite/client"
+    ],
+    "typeRoots": [
+      "components.d.ts",
+      "./node_modules/vue/types",
+      "./node_modules/@element-plus/icons-vue/dist/types"
     ]
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "src/**/*.d.ts",
+    "src/shims.d.tsd.ts",
+    "src/shims.d.ts",
+    "shims.d.ts"
   ],
   "references": [
     {
