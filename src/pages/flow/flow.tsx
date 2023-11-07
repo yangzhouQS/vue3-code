@@ -32,9 +32,9 @@ export const FlowPage = defineComponent({
     return () => {
       return <div class={'full-container flow-container'}>
         <div class="scale-slider">
-          <el-icon class={'scale-btn'}  onClick={methods.changeScale.bind(null, -1)}><Minus /></el-icon>
+          <el-icon class={'flow-scale-btn'}  onClick={methods.changeScale.bind(null, -1)}><Minus /></el-icon>
           <span  class={'text-14 select-none'}>{state.scaleVal}%</span>
-          <el-icon class={'scale-btn'}  onClick={methods.changeScale.bind(null, 1)}><Plus /></el-icon>
+          <el-icon class={'flow-scale-btn'}  onClick={methods.changeScale.bind(null, 1)}><Plus /></el-icon>
         </div>
         <FlowCanvas
           style={{ transform: `scale(${state.scaleVal / 100})` }}
