@@ -29,3 +29,26 @@
     cursor: pointer;
   }
 }
+
+.flex-center {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.flow-end-node {
+  text-align: center;
+  flex-direction: column;
+
+  &::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    margin: auto;
+    border: none;
+    margin-bottom: 12px;
+    border-radius: 50%;
+    background: #dbdcdc;
+  }
+}

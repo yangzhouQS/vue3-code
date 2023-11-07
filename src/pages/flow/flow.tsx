@@ -1,14 +1,15 @@
 import {defineComponent, ref, onMounted, reactive} from 'vue';
-import {bpmnData} from './bpmn'
-import {Graph, Cell} from '@antv/x6'
-import {registerNode} from "@/pages/flow/plugin";
 import {Plus,Minus} from "@element-plus/icons-vue"
 import "./style.less"
+import {FlowCanvas} from "@/pages/flow/flow-canvas";
+import {FlowNodeProp} from "@/pages/flow/flow-node-prop";
+import {configData} from "@/pages/flow/flow-test-data";
 
+
+// https://github.com/SNFocus/approvalFlow
 export const FlowPage = defineComponent({
   name: 'FlowPage',
   setup(props) {
-    registerNode(Graph)
     const state = reactive({
       drawerPage: false,
       step: 5,
@@ -19,7 +20,11 @@ export const FlowPage = defineComponent({
     // methods
     const methods = {
       changeScale: (step) => {
-        //
+        let v = state.scaleVal + step * state.step;
+        if (v > 10 && v <= 200) {
+          // 缩放介于0%~200%
+          state.scaleVal = v;
+        }
       },
     };
     onMounted(() => {
@@ -31,17 +36,11 @@ export const FlowPage = defineComponent({
           <span  class={'text-14 select-none'}>{state.scaleVal}%</span>
           <el-icon class={'scale-btn'}  onClick={methods.changeScale.bind(null, 1)}><Plus /></el-icon>
         </div>
-        <div class={'drawer-page'}>
-          <el-drawer
-            v-model={state.drawerPage}
-            title="I am the title"
-          >
-            <span>Hi, there!</span>
-          </el-drawer>
-        </div>
-        <div id="container">
-
-        </div>
+        <FlowCanvas
+          style={{ transform: `scale(${state.scaleVal / 100})` }}
+          data={configData.processData}
+        />
+        <FlowNodeProp v-model={state.drawerPage}/>
       </div>;
     };
   }

@@ -21,7 +21,6 @@ import {TablePage} from "@/pages/table/table";
 import Dropdown from "@/pages/dropdown/dropdown.vue";
 import {FlowPage} from "@/pages/flow/flow";
 import {MainPage} from "@/pages/main-page";
-import {FlowChart} from "@/pages/flow/flowchart";
 
 export const routes = [
   {path: '/', component: MainPage},
@@ -45,7 +44,6 @@ export const routes = [
   {path: '/table-page', component: TablePage, title: "表格"},
   {path: '/dropdown', component: Dropdown, title: "下拉菜单调试"},
   {path: '/flow-page', component: FlowPage, title: "BPMN"},
-  {path: '/flow-chart', component: FlowChart, title: "流程图"},
 ]
 export const router = createRouter({
   // 4. 内部提供了 history 模式的实现。为了简单起见，我们在这里使用 hash 模式。
