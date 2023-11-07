@@ -1,42 +1,44 @@
-import { defineComponent, ref, onMounted } from 'vue';
+import {defineComponent, ref, onMounted, reactive} from 'vue';
 import {bpmnData} from './bpmn'
-import { Graph, Cell } from '@antv/x6'
+import {Graph, Cell} from '@antv/x6'
 import {registerNode} from "@/pages/flow/plugin";
+import {Plus,Minus} from "@element-plus/icons-vue"
+import "./style.less"
 
 export const FlowPage = defineComponent({
   name: 'FlowPage',
   setup(props) {
     registerNode(Graph)
+    const state = reactive({
+      drawerPage: false,
+      step: 5,
+      scaleVal: 100
+    })
     // data
     const data = ref<any>({});
     // methods
     const methods = {
-      loadData: () => {
+      changeScale: (step) => {
         //
       },
     };
     onMounted(() => {
-      const graph = new Graph({
-        container: document.getElementById('container')!,
-        connecting: {
-          router: 'orth',
-        },
-      })
-
-      const cells: Cell[] = []
-      bpmnData.forEach((item: any) => {
-        if (item.shape === 'bpmn-edge') {
-          cells.push(graph.createEdge(item))
-        } else {
-          cells.push(graph.createNode(item))
-        }
-      })
-      graph.resetCells(cells)
-      graph.zoomToFit({ padding: 10, maxScale: 1 })
     })
     return () => {
-      return <div class={'full-container'}>FlowPage
-
+      return <div class={'full-container flow-container'}>
+        <div class="scale-slider">
+          <el-icon class={'scale-btn'}  onClick={methods.changeScale.bind(null, -1)}><Minus /></el-icon>
+          <span  class={'text-14 select-none'}>{state.scaleVal}%</span>
+          <el-icon class={'scale-btn'}  onClick={methods.changeScale.bind(null, 1)}><Plus /></el-icon>
+        </div>
+        <div class={'drawer-page'}>
+          <el-drawer
+            v-model={state.drawerPage}
+            title="I am the title"
+          >
+            <span>Hi, there!</span>
+          </el-drawer>
+        </div>
         <div id="container">
 
         </div>
