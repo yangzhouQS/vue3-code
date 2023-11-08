@@ -2,7 +2,7 @@ import {defineComponent, ref, reactive} from 'vue';
 import {IPublicFlowConfig, NodeFactoryParams} from "./types";
 import {hasBranch, isCondition, NodeUtils} from "./utils/flow-util";
 import {isFunction} from "lodash";
-import {Plus, ArrowRight} from '@element-plus/icons-vue'
+import {Plus, ArrowRight, Close} from '@element-plus/icons-vue'
 import {IconChaoSong, IconCondition, IconShenPi} from "./component/icon";
 import {flowEvent} from "@/pages/flow/flow";
 
@@ -78,8 +78,13 @@ function createNormalCard(conf: IPublicFlowConfig) {
             flowEvent.emit('edit', conf)
         }}
     >
-        <div class="flow-path-header">
-            <div class={'flow-path-title-box'} style={{width: '190px'}}>
+        <div class="flow-path-header px-2">
+            <div
+                class={'flow-path-title-box relative'}
+                onClick={() => {
+
+                }}
+            >
                 {
                     isApprNode && (<IconShenPi/>)
                 }
@@ -88,6 +93,19 @@ function createNormalCard(conf: IPublicFlowConfig) {
                 }
                 <div class="flow-path-title-text">
                     {conf.properties.title}
+                </div>
+                <input
+                    class={'flow-path-title-input'}
+                    v-model={conf.properties.title}
+                    onClick={ev => ev.stopPropagation()}
+                />
+                <div
+                    class={'flow-path-action absolute cursor-pointer'}
+                    onClick={() => {
+                        flowEvent.emit('deleteNode', conf, '')
+                    }}
+                >
+                    <el-icon><Close/></el-icon>
                 </div>
             </div>
         </div>
@@ -128,6 +146,8 @@ function NodeFactory({data, verifyMode}: NodeFactoryParams) {
 
     let resultRender = []
     let branchNode = null
+
+    /*普通节点渲染*/
     let selfNode = (<div class={'flow-node-wrap'}>
         <div class={'flow-node-wrap-box flex-center'}>
             <el-tooltip content="未设置条件" placement="top" effect="dark">
@@ -138,6 +158,7 @@ function NodeFactory({data, verifyMode}: NodeFactoryParams) {
         </div>
     </div>)
 
+    /*分支结构渲染*/
     if (hasBranch(data.conditionNodes)) {
         branchNode = (
             <div class="branch-wrap">
@@ -156,6 +177,7 @@ function NodeFactory({data, verifyMode}: NodeFactoryParams) {
         )
     }
 
+    /*判断条件渲染*/
     if (isCondition(data)) {
         <div class="col-box">
             <div class="center-line"></div>
