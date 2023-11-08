@@ -311,6 +311,40 @@
     border-color: @lineColor transparent transparent;
     background: @bgColor;
   }
+
+  .flow-error{
+    &.condition .error-tip{
+      right: 0;
+    }
+    .error-tip {
+      right: -40px;
+    }
+
+    .flow-path-card {
+      border: 1px solid #f00;
+      &:hover{
+        border-width: 0;
+      }
+    }
+  }
+
+  .flow-error-tip{
+    position: absolute;
+    right: 0;
+    top: 15%;
+    width: 30px;
+    height: 30px;
+    color: #f00;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 1px solid;
+    line-height: 30px;
+    transition: right .5s;
+  }
+
+  &.condition .error-tip {
+    right: 60px;
+  }
 }
 
 /*分支结构*/

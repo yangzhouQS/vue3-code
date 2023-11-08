@@ -107,7 +107,6 @@ function createNormalCard(conf: IPublicFlowConfig) {
       </span>
     </div>
   </div>
-
 }
 
 const createFunc = (...arg) => createNormalCard.call(arg[0], ...arg)
@@ -157,23 +156,21 @@ const nodeTypeRender = {
  * @param verifyMode
  * @constructor
  */
-function NodeFactory({data, verifyMode}: NodeFactoryParams) {
+function NodeFactory({data, verifyMode}: NodeFactoryParams): Array<any> {
   if (!data) {
     return;
   }
-  const eventLancher = (type, rowData) => {
-    console.log(type, rowData);
-  }
+  const showErrorTip = verifyMode && NodeUtils.checkNode(data) === false
 
   let resultRender = []
   let branchNode = null
 
   /*普通节点渲染*/
   let selfNode = (<div class={'flow-node-wrap'}>
-    <div class={['flow-node-wrap-box flex-center', data.type]}>
-      {/*<el-tooltip content="未设置条件" placement="top" effect="dark">
-        <div class="flow-error-tip" onClick={eventLancher.bind(null, "edit", data)}>!!!</div>
-      </el-tooltip>*/}
+    <div class={['flow-node-wrap-box flex-center', data.type, showErrorTip ? 'flow-error' : '']}>
+      {<el-tooltip content="未设置条件" placement="top" effect="dark">
+        <div class="flow-error-tip" onClick={flowEvent.emit("edit", data)}>!!!</div>
+      </el-tooltip>}
       {nodeTypeRender[data.type](data)}
       {addNodeButton(data)}
     </div>
@@ -193,7 +190,13 @@ function NodeFactory({data, verifyMode}: NodeFactoryParams) {
           >
             添加条件
           </el-button>
-          {data.conditionNodes.map(d => NodeFactory({data: d, verifyMode}))}
+          {data.conditionNodes.map(d => NodeFactory({data: d, verifyMode}).filter(Boolean).map(fn => {
+            if (isFunction(fn)) {
+              return fn()
+            } else {
+              return fn
+            }
+          }))}
         </div>
       </div>
       {addNodeButton(data, true)}
@@ -203,18 +206,30 @@ function NodeFactory({data, verifyMode}: NodeFactoryParams) {
 
   /*判断条件渲染*/
   if (isCondition(data)) {
-    return (<div class="flow-col-box">
+    return [(<div class="flow-col-box">
       <div class="flow-center-line"></div>
       <div class="flow-top-cover-line"></div>
       <div class="flow-bottom-cover-line"></div>
       {selfNode}
       {branchNode}
-      {NodeFactory({data: data.childNode, verifyMode})}
-    </div>)
+      {NodeFactory({data: data.childNode, verifyMode}).filter(Boolean).map(fn => {
+        if (isFunction(fn)) {
+          return fn()
+        } else {
+          return fn
+        }
+      })}
+    </div>)]
   }
 
   if (data.childNode) {
-    resultRender.push(NodeFactory.bind(null, data.childNode, verifyMode))
+    resultRender.push(NodeFactory({data: data.childNode, verifyMode}).filter(Boolean).map(fn => {
+      if (isFunction(fn)) {
+        return fn()
+      } else {
+        return fn
+      }
+    }))
   }
   return resultRender
 }
@@ -243,7 +258,7 @@ export const FlowCanvas = defineComponent({
       },
     };
     return () => {
-      return (<div class={'full-container d-inline-flex align-center flex-column overflow-y-hidden'}>
+      return (<div class={'full-container d-inline-flex align-center flex-column overflow-auto'}>
         {NodeFactory({data: props.data, verifyMode: props.verifyMode}).filter(Boolean).map(fn => {
           if (isFunction(fn)) {
             return fn()
