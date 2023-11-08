@@ -7,11 +7,8 @@ export const IconChaoSong = defineComponent({
     return () => {
       return (
         <SvgIcon viewBox="0 0 1024 1024" size={'xlarge'}>
-            <path
-              d="M64 448L896 128l-128 704-446.037333-242.986667L832 192 242.986667 544.981333 64 448z m256 512v-303.018667L512 768l-192 192z"
-              p-id="25346"
-              fill="currentColor"
-            ></path>
+          <path
+            d="M797.5 760.3L458.3 655.9l339.2-391.4-443.6 391.4L93 551.5l835-443.6-130.5 652.4zM458.3 916.9V734.2l104.4 52.2-104.4 130.5z m0 0"></path>
         </SvgIcon>
       );
     };

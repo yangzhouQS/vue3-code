@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/a/font_3915679_3lvy1ivofy8.css">
+    <style>
+        .svg-item{
+            width: 200px;
+            height: 100px;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            .item-title{
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<span class="iconfont"></span>
+<script src="//at.alicdn.com/t/font_1286300_o08mliv00mk.js"
+        data-namespace="//at.alicdn.com/t/font_1286300_o08mliv00mk.js"></script>
+<script src="//at.alicdn.com/t/font_1286300_vnt9bzrx7g.js"
+        data-namespace="//at.alicdn.com/t/font_1286300_vnt9bzrx7g.js"></script>
+<script src="//at.alicdn.com/t/font_1591773_1vjn0q25lsy.js"
+        data-namespace="//at.alicdn.com/t/font_1591773_1vjn0q25lsy.js"></script>
+<script src="//at.alicdn.com/t/font_1286300_4yehteoa6q8.js"
+        data-namespace="//at.alicdn.com/t/font_1286300_4yehteoa6q8.js"></script>
+<div id="container" style="width: 100%;overflow: auto"></div>
+<script>
+  const ns = 'http://www.w3.org/2000/svg'; // 元素命名空间
+  const childNS = 'http://www.w3.org/1999/xlink'; // xlink命名空间
+
+  window.onload = function () {
+    const container = document.querySelector('#container')
+    const fr = document.createDocumentFragment()
+    const svgList = document.querySelectorAll('svg')
+    let ids = []
+    Array.from(svgList).forEach(svgNode => {
+      console.log(svgNode);
+      if (svgNode && svgNode.children) {
+        Array.from(svgNode.children).forEach(item => {
+          const svgDom = document.createElementNS(ns,'svg')
+          svgDom.setAttribute('width', 30)
+          svgDom.setAttribute('height', 30)
+          // 创建use子对象
+          const child = document.createElementNS(ns, 'use');
+          // 设置xlink:href属性，注意用 setAttributeNS
+          child.setAttributeNS(childNS, 'xlink:href', '#' + item.id);
+
+          svgDom.appendChild(child)
+
+          const divDom = document.createElement('div')
+          const titleDom = document.createElement('span')
+          divDom.setAttribute('class','svg-item')
+          titleDom.setAttribute('class','item-title')
+          divDom.appendChild(svgDom)
+          divDom.appendChild(titleDom)
+          titleDom.textContent = `#${item.id}`
+          fr.appendChild(divDom)
+        })
+      }
+    })
+    container.appendChild(fr)
+  }
+</script>
+</body>
+</html>

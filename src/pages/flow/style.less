@@ -83,7 +83,7 @@
   position: relative;
   margin: auto;
 
-  &::before{
+  &::before {
     content: '';
     position: absolute;
     top: 0;
@@ -152,11 +152,34 @@
 
   &:hover {
     box-shadow: 0 0 0 2px @primaryColor, 0 0 5px 4px @infoColor;
+
+    .flow-path-action {
+      display: block;
+    }
   }
 
   &.start-node {
     .flow-path-header {
       background: @darkColor;
+    }
+
+    &:hover{
+      box-shadow: 0 0 0 2px #576a95, 0 0 5px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &.copy{
+    .header{
+      background-color: @primaryColor;
+    }
+  }
+
+  &.approver{
+    &:hover{
+      box-shadow: 0 0 0 2px #ff9431, 0 0 5px 4px @orangeColor;
+    }
+    .flow-path-header{
+      background-color: @orangeColor;
     }
   }
 
@@ -168,20 +191,23 @@
     position: relative;
     box-sizing: border-box;
 
-    .flow-path-title-box{
-      .flow-path-action{
+    .flow-path-title-box {
+      > svg{
+        color: #FFFFFF;
+        width: 14px;
+        height: 14px;
+      }
+      .flow-path-action {
         right: 2px;
         top: 1px;
         display: none;
       }
 
-      &:hover{
-        .flow-path-action{
-          display: block;
-        }
+      &:hover {
+
       }
 
-      .flow-path-title-input{
+      .flow-path-title-input {
         position: absolute;
         left: 0;
         top: 0;
@@ -210,10 +236,10 @@
   }
 
   .flow-path-body {
-   /* position: relative;
-    padding: 12px;
-    padding-right: 30px;
-    box-sizing: border-box;*/
+    /* position: relative;
+     padding: 12px;
+     padding-right: 30px;
+     box-sizing: border-box;*/
   }
 }
 
@@ -242,5 +268,49 @@
     border-width: 8px 6px 4px;
     border-color: @lineColor transparent transparent;
     background: @bgColor;
+  }
+}
+
+/*分支结构*/
+.flow-branch-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+
+  .flow-branch-box-wrap {
+
+  }
+
+  .flow-branch-box {
+    align-items: stretch;
+    border-bottom: 2px solid @lineColor;
+    border-top: 2px solid @lineColor;
+    box-sizing: border-box;
+    background: @bgColor;
+
+    /*添加条件按钮*/
+    .flow-branch-btn {
+      z-index: 99;
+      cursor: pointer;
+      top: 0;
+      transform: translateY(-50%);
+      padding: 6px 10px;
+      border: none;
+      border-radius: 15px;
+      background: white;
+      box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.2);
+      transition: transform .3s;
+
+      &:hover {
+        transform: scale(1.1) translateY(-50%)
+      }
+    }
+
+    .flow-col-box{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
   }
 }

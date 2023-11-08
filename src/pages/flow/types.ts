@@ -37,6 +37,6 @@ export interface IPublicFlowConfig {
 
 
 export interface NodeFactoryParams {
-  data: IPublicFlowConfig
-  verifyMode: boolean
+  data: IPublicFlowConfig // 配置数据
+  verifyMode: boolean // 是否校验
 }
