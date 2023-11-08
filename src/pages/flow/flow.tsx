@@ -31,7 +31,7 @@ export const FlowPage = defineComponent({
     })
     return () => {
       return <div class={'full-container flow-container'}>
-        <div class="scale-slider">
+        <div class="flow-scale-slider">
           <el-icon class={'flow-scale-btn'}  onClick={methods.changeScale.bind(null, -1)}><Minus /></el-icon>
           <span  class={'text-14 select-none'}>{state.scaleVal}%</span>
           <el-icon class={'flow-scale-btn'}  onClick={methods.changeScale.bind(null, 1)}><Plus /></el-icon>

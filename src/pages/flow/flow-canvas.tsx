@@ -1,6 +1,8 @@
 import {defineComponent, ref, reactive} from 'vue';
-import {IPublicFlowConfig} from "@/pages/flow/types";
+import {IPublicFlowConfig, NodeFactoryParams} from "@/pages/flow/types";
 import {hasBranch, isCondition} from "@/pages/flow/flow-util";
+import {isFunction} from "lodash";
+import {Plus} from '@element-plus/icons-vue'
 
 
 /**
@@ -10,10 +12,29 @@ function addEndNode() {
   return <section class="flow-end-node flex-center">流程结束</section>;
 }
 
-interface NodeFactoryParams {
-  data: IPublicFlowConfig
-  verifyMode: boolean
+function addNodeButton(data: IPublicFlowConfig, isBranch = false) {
+  // 只有非条件节点和条件分支树下面的那个按钮 才能添加新分支树
+  let couldAddBranch = !hasBranch(data.conditionNodes) || isBranch;
+  let isEmpty = data.type === "empty";
+  if (isEmpty && !isBranch) {
+    return "";
+  }
+  return <div class={'flow-node-add-btn'}>
+    <el-popover placement={'right'} trigger={'click'} width={400}>
+      {{
+        reference: () => {
+          return <div class={'flow-plus-icon flex-center cursor-pointer'}>
+            <el-icon><Plus/></el-icon>
+          </div>
+        },
+        default: () => {
+          return <el-icon><Plus/></el-icon>
+        }
+      }}
+    </el-popover>
+  </div>
 }
+
 
 /**
  * 节点分叉渲染
@@ -28,13 +49,15 @@ function NodeFactory({data, verifyMode}: NodeFactoryParams) {
   const eventLancher = (type, rowData) => {
     console.log(type, rowData);
   }
+
   let resultRender = []
   let branchNode = null
-  let selfNode = (<div class={'node-wrap'}>
-    <div class={'node-wrap-box'}>
+  let selfNode = (<div class={'flow-node-wrap'}>
+    <div class={'flow-node-wrap-box flex-center'}>
       <el-tooltip content="未设置条件" placement="top" effect="dark">
-        <div class="error-tip" onClick={eventLancher.bind(null, "edit", data)}>!!!</div>
+        <div class="flow-error-tip" onClick={eventLancher.bind(null, "edit", data)}>!!!</div>
       </el-tooltip>
+      {addNodeButton(data)}
     </div>
   </div>)
 
@@ -72,6 +95,9 @@ function NodeFactory({data, verifyMode}: NodeFactoryParams) {
   if (data.childNode) {
     resultRender.push(NodeFactory.bind(null, data.childNode, verifyMode))
   }
+  resultRender.push(function () {
+    return (<div>hello</div>)
+  })
   return resultRender
 }
 
@@ -100,7 +126,13 @@ export const FlowCanvas = defineComponent({
     };
     return () => {
       return (<div class={'full-container d-inline-flex align-center flex-column overflow-y-hidden'}>
-        {NodeFactory({data: props.data, verifyMode: props.verifyMode})}
+        {NodeFactory({data: props.data, verifyMode: props.verifyMode}).filter(Boolean).map(fn => {
+          if (isFunction(fn)) {
+            return fn()
+          } else {
+            return fn
+          }
+        })}
         {addEndNode()}
       </div>)
     };

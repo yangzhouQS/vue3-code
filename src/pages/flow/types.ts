@@ -31,6 +31,12 @@ export interface IPublicFlowConfig {
   properties: INodePropertiesType;
   nodeId: string;
   prevId: string;
-  childNode: FlowConfigTypes;
-  conditionNodes: Record<string, any>
+  childNode: IPublicFlowConfig;
+  conditionNodes: any[]
+}
+
+
+export interface NodeFactoryParams {
+  data: IPublicFlowConfig
+  verifyMode: boolean
 }
