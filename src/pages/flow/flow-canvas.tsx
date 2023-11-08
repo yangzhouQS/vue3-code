@@ -79,18 +79,9 @@ function createNormalCard(conf: IPublicFlowConfig) {
     }}
   >
     <div class="flow-path-header px-2">
-      <div
-        class={'flow-path-title-box relative d-flex align-center'}
-        onClick={() => {
-
-        }}
-      >
-        {
-          isApprNode && (<IconShenPi/>)
-        }
-        {
-          isCopyNode && (<IconChaoSong/>)
-        }
+      <div class={'flow-path-title-box relative d-flex align-center'}>
+        {isApprNode && (<IconShenPi/>)}
+        {isCopyNode && (<IconChaoSong/>)}
         <div class="flow-path-title-text pl-2">
           {conf.properties.title}
         </div>
@@ -105,7 +96,7 @@ function createNormalCard(conf: IPublicFlowConfig) {
             flowEvent.emit('deleteNode', conf, '')
           }}
         >
-          <el-icon><Close/></el-icon>
+          <el-icon size={16}><Close/></el-icon>
         </div>
       </div>
     </div>
@@ -126,7 +117,37 @@ const nodeTypeRender = {
   copy: createFunc, // 抄送节点
   empty: _ => '', // 空节点
   condition: (conf) => {
-    return <div>xxs</div>
+    return <div
+      class={'flow-path-container condition d-flex flex-column'}
+      onClick={() => flowEvent.emit('edit', conf)}
+    >
+      <div class={'flow-path-header'}>
+        <div class={'flow-path-title-box relative d-flex align-center'}>
+          <div class="flow-path-title-text pl-2">
+            {conf.properties.title}
+          </div>
+          <input
+            class={'flow-path-title-input'}
+            v-model={conf.properties.title}
+            onClick={ev => ev.stopPropagation()}
+          />
+          <div
+            class={'flow-path-action absolute cursor-pointer'}
+            onClick={() => {
+              flowEvent.emit('deleteNode', conf, '')
+            }}
+          >
+            <el-icon size={16}><Close/></el-icon>
+          </div>
+        </div>
+      </div>
+      <div class={'flow-path-body flex-1 w-full d-flex justify-space-between pa-1 align-center'}>
+        <span>{conf.content}</span>
+        <span>
+         <el-icon><ArrowRight/></el-icon>
+      </span>
+      </div>
+    </div>
   }
 }
 

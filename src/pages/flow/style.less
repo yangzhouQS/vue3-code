@@ -150,11 +150,36 @@
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.3);
   background: #FFF;
 
-  &:hover {
-    box-shadow: 0 0 0 2px @primaryColor, 0 0 5px 4px @infoColor;
+  &:after {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    transition: all 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  }
 
-    .flow-path-action {
-      display: block;
+  &:hover {
+    &:after {
+      border: 1px solid @primaryColor;
+      box-shadow: 0 0 6px 0 rgba(50, 150, 250, 0.3);
+    }
+
+    .flow-path-header .flow-path-title-box {
+      .flow-path-action {
+        display: block;
+      }
+    }
+
+    .flow-path-title-text {
+      text-decoration-line: underline;
+      text-decoration-style: dashed;
     }
   }
 
@@ -163,22 +188,24 @@
       background: @darkColor;
     }
 
-    &:hover{
+    &:hover {
       box-shadow: 0 0 0 2px #576a95, 0 0 5px 4px rgba(0, 0, 0, 0.2);
     }
   }
 
-  &.copy{
-    .header{
+  &.copy {
+    .header {
       background-color: @primaryColor;
     }
   }
 
-  &.approver{
-    &:hover{
-      box-shadow: 0 0 0 2px #ff9431, 0 0 5px 4px @orangeColor;
+  &.approver {
+    &:hover {
+      /*box-shadow: 0 0 0 2px #ff9431, 0 0 5px 4px @orangeColor;*/
+      box-shadow: 0 0 6px 0 rgba(50, 150, 250, 0.3);
     }
-    .flow-path-header{
+
+    .flow-path-header {
       background-color: @orangeColor;
     }
   }
@@ -192,14 +219,15 @@
     box-sizing: border-box;
 
     .flow-path-title-box {
-      > svg{
+      > svg {
         color: #FFFFFF;
         width: 14px;
         height: 14px;
       }
+
       .flow-path-action {
-        right: 2px;
-        top: 1px;
+        right: 3px;
+        top: 3px;
         display: none;
       }
 
@@ -240,6 +268,16 @@
      padding: 12px;
      padding-right: 30px;
      box-sizing: border-box;*/
+  }
+}
+
+.flow-path-container.condition{
+  .flow-path-title-text{
+    color: @successColor;
+  }
+
+  .flow-path-action{
+    color: #0f1726;
   }
 }
 
@@ -289,6 +327,7 @@
     background: @bgColor;
 
     /*添加条件按钮*/
+
     .flow-branch-btn {
       z-index: 99;
       cursor: pointer;
@@ -306,7 +345,7 @@
       }
     }
 
-    .flow-col-box{
+    .flow-col-box {
       display: flex;
       flex-direction: column;
       align-items: center;
