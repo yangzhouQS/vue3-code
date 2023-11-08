@@ -2,7 +2,7 @@ import {defineComponent, ref, reactive} from 'vue';
 import {IPublicFlowConfig, NodeFactoryParams} from "./types";
 import {hasBranch, isCondition, NodeUtils} from "./utils/flow-util";
 import {isFunction} from "lodash";
-import {Plus} from '@element-plus/icons-vue'
+import {Plus, ArrowRight} from '@element-plus/icons-vue'
 import {IconChaoSong, IconCondition, IconShenPi} from "./component/icon";
 import {flowEvent} from "@/pages/flow/flow";
 
@@ -27,7 +27,7 @@ function addNodeButton(data: IPublicFlowConfig, isBranch = false) {
     if (isEmpty && !isBranch) {
         return "";
     }
-    return <div class={'flow-node-add-btn'}>
+    return <div class={'flow-node-add-btn flex-center'}>
         <el-popover placement={'right'} trigger={'click'} width={300}>
             {{
                 reference: () => {
@@ -67,7 +67,7 @@ function addNodeButton(data: IPublicFlowConfig, isBranch = false) {
  * 渲染节点
  */
 function createNormalCard(conf: IPublicFlowConfig) {
-    const classList = ['flow-path-container']
+    const classList = ['flow-path-container', 'd-flex flex-column']
     const afterTrue = (isTrue, name) => (isTrue && classList.push(name), isTrue)
     const isStartNode = afterTrue(NodeUtils.isStartNode(conf), 'start-node')
     const isApprNode = afterTrue(NodeUtils.isApproverNode(conf), 'approver')
@@ -79,7 +79,7 @@ function createNormalCard(conf: IPublicFlowConfig) {
         }}
     >
         <div class="flow-path-header">
-            <div class={'flow-path-title-box'} style={{width:'190px'}}>
+            <div class={'flow-path-title-box'} style={{width: '190px'}}>
                 {
                     isApprNode && (<IconShenPi/>)
                 }
@@ -91,8 +91,11 @@ function createNormalCard(conf: IPublicFlowConfig) {
                 </div>
             </div>
         </div>
-        <div class="flow-path-body">
-            <span class="text">{conf.content}</span>
+        <div class="flex-1 flow-path-body w-full d-flex justify-space-between pa-1 align-center">
+            <span>{conf.content}</span>
+            <span>
+                <el-icon><ArrowRight/></el-icon>
+            </span>
         </div>
     </div>
 

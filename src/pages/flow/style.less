@@ -4,6 +4,9 @@
 @orangeColor: #ff943e;
 @primaryColor: var(--el-color-primary);
 @successColor: var(--el-color-success);
+@darkColor: #576a95;
+@infoColor: var(--el-color-info-light-7);
+
 
 .flow-orange-color {
   color: @orangeColor;
@@ -75,6 +78,25 @@
 
 /*添加节点按钮*/
 .flow-node-add-btn {
+  width: 220px;
+  height: 100px;
+  position: relative;
+  margin: auto;
+
+  &::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    margin: auto;
+    width: 2px;
+    height: 100%;
+    background-color: @lineColor;
+  }
+
   .flow-plus-icon {
     width: 32px;
     height: 32px;
@@ -128,6 +150,16 @@
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.3);
   background: #FFF;
 
+  &:hover {
+    box-shadow: 0 0 0 2px @primaryColor, 0 0 5px 4px @infoColor;
+  }
+
+  &.start-node {
+    .flow-path-header {
+      background: @darkColor;
+    }
+  }
+
   .flow-path-header {
     padding-left: 16px;
     padding-right: 30px;
@@ -140,10 +172,10 @@
   }
 
   .flow-path-body {
-    position: relative;
+   /* position: relative;
     padding: 12px;
     padding-right: 30px;
-    box-sizing: border-box;
+    box-sizing: border-box;*/
   }
 }
 
