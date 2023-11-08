@@ -100,7 +100,7 @@ function createNormalCard(conf: IPublicFlowConfig) {
         </div>
       </div>
     </div>
-    <div class="flex-1 flow-path-body w-full d-flex justify-space-between pa-1 align-center">
+    <div class="flex-1 flow-path-body w-full d-flex justify-space-between pa-2 align-center">
       <span>{conf.content}</span>
       <span>
          <el-icon><ArrowRight/></el-icon>
@@ -141,7 +141,7 @@ const nodeTypeRender = {
           </div>
         </div>
       </div>
-      <div class={'flow-path-body flex-1 w-full d-flex justify-space-between pa-1 align-center'}>
+      <div class={'flow-path-body flex-1 w-full d-flex justify-space-between pa-2 align-center'}>
         <span>{conf.content}</span>
         <span>
          <el-icon><ArrowRight/></el-icon>
@@ -171,9 +171,9 @@ function NodeFactory({data, verifyMode}: NodeFactoryParams) {
   /*普通节点渲染*/
   let selfNode = (<div class={'flow-node-wrap'}>
     <div class={'flow-node-wrap-box flex-center'}>
-      <el-tooltip content="未设置条件" placement="top" effect="dark">
+      {/*<el-tooltip content="未设置条件" placement="top" effect="dark">
         <div class="flow-error-tip" onClick={eventLancher.bind(null, "edit", data)}>!!!</div>
-      </el-tooltip>
+      </el-tooltip>*/}
       {nodeTypeRender[data.type](data)}
       {addNodeButton(data)}
     </div>
@@ -216,9 +216,6 @@ function NodeFactory({data, verifyMode}: NodeFactoryParams) {
   if (data.childNode) {
     resultRender.push(NodeFactory.bind(null, data.childNode, verifyMode))
   }
-  resultRender.push(function () {
-    return (<div>hello 测试渲染</div>)
-  })
   return resultRender
 }
 

@@ -7,6 +7,9 @@
 @darkColor: #576a95;
 @infoColor: var(--el-color-info-light-7);
 
+*::before, *::after {
+  box-sizing: border-box;
+}
 
 .flow-orange-color {
   color: @orangeColor;
@@ -90,7 +93,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: -1;
+    z-index: 0;
     margin: auto;
     width: 2px;
     height: 100%;
@@ -105,6 +108,7 @@
     border-color: transparent;
     transition: transform 0.5s;
     color: #FFFFFF;
+    z-index: 1;
 
     &:hover {
       transform: scale(1.2);
@@ -271,12 +275,12 @@
   }
 }
 
-.flow-path-container.condition{
-  .flow-path-title-text{
+.flow-path-container.condition {
+  .flow-path-title-text {
     color: @successColor;
   }
 
-  .flow-path-action{
+  .flow-path-action {
     color: #0f1726;
   }
 }
