@@ -170,7 +170,7 @@ function NodeFactory({data, verifyMode}: NodeFactoryParams) {
 
   /*普通节点渲染*/
   let selfNode = (<div class={'flow-node-wrap'}>
-    <div class={'flow-node-wrap-box flex-center'}>
+    <div class={['flow-node-wrap-box flex-center', data.type]}>
       {/*<el-tooltip content="未设置条件" placement="top" effect="dark">
         <div class="flow-error-tip" onClick={eventLancher.bind(null, "edit", data)}>!!!</div>
       </el-tooltip>*/}
