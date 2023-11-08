@@ -1,6 +1,22 @@
 @bgColor: #f5f5f7;
 @lineColor: #CACACA;
 @baseSize: 12px;
+@orangeColor: #ff943e;
+@primaryColor: var(--el-color-primary);
+@successColor: var(--el-color-success);
+
+.flow-orange-color {
+  color: @orangeColor;
+}
+
+.flow-primary-color {
+  color: @primaryColor;
+}
+
+.flow-success-color {
+  color: @successColor;
+}
+
 
 .flow-container {
   display: inline-block;
@@ -58,10 +74,8 @@
 }
 
 /*添加节点按钮*/
-.flow-node-add-btn{
-
-
-  .flow-plus-icon{
+.flow-node-add-btn {
+  .flow-plus-icon {
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -70,22 +84,81 @@
     transition: transform 0.5s;
     color: #FFFFFF;
 
-    &:hover{
+    &:hover {
       transform: scale(1.2);
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,.1);
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .1);
     }
   }
 }
 
-.flow-node-wrap-box{
+/*添加节点按钮 内置步骤按钮*/
+.flow-node-add-container {
+  text-align: center;
+
+  .flow-node-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid var(--el-border-color);
+    margin-bottom: 8px;
+    transition: transform 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--el-color-primary);
+      border-color: transparent;
+      color: #FFFFFF;
+    }
+  }
+}
+
+/*单个节点渲染*/
+.flow-path-container {
+  width: 220px;
+  min-height: 82px;
+  border-radius: 4px;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.3);
+  background: #FFF;
+
+  .flow-path-header {
+    padding-left: 16px;
+    padding-right: 30px;
+    width: 100%;
+    height: 24px;
+    line-height: 24px;
+    color: white;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  .flow-path-body {
+    position: relative;
+    padding: 12px;
+    padding-right: 30px;
+    box-sizing: border-box;
+  }
+}
+
+.flow-node-wrap-box {
   position: relative;
   flex-direction: column;
-  &.condition{
+
+  &.condition {
     padding: 30px 50px 0
   }
-  &.empty{
+
+  &.empty {
     overflow: hidden;
   }
+
   &.approver::before {
     content: '';
     position: absolute;
@@ -101,16 +174,18 @@
   }
 
   &.error {
-    &.condition .error-tip{
+    &.condition .error-tip {
       right: 0;
     }
+
     .error-tip {
       right: -40px;
     }
 
     .flow-path-card {
       border: 1px solid #f00;
-      &:hover{
+
+      &:hover {
         border-width: 0;
       }
     }

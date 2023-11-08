@@ -1,10 +1,11 @@
 import {defineComponent, ref, onMounted, reactive} from 'vue';
 import {Plus,Minus} from "@element-plus/icons-vue"
 import "./style.less"
-import {FlowCanvas} from "@/pages/flow/flow-canvas";
-import {FlowNodeProp} from "@/pages/flow/flow-node-prop";
-import {configData} from "@/pages/flow/flow-test-data";
-
+import {FlowCanvas} from "./flow-canvas";
+import {FlowNodeProp} from "./flow-node-prop";
+import {configData} from "./flow-test-data";
+import {createModuleEventBus} from "./utils/event-bus";
+export const flowEvent = createModuleEventBus('flow')
 
 // https://github.com/SNFocus/approvalFlow
 export const FlowPage = defineComponent({
