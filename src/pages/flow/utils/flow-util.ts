@@ -77,6 +77,11 @@ export class NodeUtils {
    * @returns { Object } 父节点
    */
   static getPreviousNode(prevId, processData) {
+    if (!prevId || !processData) {
+      return {
+        conditionNodes: []
+      }
+    }
     if (processData.nodeId === prevId) return processData
     if (processData.childNode) {
       let r1 = this.getPreviousNode(prevId, processData.childNode)

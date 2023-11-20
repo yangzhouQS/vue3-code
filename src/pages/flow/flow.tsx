@@ -15,7 +15,7 @@ export const FlowPage = defineComponent({
       step: 5,
       scaleVal: 100,
 
-      activeData: null // 当前操作数据
+      activeData: {} // 当前操作数据
     })
     // data
     const data = ref<any>({});
@@ -62,7 +62,7 @@ export const FlowPage = defineComponent({
         <FlowNodeProp
           v-model:drawerPage={state.drawerPage}
           activeConfig={state.activeData}
-          processData={{}}
+          processData={configData.processData}
           onConfirm={methods.onConfirm}
           onCancel={methods.onCloseDrawer}
         />

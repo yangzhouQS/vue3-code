@@ -3,6 +3,7 @@ import {cloneDeep} from 'lodash'
 import {EditPen} from '@element-plus/icons-vue';
 import {ClickOutside} from 'element-plus'
 import {NodeUtils} from "@/pages/flow/utils/flow-util";
+import {useFlowNodePropHooks} from "@/pages/flow/node-hook/flow-node-prop-hooks";
 
 
 interface IPropStateType {
@@ -35,7 +36,10 @@ export const FlowNodeProp = defineComponent({
     /**
      * 当前节点数据
      */
-    activeConfig: Object,
+    activeConfig: {
+      type: Object,
+      default: () => ({})
+    },
     /**
      *  整个节点数据
      */
@@ -49,6 +53,7 @@ export const FlowNodeProp = defineComponent({
       isTitleInput: false,
       priorityLength: 0
     })
+    const useNode = useFlowNodePropHooks(props.activeConfig, props.processData)
 
     // methods
     const methods = {
@@ -72,11 +77,10 @@ export const FlowNodeProp = defineComponent({
 
       /*节点提示渲染*/
       renderHeader: () => {
-        console.log(props.activeConfig);
         if (props.activeConfig?.type === 'start') {
           return <div>{state.properties.title}</div>
         }
-        return <div class={'d-flex align-center'}>
+        return <div class={'d-flex align-center justify-space-between'}>
           <div class={'d-flex align-center'}>
             <span
               class={'cursor-pointer'}
@@ -96,6 +100,23 @@ export const FlowNodeProp = defineComponent({
               style="z-index:9;max-width: 200px;"
             />
           </div>
+          {useNode.isConditionNode() && <div>
+            <el-select
+              v-model={state.properties.priority}
+              placeholder="优先级"
+            >
+              {
+                Array.from({length: useNode.getPriorityLength()}).map((item, index) => {
+                  return <el-option
+                    key={index}
+                    label={`优先级 ${index + 1}`}
+                    value={index}
+                  >
+                  </el-option>
+                })
+              }
+            </el-select>
+          </div>}
         </div>
       },
       /*节点可操作内容渲染*/
@@ -113,6 +134,7 @@ export const FlowNodeProp = defineComponent({
     watch(() => props.activeConfig, (newValue,) => {
       if (newValue && newValue.properties) {
         state.properties = cloneDeep(newValue.properties)
+        console.log(newValue);
         if (state.properties) {
           // 是否为条件分支
           NodeUtils.isConditionNode(newValue) && methods.getPriorityLength();
@@ -124,6 +146,7 @@ export const FlowNodeProp = defineComponent({
         v-model={props.drawerPage}
         onClose={methods.closeDrawer}
         append-to-body={true}
+        show-close={false}
       >
         {{
           header: methods.renderHeader,
