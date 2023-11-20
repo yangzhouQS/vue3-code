@@ -4,7 +4,7 @@ import {hasBranch, isCondition, NodeUtils} from "./utils/flow-util";
 import {isFunction} from "lodash";
 import {Plus, ArrowRight, Close} from '@element-plus/icons-vue'
 import {IconChaoSong, IconCondition, IconShenPi} from "./component/icon";
-import {flowEvent} from "@/pages/flow/flow";
+import {flowEvent} from "./component/common/flow-event";
 
 
 /**
@@ -118,7 +118,9 @@ const nodeTypeRender = {
   condition: (conf) => {
     return <div
       class={'flow-path-container condition d-flex flex-column'}
-      onClick={() => flowEvent.emit('edit', conf)}
+      onClick={() => {
+        flowEvent.emit('edit', conf)
+      }}
     >
       <div class={'flow-path-header'}>
         <div class={'flow-path-title-box relative d-flex align-center'}>
@@ -169,7 +171,13 @@ function NodeFactory({data, verifyMode}: NodeFactoryParams): Array<any> {
   let selfNode = (<div class={'flow-node-wrap'}>
     <div class={['flow-node-wrap-box flex-center', data.type, showErrorTip ? 'flow-error' : '']}>
       {<el-tooltip content="未设置条件" placement="top" effect="dark">
-        <div class="flow-error-tip" onClick={flowEvent.emit("edit", data)}>!!!</div>
+        <div
+          class="flow-error-tip"
+          onClick={() => {
+            flowEvent.emit("edit", data)
+          }}
+        >!!!
+        </div>
       </el-tooltip>}
       {nodeTypeRender[data.type](data)}
       {addNodeButton(data)}
@@ -186,7 +194,9 @@ function NodeFactory({data, verifyMode}: NodeFactoryParams): Array<any> {
           <el-button
             class={'flow-branch-btn absolute'}
             text={true}
-            onClick={flowEvent.emit("appendConditionNode", data)}
+            onClick={()=>{
+              flowEvent.emit("appendConditionNode", data)
+            }}
           >
             添加条件
           </el-button>

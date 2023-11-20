@@ -25,7 +25,7 @@ export class NodeUtils {
 
 
   /**
-   * 判断节点类型
+   * 判断节点为条件分值节点
    * @param {Node} node - 节点数据
    * @returns Boolean
    */
@@ -33,14 +33,26 @@ export class NodeUtils {
     return node && node.type === 'condition'
   }
 
+  /**
+   * 判断节点为条件分值节点
+   * @param node
+   */
   static isCopyNode(node) {
     return node && node.type === 'copy'
   }
 
+  /**
+   * 判断节点为-开始节点
+   * @param node
+   */
   static isStartNode(node) {
     return node && node.type === 'start'
   }
 
+  /**
+   * 判断节点为-审批节点
+   * @param node
+   */
   static isApproverNode(node) {
     return node && node.type === 'approver'
   }

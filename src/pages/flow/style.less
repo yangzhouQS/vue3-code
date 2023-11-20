@@ -187,6 +187,7 @@
     }
   }
 
+  /*发起人:开始节点*/
   &.start-node {
     .flow-path-header {
       background: @darkColor;
@@ -197,12 +198,14 @@
     }
   }
 
+  /*抄送*/
   &.copy {
-    .header {
+    .flow-path-header {
       background-color: @primaryColor;
     }
   }
 
+  /*审批人*/
   &.approver {
     &:hover {
       /*box-shadow: 0 0 0 2px #ff9431, 0 0 5px 4px @orangeColor;*/
