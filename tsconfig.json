@@ -24,6 +24,8 @@
       ]
     },
     "types": [
+      "vite/client",
+      "vitest/globals",
       "node",
       "vite/client"
     ],
