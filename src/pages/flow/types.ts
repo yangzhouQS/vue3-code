@@ -1,4 +1,9 @@
-import {a} from "vitest/dist/reporters-5f784f42";
+export enum EnumNodeType {
+  start, // 发起人
+  approver, // 审批人
+  copy, // 抄送人
+  condition, // 条件分支
+}
 
 /**
  * 节点关联属性信息
@@ -8,6 +13,10 @@ export interface INodePropertiesType {
    * 节点配置标题
    */
   title: string;
+
+  /**
+   * 发起人
+   */
   initiator: string | null
 
   /**
@@ -40,8 +49,16 @@ export interface IPublicFlowConfig {
   /**
    * 节点类型 start |
    */
-  type: string;
+  type: EnumNodeType; // 'start' | 'approver' | 'condition' | 'copy';
+
+  /**
+   * 当前节点描述显示的文字
+   */
   content: string;
+
+  /**
+   * 当前节点的配置属性
+   */
   properties: INodePropertiesType;
 
   /**
@@ -56,7 +73,7 @@ export interface IPublicFlowConfig {
 
 
   /**
-   * 子节点配置
+   * 下一个子节点配置
    */
   childNode: IPublicFlowConfig;
 
@@ -64,9 +81,42 @@ export interface IPublicFlowConfig {
   /**
    * 条件分支配置数据
    */
-  conditionNodes: any[]
+  conditionNodes?: IPublicFlowConfig[]
 }
 
+/**
+ * 发起人配置类型
+ */
+export interface IInitiatorType {
+  /**
+   * 发起人类型
+   */
+  type: EnumInitiator;
+
+  /**
+   * 存储制定配置数据结构
+   */
+  configList: Array<{ id: number; description: string }>
+}
+
+// 发起人
+export enum EnumInitiator {
+  all,
+  user,
+  role,
+  post
+}
+
+/**
+ * 发起人下拉选择数据
+ * TODO 考虑放在服务端统一维护
+ */
+export const configInitiatorType = [
+  {value: 'all', label: '所有人'},
+  {value: 'user', label: '指定人'},
+  {value: 'role', label: '指定角色'},
+  {value: 'post', label: '指定岗位'},
+]
 
 export interface NodeFactoryParams {
   data: IPublicFlowConfig // 配置数据
