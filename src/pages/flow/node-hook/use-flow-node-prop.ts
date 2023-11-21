@@ -1,4 +1,5 @@
 import {NodeUtils} from "@/pages/flow/utils/flow-util";
+import {watch, reactive} from 'vue';
 
 /**
  * 节点操作 hooks
@@ -6,25 +7,34 @@ import {NodeUtils} from "@/pages/flow/utils/flow-util";
  * @param activeConfig
  * @param processData
  */
-export const useFlowNodePropHooks = (activeConfig = {}, processData = {}) => {
+export const useFlowNodePropStates = (activeConfig = {}, processData = {}) => {
+  const state = reactive({
+    isConditionNode: false,
+    isApproveNode: false,
+    isCopyNode: false,
+    isStartNode: false,
+
+    priorityLength: 0
+  })
+
+
   // 判断是否是条件节点
-  const isConditionNode = () => {
-    console.log(NodeUtils.isConditionNode(activeConfig), activeConfig.type);
+  const _isConditionNode = () => {
     return activeConfig ? NodeUtils.isConditionNode(activeConfig) : false
   }
 
   /** 判断是否是审批节点 **/
-  const isApproveNode = () => {
+  const _isApproveNode = () => {
     return activeConfig ? NodeUtils.isApproverNode(activeConfig) : false;
   }
 
   /** 是否为起始节点 **/
-  const isStartNode = () => {
+  const _isStartNode = () => {
     return activeConfig ? NodeUtils.isStartNode(activeConfig) : false
   }
 
   /*抄送人节点*/
-  const isCopyNode = () => {
+  const _isCopyNode = () => {
     return activeConfig ? NodeUtils.isCopyNode(activeConfig) : false
   }
 
@@ -41,17 +51,22 @@ export const useFlowNodePropHooks = (activeConfig = {}, processData = {}) => {
    */
   const getPriorityLength = () => {
     return 3
-    // return getPrevData().conditionNodes.length
+    return getPrevData().conditionNodes.length
   }
 
-  return {
-    /*同级分支深度层级*/
-    getPriorityLength,
-    getPrevData,
-    /*节点连线判断*/
-    isApproveNode,
-    isConditionNode,
-    isStartNode,
-    isCopyNode,
-  }
+
+  watch(() => activeConfig, (newValue, oldValue) => {
+    state.isConditionNode = _isConditionNode()
+    state.isApproveNode = _isApproveNode()
+    state.isCopyNode = _isCopyNode()
+    state.isStartNode = _isStartNode()
+
+
+    if (newValue) {
+      state.priorityLength = getPriorityLength()
+    }
+
+  }, {immediate: true, deep: true})
+
+  return state
 }

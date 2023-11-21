@@ -5,6 +5,7 @@ import {FlowCanvas} from "./flow-canvas";
 import {FlowNodeProp} from "./flow-node-prop";
 import {configData} from "./flow-test-data";
 import {flowEvent} from "./component/common/flow-event";
+import {NodeUtils} from "@/pages/flow/utils/flow-util";
 
 // https://github.com/SNFocus/approvalFlow
 export const FlowPage = defineComponent({
@@ -34,8 +35,29 @@ export const FlowPage = defineComponent({
       onCloseDrawer:()=>{
         state.drawerPage = false;
       },
-      onConfirm:()=>{
+      /**
+       * 属性面板修改节点信息
+       * @param properties 属性面板的当前节点信息
+       * @param content
+       */
+      onEditConfirm:(properties, content)=>{
+        console.log(state.activeData);
+
+        state.activeData.content = content || '请设置条件'
+        let oldProp = state.activeData.properties;
+        state.activeData.properties = properties;
+        // 节点条件的优先级修改
+        if (NodeUtils.isConditionNode(state.activeData)){
+          properties.priority !== oldProp.priority && NodeUtils.resortPrioByCNode(state.activeData,oldProp.priority,configData.processData)
+          NodeUtils.setDefaultCondition(state.activeData, configData.processData)
+        }
+        debugger;
         console.log('onConfirm');
+        methods.onCloseDrawer()
+        methods.forceUpdate()
+      },
+      forceUpdate:()=>{
+
       }
     };
     onMounted(() => {
@@ -46,7 +68,7 @@ export const FlowPage = defineComponent({
       })
     })
     watch(() => state.drawerPage, (newValue, oldValue) => {
-      console.log('watch drawerPage',newValue);
+      // console.log('watch drawerPage',newValue);
     })
     return () => {
       return <div class={'full-container flow-container'}>
@@ -63,7 +85,7 @@ export const FlowPage = defineComponent({
           v-model:drawerPage={state.drawerPage}
           activeConfig={state.activeData}
           processData={configData.processData}
-          onConfirm={methods.onConfirm}
+          onConfirm={methods.onEditConfirm}
           onCancel={methods.onCloseDrawer}
         />
       </div>;

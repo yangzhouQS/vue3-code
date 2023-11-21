@@ -3,10 +3,11 @@ import {cloneDeep} from 'lodash'
 import {EditPen} from '@element-plus/icons-vue';
 import {ClickOutside} from 'element-plus'
 import {NodeUtils} from "@/pages/flow/utils/flow-util";
-import {useFlowNodePropHooks} from "@/pages/flow/node-hook/flow-node-prop-hooks";
+import {useFlowNodePropStates} from "./node-hook/use-flow-node-prop";
 
 
 interface IPropStateType {
+  visible: boolean;
   /**
    * 节点配置属性
    */
@@ -49,11 +50,12 @@ export const FlowNodeProp = defineComponent({
     // data
     const data = ref<any>({});
     const state = reactive<IPropStateType>({
+      visible: props.drawerPage,
       properties: {},
       isTitleInput: false,
       priorityLength: 0
     })
-    const useNode = useFlowNodePropHooks(props.activeConfig, props.processData)
+    let useNode = useFlowNodePropStates(props.activeConfig, props.processData)
 
     // methods
     const methods = {
@@ -63,18 +65,33 @@ export const FlowNodeProp = defineComponent({
       closeDrawer: () => {
         emit('update:drawerPage', false)
       },
+      getPriorityLength: () => {
+        state.priorityLength = 3
+      },
       /*取消操作,数据不发生变更*/
       onCancel: () => {
         emit('cancel', {})
       },
       /*节点数据发生改变,提交确定,在flow页面统一修改*/
       onConfirm: () => {
+        useNode.isStartNode && methods.startNodeConfirm();
+        useNode.isCopyNode && methods.copyNodeConfirm();
+        useNode.isApproveNode && methods.approveNodeConfirm();
+        useNode.isConditionNode && methods.conditionNodeConfirm();
+      },
+      startNodeConfirm: () => {
         emit('confirm', {})
       },
-      getPriorityLength: () => {
-        state.priorityLength = 3
+      copyNodeConfirm: () => {
+        emit('confirm', {})
       },
-
+      approveNodeConfirm: () => {
+        emit('confirm', {})
+      },
+      conditionNodeConfirm: () => {
+        emit('confirm', state.properties,"请设置条件")
+        methods.closeDrawer()
+      },
       /*节点提示渲染*/
       renderHeader: () => {
         if (props.activeConfig?.type === 'start') {
@@ -100,13 +117,13 @@ export const FlowNodeProp = defineComponent({
               style="z-index:9;max-width: 200px;"
             />
           </div>
-          {useNode.isConditionNode() && <div>
+          {useNode.isConditionNode && <div>
             <el-select
               v-model={state.properties.priority}
               placeholder="优先级"
             >
               {
-                Array.from({length: useNode.getPriorityLength()}).map((item, index) => {
+                Array.from({length: useNode.priorityLength}).map((item, index) => {
                   return <el-option
                     key={index}
                     label={`优先级 ${index + 1}`}
@@ -132,18 +149,20 @@ export const FlowNodeProp = defineComponent({
     };
 
     watch(() => props.activeConfig, (newValue,) => {
+      state.visible = props.drawerPage;
+
       if (newValue && newValue.properties) {
         state.properties = cloneDeep(newValue.properties)
-        console.log(newValue);
         if (state.properties) {
           // 是否为条件分支
           NodeUtils.isConditionNode(newValue) && methods.getPriorityLength();
         }
       }
+      useNode = useFlowNodePropStates(props.activeConfig, props.processData)
     })
     return () => {
       return <el-drawer
-        v-model={props.drawerPage}
+        v-model={state.visible}
         onClose={methods.closeDrawer}
         append-to-body={true}
         show-close={false}

@@ -10,6 +10,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@opentiny/vue-renderless": "^3.11.8",
     "@vueform/vueform": "^1.5.6",
     "@alilc/lowcode-designer": "^1.2.1",
     "@alilc/lowcode-types": "1.2.1",
