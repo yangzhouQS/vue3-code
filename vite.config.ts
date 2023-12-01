@@ -21,6 +21,9 @@ export default defineConfig({
       web: [/\.[jt]sx$/]
     }
   },
+  define: {
+    'process.env': Object.assign({}, process.env)
+  },
   resolve: {
     alias: {
       '@': resolve('src'),
