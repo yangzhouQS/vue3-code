@@ -22,7 +22,7 @@ export const MainPage = defineComponent({
               {
                 routes.map((item: any, index) => {
                   return <el-menu-item
-                    index={index}
+                    index={`${index}`}
                     key={item.path}
                     class={'cursor-pointer'}
                     onClick={() => {
