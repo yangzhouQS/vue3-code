@@ -7,6 +7,7 @@ import {router} from "./router";
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import {createFormily} from "@/components/vue-formily";
+import TinyVue from '@opentiny/vue';
 
 window.Vue = {
   ...Vue,
@@ -38,7 +39,8 @@ const app = Vue.createApp(App)
   debugger;
 }*/
 
-app.use(formily, {})
+app.use(formily, {});
+app.use(TinyVue)
 app.use(router)
 app.use(ElementPlus)
 app.mount('#app')
