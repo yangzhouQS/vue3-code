@@ -22,6 +22,8 @@
     "@formily/reactive-vue": "^2.3.0",
     "@formily/vue": "^2.3.0",
     "@juggle/resize-observer": "^3.4.0",
+    "@logicflow/core": "^1.2.18",
+    "@logicflow/extension": "^1.2.19",
     "@monaco-editor/loader": "^1.4.0",
     "@opentiny/vue": "3",
     "@opentiny/vue-renderless": "^3.11.8",

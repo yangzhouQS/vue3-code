@@ -11,7 +11,7 @@ const resolve = (dir) => {
 export default defineConfig({
   plugins: [
     vue(),
-    UnoCSS(),
+    // UnoCSS(),
     vueJsx({})
   ],
   test: {

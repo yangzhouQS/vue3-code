@@ -12,5 +12,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="vitest" level="project" />
     <orderEntry type="library" name="@types/jest" level="application" />
+    <orderEntry type="library" name="lodash" level="project" />
   </component>
 </module>
