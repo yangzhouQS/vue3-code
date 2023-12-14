@@ -5,6 +5,7 @@ import {GraphModel} from "@/pages/logicFlow/GraphModel";
 import {assign, isObject} from "lodash";
 import {pickEdgeConfig} from "@/pages/logicFlow/utils/edge";
 import BaseNodeModel from "@/pages/logicFlow/node/BaseNodeModel";
+import {formatData} from "@/pages/logicFlow/utils/compatible";
 
 export interface IBaseEdgeModel extends IBaseModel {
   sourceNodeId: string;
@@ -21,15 +22,15 @@ export interface IBaseEdgeModel extends IBaseModel {
    */
   getProperties: () => Record<string, any>;
 
-  /**
-   * 边的前一个节点
-   */
-  sourceNode:()=>BaseNodeModel;
+  /*  /!**
+     * 边的前一个节点
+     *!/
+    sourceNode:()=>BaseNodeModel;
 
-  /**
-   * 边的后一个节点
-   */
-  targetNode:()=>BaseNodeModel;
+    /!**
+     * 边的后一个节点
+     *!/
+    targetNode:()=>BaseNodeModel;*/
 }
 
 export default class BaseEdgeModel implements IBaseEdgeModel {
@@ -98,6 +99,36 @@ export default class BaseEdgeModel implements IBaseEdgeModel {
   }
 
   /**
+   * 设置边的属性，会触发重新渲染
+   * @param key 属性名
+   * @param val 属性值
+   */
+  setProperty(key, val): void {
+    this.properties[key] = formatData(val);
+    this.setAttributes();
+  }
+
+  /**
+   * 删除边的属性，会触发重新渲染
+   * @param key 属性名
+   */
+  deleteProperty(key: string): void {
+    delete this.properties[key];
+    this.setAttributes();
+  }
+
+  /**
+   * 设置边的属性，会触发重新渲染
+   * @param key 属性名
+   * @param val 属性值
+   */
+  setProperties(properties): void {
+    this.properties = formatData(properties);
+    this.setAttributes();
+  }
+
+
+  /**
    * 获取被保存时返回的数据
    *
    * @overridable 支持重写
@@ -126,6 +157,7 @@ export default class BaseEdgeModel implements IBaseEdgeModel {
   get sourceNode() {
     return this.graphModel?.nodesMap[this.sourceNodeId]?.model;
   }
+
   /**
    * 边的后一个节点
    */

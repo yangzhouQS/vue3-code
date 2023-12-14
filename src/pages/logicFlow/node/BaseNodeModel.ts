@@ -93,7 +93,7 @@ export default class BaseNodeModel implements IBaseNodeModel {
    * @overridable 支持重写
    */
   getData(): NodeData {
-    const { x, y, value } = this.text;
+    const { value } = this.text;
     let { properties } = this;
     const data: NodeData = {
       id: this.id,
@@ -103,8 +103,6 @@ export default class BaseNodeModel implements IBaseNodeModel {
 
     if (value) {
       data.text = {
-        x,
-        y,
         value,
       };
     }
@@ -116,5 +114,15 @@ export default class BaseNodeModel implements IBaseNodeModel {
    */
   getProperties() {
     return this.properties;
+  }
+
+  setProperties(properties): void {
+    this.properties = properties;
+    this.setAttributes();
+  }
+
+  deleteProperty(key: string): void {
+    delete this.properties[key];
+    this.setAttributes();
   }
 }

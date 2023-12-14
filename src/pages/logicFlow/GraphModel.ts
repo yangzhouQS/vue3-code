@@ -3,13 +3,21 @@ import BaseEdgeModel from "@/pages/logicFlow/edge/BaseEdgeModel";
 import {IBaseModel} from "@/pages/logicFlow/BaseModel";
 import {Definition} from "@/pages/logicFlow/type/options";
 import {GraphConfigData} from "@/pages/logicFlow/type";
-
+import EventEmitter from 'eventemitter2';
+import {map} from "lodash";
+type BaseNodeModelId = string; // 节点ID
 
 export class GraphModel {
   /**
+   * 事件中心
+   * @see todo docs link
+   */
+  eventCenter: EventEmitter;
+
+  /**
    * 维护所有节点和边类型对应的model
    */
-  modelMap = new Map<string, IBaseModel>();
+  modelMap = new Map<string, any>();
 
   /**
    * 在图上操作创建边时，默认使用的边类型.
@@ -27,6 +35,9 @@ export class GraphModel {
   edges: BaseEdgeModel[] = [];
 
   constructor(options: Definition) {
+
+    this.eventCenter = new EventEmitter();
+    this.edgeType = options.edgeType || 'polyline';
   }
 
   get nodesMap(): { [key: string]: { index: number, model: BaseNodeModel } } {
@@ -51,6 +62,48 @@ export class GraphModel {
   }
 
   /**
+   * 设置指定类型的Model,请勿直接使用
+   */
+  setModel(type: string, ModelClass) {
+    return this.modelMap.set(type, ModelClass);
+  }
+
+  /**
+   * 使用新的数据重新设置整个画布的元素
+   * 注意：将会清除画布上所有已有的节点和边
+   * @param { object } graphData 图数据
+   */
+  graphDataToModel(graphData: GraphConfigData) {
+    if (!graphData) {
+      this.nodes = [];
+      this.edges = [];
+      return;
+    }
+    if (graphData.nodes) {
+      this.nodes = map(graphData.nodes, node => {
+        const Model = this.getModel(node.type);
+        if (!Model) {
+          throw new Error(`找不到${node.type}对应的节点。`);
+        }
+        return new Model(node, this);
+      });
+    } else {
+      this.nodes = [];
+    }
+    if (graphData.edges) {
+      this.edges = map(graphData.edges, edge => {
+        const Model = this.getModel(edge.type);
+        if (!Model) {
+          throw new Error(`找不到${edge.type}对应的边。`);
+        }
+        return new Model(edge, this);
+      });
+    } else {
+      this.edges = [];
+    }
+  }
+
+  /**
    * 获取画布数据
    */
   modelToGraphData(): GraphConfigData {
@@ -70,6 +123,19 @@ export class GraphModel {
     };
   }
 
+  /**
+   * 获取指定类型元素对应的Model
+   */
+  getModel(type: string) {
+    return this.modelMap.get(type);
+  }
+
+  /**
+   * 基于Id获取节点的model
+   */
+  getNodeModelById(nodeId: BaseNodeModelId): BaseNodeModel {
+    return this.nodesMap[nodeId]?.model;
+  }
 
   /**
    * 获取边的model

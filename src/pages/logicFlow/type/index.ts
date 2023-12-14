@@ -82,3 +82,12 @@ export type EdgeAttribute = {
   text?: TextConfig;
   properties?: Record<string, unknown>;
 };
+
+/**
+ * 画布节点注册
+ */
+export type RegisterConfig = {
+  type: string;
+  view: any;
+  model: any;
+};
