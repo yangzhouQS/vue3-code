@@ -23,6 +23,11 @@ export default class BaseNodeModel implements IBaseNodeModel {
   // 其它属性
   graphModel: GraphModel;
 
+  /**
+   * 虚拟
+   */
+  virtual = false;
+
   constructor(data: NodeConfig, graphModel: GraphModel) {
     this.graphModel = graphModel;
     this.initNodeData(data);

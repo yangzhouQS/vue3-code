@@ -3,9 +3,21 @@ export type Point = {
   [key: string]: unknown;
 };
 
+/**
+ * 文本描述配置数据
+ */
 export type TextConfig = {
   id?: string;
   value: string;
+};
+
+
+/**
+ * 整个画布数据
+ */
+export type GraphConfigData = {
+  nodes: NodeConfig[];
+  edges: EdgeConfig[];
 };
 
 // 节点数据属性

@@ -34,6 +34,12 @@ export interface IBaseEdgeModel extends IBaseModel {
 
 export default class BaseEdgeModel implements IBaseEdgeModel {
   readonly BaseType = ElementType.EDGE;
+
+  /**
+   * 虚拟
+   */
+  virtual = false;
+
   id: string;
   modelType: string;
   text: TextConfig;
