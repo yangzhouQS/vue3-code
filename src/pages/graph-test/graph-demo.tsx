@@ -1,6 +1,9 @@
 import {defineComponent, onMounted, ref} from "vue"
 import {useGraph} from "@/pages/graph-test/useGraph";
 import {sampleJson} from "@/pages/graph-test/data";
+import assemData from './assem-data.json'
+// import tableData from './table.json'
+import {tableConfig} from "./table-config"
 
 export const GraphDemo = defineComponent({
   name: 'GraphDemo',
@@ -21,16 +24,30 @@ export const GraphDemo = defineComponent({
       }
     }
 
-    const graph = useGraph.setGraph(JSON.stringify(sampleJson))
+    // console.log(tableData);
+    // debugger;
+    // const graph = useGraph.setGraph(JSON.stringify(sampleJson))
+    // const graph = useGraph.setGraph(JSON.stringify(assemData))
+    const graph = useGraph.setGraph(JSON.stringify(tableConfig))
+    // const graph = useGraph.setGraph(JSON.stringify(tableData))
+    console.log(graph);
+    // console.log(useGraph);
 
     onMounted(() => {
 
     })
 
+    const onClick = () => {
+      console.log('onClick');
+    }
     return () => {
       return (
         <div class={'full-container'}>
           xxx
+          <el-button type="primary"
+
+                     onClick={onClick}
+          >测试</el-button>
         </div>
       )
     }

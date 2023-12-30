@@ -50,7 +50,11 @@ function initializeStates(): States {
 export function parser(jsonStr: string): Graph {
   try {
     const states = initializeStates();
+    // 格式化构造结构
     const parsedJsonTree = parseTree(jsonStr);
+
+    console.log(parsedJsonTree);
+    debugger;
     if (!parsedJsonTree) {
       throw new Error("Invalid document");
     }
@@ -59,7 +63,6 @@ export function parser(jsonStr: string): Graph {
     const { notHaveParent, graph } = states;
 
 
-    debugger
     if (notHaveParent.length > 1 && parsedJsonTree.type !== "array") {
       const emptyNode = { id: null, text: "", isEmpty: true, data: {} };
       const emptyId = addNodeToGraph({ graph, ...emptyNode });

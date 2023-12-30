@@ -52,13 +52,24 @@ interface GraphActions {
   zoomOut: () => void;
   centerView: () => void;
   clearGraph: () => void;
+
+  // 获取元素的自定义属性
+  getProperties: (id: string) => Object
+
+  // 获取节点或边对象
+  getModelById: (id: string) => Object
+
+  // 获取节点或边的数据
+  getDataById: (id: string) => Object
+
+
 }
 
 export const useGraph = {
   ...initialStates,
   setGraph: (data: string, options?: any) => {
     const result = parser(data)
-    debugger
+    console.log(result);
   },
   getState: () => {
     return {

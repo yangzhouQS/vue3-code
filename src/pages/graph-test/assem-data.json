@@ -1,0 +1,183 @@
+{
+  "uiSkeleton": {
+    "master": {
+      "__nodeId": "views_lqexed5j",
+      "__nodeName": "views",
+      "__nodeType": "baseNode",
+      "__nodeEvent": {},
+      "__nodeOptions": {
+        "planeOptions": {
+          "__nodeId": "plane_lqexed5k",
+          "__nodeName": "plane",
+          "__nodeType": "baseNode",
+          "__nodeEvent": {},
+          "__nodeOptions": {
+            "isShowNav": true,
+            "navigationOptions": {
+              "__nodeId": "navigationBar_lqexed5l",
+              "__nodeName": "navigationBar",
+              "__nodeType": "baseNode",
+              "__nodeEvent": {},
+              "__nodeOptions": {
+                "defaultSlot": [],
+                "display": true,
+                "isSysRouter": true,
+                "permissionSetting": "",
+                "routers": []
+              },
+              "__nodeKey": "nodeKey_navigationBar_lqexed5l",
+              "__description": ""
+            },
+            "flexBoxOptions": {
+              "__nodeId": "flexBox_lqexed5r",
+              "__nodeName": "flexBox",
+              "__nodeType": "baseNode",
+              "__nodeOptions": {
+                "display": true,
+                "permissionSetting": "",
+                "isRow": false,
+                "itemNum": 2,
+                "width": "100%",
+                "height": "100%",
+                "itemConfig": [
+                  {
+                    "tag": "item-1",
+                    "isFixed": true,
+                    "showDragButton": false,
+                    "size": "",
+                    "contentType": "container",
+                    "paddingSize": "base",
+                    "isHidden": false,
+                    "defaultSlot": {
+                      "__nodeId": "containerRender_lqexed5s",
+                      "__nodeName": "containerRender",
+                      "__nodeType": "renderNode",
+                      "__nodeEvent": {},
+                      "__nodeOptions": {
+                        "renderType": "",
+                        "containerOptions": {}
+                      },
+                      "__nodeKey": "nodeKey_containerRender_lqexed5s",
+                      "__description": ""
+                    }
+                  },
+                  {
+                    "tag": "item-2",
+                    "isFixed": false,
+                    "showDragButton": false,
+                    "size": "",
+                    "paddingSize": "base",
+                    "clearPadding": [],
+                    "contentType": "container",
+                    "isHidden": false,
+                    "defaultSlot": {
+                      "__nodeId": "containerRender_lqexed5t",
+                      "__nodeName": "containerRender",
+                      "__nodeType": "renderNode",
+                      "__nodeEvent": {},
+                      "__nodeOptions": {
+                        "renderType": "",
+                        "containerOptions": {}
+                      },
+                      "__nodeKey": "nodeKey_containerRender_lqexed5t",
+                      "__description": ""
+                    }
+                  }
+                ]
+              },
+              "__nodeEvent": {},
+              "__nodeKey": "nodeKey_flexBox_lqexed5r",
+              "__description": ""
+            }
+          },
+          "__nodeKey": "nodeKey_plane_lqexed5k",
+          "__description": ""
+        },
+        "dialogOptions": [],
+        "drawerOptions": []
+      },
+      "__nodeKey": "nodeKey_views_lqexed5j",
+      "__description": ""
+    }
+  },
+  "dataSource": {
+    "api": {
+      "config": {},
+      "list": {
+        "configData": {
+          "url": "/shared-data/configuration/get-config-data",
+          "method": "get",
+          "config": {},
+          "description": "获取全局配置"
+        }
+      }
+    },
+    "requestConfig": {
+      "getYlGlobalConfing": {
+        "description": "获取全局配置",
+        "apiconfig": "configData",
+        "paramsConfig": {
+          "paramsType": "kvParams",
+          "paramsModel": {
+            "singleTable": {
+              "orgId": {
+                "valueType": "string",
+                "defaultValue": "",
+                "resolveType": "queryParams",
+                "isCache": false,
+                "isSkipVal": false
+              },
+              "paramsKey": {
+                "valueType": "list",
+                "defaultValue": [
+                  "accountDay"
+                ],
+                "resolveType": "queryParams",
+                "isCache": false,
+                "isSkipVal": false
+              },
+              "categoryCode": {
+                "valueType": "string",
+                "defaultValue": "global",
+                "resolveType": "queryParams",
+                "isCache": false,
+                "isSkipVal": false
+              },
+              "namespaceCode": {
+                "valueType": "string",
+                "defaultValue": "sysConfig",
+                "resolveType": "queryParams",
+                "isCache": false,
+                "isSkipVal": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "dataModelConfig": {},
+    "sharedFns": {
+      "getAccountDay": {
+        "fn": "async function getAccountDayFn() {\n\n\n  const { orgFullId } = this.$globalVars.$context;\n\n  try {\n    const resultAccount = await this.$requestFns.getYlGlobalConfing({ orgId: orgFullId, paramsKey: [\"accountDay\"] });\n\n    return resultAccount.data.data.accountDay\n  } catch (error) {\n    console.log('获取配置失败', error);\n  }\n}",
+        "isOn": true,
+        "description": "获取结账日函数"
+      }
+    }
+  },
+  "routerConfig": {
+    "master": {
+      "name": "master",
+      "path": "/",
+      "description": "首页",
+      "meta": {
+        "title": "首页"
+      }
+    }
+  },
+  "globalConfig": {
+    "pageContext": {
+      "applicationId": 1672121634928640,
+      "orgId": 10001
+    }
+  }
+}

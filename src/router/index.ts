@@ -23,6 +23,7 @@ import {FlowPage} from "@/pages/flow/flow";
 import {MainPage} from "@/pages/main-page";
 import {LogicFlow} from "@/pages/logicFlow/logicFlow";
 import {UnocssPage} from "@/pages/unocss-page/unocss-page";
+import {ChartPage} from "@/pages/chart/chart";
 
 export const routes = [
   {path: '/', component: MainPage},
@@ -48,6 +49,7 @@ export const routes = [
   {path: '/flow-page', component: FlowPage, title: "BPMN"},
   {path: '/LogicFlow', component: LogicFlow, title: "LogicFlow"},
   {path: '/UnocssPage', component: UnocssPage, title: "UnocssPage"},
+  {path: '/chart-page', component: ChartPage, title: "ChartPage"},
 ]
 export const router = createRouter({
   // 4. 内部提供了 history 模式的实现。为了简单起见，我们在这里使用 hash 模式。
