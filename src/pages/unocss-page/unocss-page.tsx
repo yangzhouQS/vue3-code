@@ -1,4 +1,5 @@
-import {defineComponent, onMounted, ref} from "vue"
+import {defineComponent, onMounted, ref} from "vue";
+console.log(window)
 
 export const UnocssPage = defineComponent({
   name: 'UnocssPage',
@@ -31,6 +32,7 @@ export const UnocssPage = defineComponent({
             csddcs
           </div>
           <span class="p-5">span</span>
+          <el-button type="primary">buttonCont</el-button>
         </div>
       )
     }
