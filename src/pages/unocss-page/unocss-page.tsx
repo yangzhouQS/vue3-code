@@ -1,6 +1,4 @@
 import {defineComponent, onMounted, ref} from "vue";
-console.log(window)
-
 export const UnocssPage = defineComponent({
   name: 'UnocssPage',
   props: {

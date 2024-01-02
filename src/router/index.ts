@@ -1,9 +1,7 @@
 import {createRouter, createWebHashHistory} from 'vue-router';
-import Home from 'pages/home.vue';
 import Demo from 'pages/demo.vue';
 import Test from '@/pages/demo-test';
-import DemoSlot from 'pages/demo-slot.vue';
-import {MonacoEditor} from "@/pages/monaco-editor";
+// import {MonacoEditor} from "@/pages/monaco-editor";
 import {ScrollBar} from "@/pages/scroll/scroll";
 import Tabs from "@/pages/tabs/tabs.vue";
 import {DesignerView} from "@/pages/frame/builtin-simulator";
@@ -24,6 +22,7 @@ import {MainPage} from "@/pages/main-page";
 import {LogicFlow} from "@/pages/logicFlow/logicFlow";
 import {UnocssPage} from "@/pages/unocss-page/unocss-page";
 import {ChartPage} from "@/pages/chart/chart";
+import {HocPage} from "@/pages/hoc/hoc";
 
 export const routes = [
   {path: '/', component: MainPage},
@@ -31,8 +30,7 @@ export const routes = [
   {path: '/emit', component: TestEmit},
   {path: '/demo', component: Demo},
   {path: '/test', component: Test},
-  {path: '/demo-slot', component: DemoSlot, title: "插槽"},
-  {path: '/monaco-editor', component: MonacoEditor, title: '代码编辑器'},
+  // {path: '/monaco-editor', component: MonacoEditor, title: '代码编辑器'},
   {path: '/scroll', component: ScrollBar, title: '滚动条'},
   {path: '/tabs', component: Tabs, title: "tabs组件"},
   {path: '/frame', component: DesignerView, title: "frame测试"},
@@ -50,6 +48,7 @@ export const routes = [
   {path: '/LogicFlow', component: LogicFlow, title: "LogicFlow"},
   {path: '/UnocssPage', component: UnocssPage, title: "UnocssPage"},
   {path: '/chart-page', component: ChartPage, title: "ChartPage"},
+  {path: '/hoc-page', component: HocPage, title: "HocPage"},
 ]
 export const router = createRouter({
   // 4. 内部提供了 history 模式的实现。为了简单起见，我们在这里使用 hash 模式。

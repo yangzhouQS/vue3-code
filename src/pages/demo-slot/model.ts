@@ -1,4 +1,3 @@
-import {observer} from '@formily/reactive-vue'
 import {observable} from '@formily/reactive'
 
 export const modelObj = observable<any>({

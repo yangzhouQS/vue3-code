@@ -7,7 +7,7 @@ class CacheInstance {
   public cacheMap = new Map()
 
   constructor() {
-    console.log('CacheInstance')
+    // console.log('CacheInstance')
   }
 
   mountInstance(key, vueInstance) {
