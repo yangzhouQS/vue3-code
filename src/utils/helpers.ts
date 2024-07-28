@@ -1,9 +1,10 @@
 import * as hooks from 'vue'
 import {camelize, capitalize, emitter, hyphenate} from "./utils";
+import type {Ref, VNode} from "vue";
 
 const Teleport = hooks.Teleport
 
-
+export type MaybeRef<T> = T | Ref<T>
 export const rootConfig = (context) => {
   const instance = hooks.getCurrentInstance()
   context && setInstanceEmitter(instance)
@@ -306,14 +307,12 @@ const onBeforeMount = (instance, refs) => {
 }
 
 
-
-
 export const tools = (context, mode) => {
   const instance = hooks.getCurrentInstance() as any
   const root = instance?.appContext.config.globalProperties
-  const { route, router } = useRouter(instance)
+  const {route, router} = useRouter(instance)
   const i18n = instance?.proxy?.$root?.$i18n
-  const { dispatch, broadcast } = emitEvent(instance)
+  const {dispatch, broadcast} = emitEvent(instance)
   const parentHandler = parent(instance)
   const childrenHandler = children(instance)
   const vm = createVm({}, instance, context)
@@ -322,7 +321,7 @@ export const tools = (context, mode) => {
   const grandParent = typeof instance.props.tiny_template === 'undefined' && getRealParent(instance)
   const parentVm = grandParent ? createVm({}, grandParent) : instance.parent ? createVm({}, instance.parent) : null
 
-  const setParentAttribute = ({ name, value }) => {
+  const setParentAttribute = ({name, value}) => {
     const ctx = grandParent ? grandParent.ctx : instance?.parent?.ctx
     ctx[name] = value
 
@@ -404,20 +403,17 @@ const parseProps = (propsData) => {
   for (const name in propsData) {
     if (name === 'class' || name === 'style') {
       props[name] = propsData[name]
-    }
-    else if (name === 'on' || name === 'nativeOn') {
+    } else if (name === 'on' || name === 'nativeOn') {
       const events = propsData[name]
 
       for (const eventName in events)
         props[`on${capitalize(camelize(eventName))}`] = events[eventName]
-    }
-    else if (name === 'attrs' || name === 'props' || name === 'domProps') {
+    } else if (name === 'attrs' || name === 'props' || name === 'domProps') {
       const attrs = propsData[name]
 
       for (const key in attrs)
         props[key] = attrs[key]
-    }
-    else {
+    } else {
       props[name] = propsData[name]
     }
   }
@@ -448,13 +444,12 @@ const customResolveComponent = (component) => {
 
       else
         type = hooks.resolveComponent(component)
-    }
-    else {
+    } else {
       type = component
     }
   }
 
-  return { type, component, customElement }
+  return {type, component, customElement}
 }
 
 type CreateElement = (component: any, propsData?: any, childData?: any) => ReturnType<typeof hooks.h>
@@ -471,8 +466,7 @@ export const h: CreateElement = (component, propsData, childData) => {
   if (propsData && typeof propsData === 'object' && !Array.isArray(propsData)) {
     props = parseProps(propsData)
     propsData.scopedSlots && (children = propsData.scopedSlots)
-  }
-  else if (typeof propsData === 'string' || Array.isArray(propsData)) {
+  } else if (typeof propsData === 'string' || Array.isArray(propsData)) {
     childData = propsData
   }
 
@@ -483,16 +477,14 @@ export const h: CreateElement = (component, propsData, childData) => {
 }
 
 export const createComponentFn = (design) => {
-  return ({ component, propsData, el }) => {
-    const comp = Object.assign(component, { provide: { [design.configKey]: design.configInstance } })
+  return ({component, propsData, el}) => {
+    const comp = Object.assign(component, {provide: {[design.configKey]: design.configInstance}})
     const vnode = hooks.createVNode(comp, propsData)
 
     hooks.render(vnode, el)
     return createVm({}, vnode.component)
   }
 }
-
-
 
 
 export const defineComponent = hooks.defineComponent
@@ -502,4 +494,78 @@ export const isVue2 = false
 
 export const isVue3 = true
 
-export type { PropType, ExtractPropTypes, DefineComponent } from 'vue'
+export type {PropType, ExtractPropTypes, DefineComponent} from 'vue'
+
+
+export function isObject(obj: any): obj is Record<string, any> {
+  return obj !== null && typeof obj === 'object' && !Array.isArray(obj)
+}
+
+
+export function mergeDeep(
+  source: Record<string, any> = {},
+  target: Record<string, any> = {},
+  arrayFn?: (a: unknown[], b: unknown[]) => unknown[],
+) {
+  const out: Record<string, any> = {}
+
+  for (const key in source) {
+    out[key] = source[key]
+  }
+
+  for (const key in target) {
+    const sourceProperty = source[key]
+    const targetProperty = target[key]
+
+    // Only continue deep merging if
+    // both properties are objects
+    if (
+      isObject(sourceProperty) &&
+      isObject(targetProperty)
+    ) {
+      out[key] = mergeDeep(sourceProperty, targetProperty, arrayFn)
+
+      continue
+    }
+
+    if (Array.isArray(sourceProperty) && Array.isArray(targetProperty) && arrayFn) {
+      out[key] = arrayFn(sourceProperty, targetProperty)
+
+      continue
+    }
+
+    out[key] = targetProperty
+  }
+
+  return out
+}
+
+
+export function toKebabCase(str = '') {
+  if (toKebabCase.cache.has(str)) return toKebabCase.cache.get(str)!
+  const kebab = str
+    .replace(/[^a-z]/gi, '-')
+    .replace(/\B([A-Z])/g, '-$1')
+    .toLowerCase()
+  toKebabCase.cache.set(str, kebab)
+  return kebab
+}
+
+toKebabCase.cache = new Map<string, string>()
+
+
+export type UnionToIntersection<U> =
+  (U extends any ? (k: U) => void : never) extends ((k: infer I) => void) ? I : never
+
+export type ScopedSlot = () => SlotReturnValue;
+export type SlotReturnValue = VNode | string | boolean | null | undefined | SlotReturnArray;
+export type SlotReturnArray = Array<SlotReturnValue>;
+export interface TVNode extends VNode {
+  name: string;
+}
+export type TNodeReturnValue = SlotReturnValue;
+
+// 严格执行是否有参数，不允许出现 props?:T
+export type TNode<T = undefined> = T extends undefined
+  ? (h: typeof import('vue').h) => TNodeReturnValue
+  : (h: typeof import('vue').h, props: T) => TNodeReturnValue;

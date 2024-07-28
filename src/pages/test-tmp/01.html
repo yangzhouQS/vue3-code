@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../../node_modules/handlebars/dist/handlebars.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<script id="nav_template" type="text/x-handlebars-template">
+    {{#list city class="green"}}
+        <div style="color:red;">{{firstName}}-----{{lastName}}</div>
+    {{/list}}
+</script>
+<script>
+  Handlebars.logger.level = 'debug'
+  const template = Handlebars.compile("Handlebars <b>{{doesWhat}}</b>");
+  // execute the compiled template and print the output to the console
+  const tmpStr = template({doesWhat: "rocks!"})
+  $(function () {
+    $("#app").append(tmpStr)
+  })
+
+
+  /*数据要以json的格式传入*/
+  const data = {
+    city: [
+      {firstName: "a", lastName: "alabo"},
+      {firstName: "b", lastName: "beijin"},
+      {firstName: "c", lastName: "changchen"}
+    ]
+  }
+
+  Handlebars.registerHelper('list', function (items, options) {//这里fn可以传多个参数（按一般js参数的规则）,一般最后一个为options(名字也可以任意起)
+    console.log(options);
+    let out = '<ul>';
+    for (var i = 0, l = items.length; i < l; i++) {
+      const item = options.fn(items[i]);
+      out = out + '<li class="' + options.hash.class + '">' + item + '</li>';
+    }
+    return out + '</ul>';
+  });
+
+  const mytemplate = Handlebars.compile($("#nav_template").html());
+  $("#app").html(mytemplate(data));
+
+
+  const tableData = [
+    {
+      "name": "cGh",
+      "fields": {
+        "tenant": {
+          "type": "String",
+          "rawType": "VARCHAR(50)",
+          "allowNull": false,
+          "defaultValue": "gslq4dev",
+          "rawDefaultValue": null,
+          "primaryKey": true,
+          "comment": "租户编码"
+        },
+        "orgId": {
+          "type": "Number",
+          "rawType": "BIGINT(20)",
+          "allowNull": false,
+          "defaultValue": 1015112739483648,
+          "rawDefaultValue": null,
+          "primaryKey": true,
+          "comment": "组织id"
+        },
+        "id": {
+          "type": "Number",
+          "rawType": "BIGINT(20)",
+          "allowNull": false,
+          "defaultValue": 1249512440625714,
+          "rawDefaultValue": null,
+          "primaryKey": true,
+          "comment": "主键id"
+        },
+        "parentId": {
+          "type": "Number",
+          "rawType": "BIGINT(20)",
+          "allowNull": false,
+          "defaultValue": 1249512399500824,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "父id"
+        },
+        "fullId": {
+          "type": "String",
+          "rawType": "VARCHAR(255)",
+          "allowNull": true,
+          "defaultValue": "1249512391201282|1249512391201285|1249512391201294|1249512399500801|1249512399500810|1249512399500824|1249512440625714",
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "节点主键链 11|22"
+        },
+        "name": {
+          "type": "String",
+          "rawType": "VARCHAR(2000)",
+          "allowNull": true,
+          "defaultValue": "LK07+435～LK08+8801",
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "工号名称"
+        },
+        "fullName": {
+          "type": "String",
+          "rawType": "VARCHAR(2000)",
+          "allowNull": true,
+          "defaultValue": "青藏-四川铁路隧道|青藏-四川铁路隧道（进入口）|防排水工程|中心排水管（1194m)|井盖混凝土|￠502排水管|LK07+435～LK08+8801",
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "工号节点名称链(桩基|1#)"
+        },
+        "level": {
+          "type": "Number",
+          "rawType": "BIGINT(20)",
+          "allowNull": true,
+          "defaultValue": 7,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "树级别"
+        },
+        "isLeaf": {
+          "type": "Boolean",
+          "rawType": "TINYINT(1)",
+          "allowNull": true,
+          "defaultValue": "0",
+          "rawDefaultValue": "0",
+          "primaryKey": false,
+          "comment": "是否为子节点"
+        },
+        "startTime": {
+          "type": "String",
+          "rawType": "VARCHAR(50)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "开工时间"
+        },
+        "endTime": {
+          "type": "String",
+          "rawType": "VARCHAR(50)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "结束时间"
+        },
+        "ghState": {
+          "type": "String",
+          "rawType": "VARCHAR(50)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "工号状态"
+        },
+        "isDelivery": {
+          "type": "Boolean",
+          "rawType": "TINYINT(1)",
+          "allowNull": true,
+          "defaultValue": "0",
+          "rawDefaultValue": "0",
+          "primaryKey": false,
+          "comment": "是否是发料工号"
+        },
+        "isCheck": {
+          "type": "Boolean",
+          "rawType": "TINYINT(1)",
+          "allowNull": true,
+          "defaultValue": "0",
+          "rawDefaultValue": "0",
+          "primaryKey": false,
+          "comment": "是否为核算工号"
+        },
+        "remark": {
+          "type": "String",
+          "rawType": "VARCHAR(2000)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "备注"
+        },
+        "sortCode": {
+          "type": "Number",
+          "rawType": "BIGINT(20)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "排序"
+        },
+        "oriGhId": {
+          "type": "String",
+          "rawType": "VARCHAR(50)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "第三方对接工号id"
+        },
+        "oriOrgId": {
+          "type": "String",
+          "rawType": "VARCHAR(50)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "第三方对接组织id"
+        },
+        "creatorId": {
+          "type": "Number",
+          "rawType": "BIGINT(20)",
+          "allowNull": true,
+          "defaultValue": 10001,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "添加人主键"
+        },
+        "creatorName": {
+          "type": "String",
+          "rawType": "VARCHAR(255)",
+          "allowNull": true,
+          "defaultValue": "租户管理员",
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "添加人"
+        },
+        "modifierId": {
+          "type": "Number",
+          "rawType": "BIGINT(20)",
+          "allowNull": true,
+          "defaultValue": 10001,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "修改人主键"
+        },
+        "modifierName": {
+          "type": "String",
+          "rawType": "VARCHAR(255)",
+          "allowNull": true,
+          "defaultValue": "租户管理员",
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "修改人"
+        },
+        "deliveryId": {
+          "type": "Number",
+          "rawType": "BIGINT(20)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": null
+        },
+        "deliveryName": {
+          "type": "String",
+          "rawType": "VARCHAR(2000)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": null
+        },
+        "deliveryFullName": {
+          "type": "String",
+          "rawType": "VARCHAR(2000)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": null
+        },
+        "oriVersion": {
+          "type": "Number",
+          "rawType": "BIGINT(20)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": null
+        },
+        "orderNo": {
+          "type": "Number",
+          "rawType": "BIGINT(20)",
+          "allowNull": true,
+          "defaultValue": "0",
+          "rawDefaultValue": "0",
+          "primaryKey": false,
+          "comment": null
+        },
+        "fullIdEx": {
+          "type": "String",
+          "rawType": "VARCHAR(255)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": null
+        },
+        "excelTaskId": {
+          "type": "String",
+          "rawType": "VARCHAR(2000)",
+          "allowNull": true,
+          "defaultValue": "excelImport:ghImport:cbaseinfo:10001:10001:1649748228128",
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": null
+        },
+        "oriName": {
+          "type": "String",
+          "rawType": "VARCHAR(255)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": null
+        },
+        "startPile": {
+          "type": "String",
+          "rawType": "VARCHAR(50)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": null
+        },
+        "endPile": {
+          "type": "String",
+          "rawType": "VARCHAR(50)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": null
+        },
+        "code": {
+          "type": "String",
+          "rawType": "VARCHAR(50)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "工号编码"
+        },
+        "creator": {
+          "type": "Number",
+          "rawType": "BIGINT(20)",
+          "allowNull": false,
+          "defaultValue": "0",
+          "rawDefaultValue": "0",
+          "primaryKey": false,
+          "comment": null
+        },
+        "createdAt": {
+          "type": "DateTime",
+          "rawType": "DATETIME",
+          "allowNull": true,
+          "defaultValue": "2022-04-12T07:39:57.000Z",
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "创建时间"
+        },
+        "reviser": {
+          "type": "Number",
+          "rawType": "BIGINT(20)",
+          "allowNull": false,
+          "defaultValue": "0",
+          "rawDefaultValue": "0",
+          "primaryKey": false,
+          "comment": null
+        },
+        "updatedAt": {
+          "type": "DateTime",
+          "rawType": "DATETIME",
+          "allowNull": true,
+          "defaultValue": "2022-04-12T09:08:06.000Z",
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "修改时间"
+        },
+        "version": {
+          "type": "Number",
+          "rawType": "BIGINT(20)",
+          "allowNull": true,
+          "defaultValue": 1249555828610048,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": null
+        },
+        "isRemoved": {
+          "type": "Boolean",
+          "rawType": "TINYINT(1)",
+          "allowNull": false,
+          "defaultValue": true,
+          "rawDefaultValue": "0",
+          "primaryKey": false,
+          "comment": "删除标记"
+        },
+        "isDisable": {
+          "type": "Boolean",
+          "rawType": "TINYINT(1)",
+          "allowNull": false,
+          "defaultValue": true,
+          "rawDefaultValue": "1",
+          "primaryKey": false,
+          "comment": "是否启用"
+        },
+        "longitude": {
+          "type": "Number",
+          "rawType": "DECIMAL(28,8)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "经度"
+        },
+        "latitude": {
+          "type": "Number",
+          "rawType": "DECIMAL(28,8)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "纬度"
+        },
+        "projectTypeId": {
+          "type": "Number",
+          "rawType": "BIGINT(20)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "工程分类id"
+        },
+        "projectTypeName": {
+          "type": "String",
+          "rawType": "VARCHAR(50)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "工程分类name"
+        },
+        "accountingObjectId": {
+          "type": "Number",
+          "rawType": "BIGINT(20)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "核算对象id"
+        },
+        "accountingObjectName": {
+          "type": "String",
+          "rawType": "VARCHAR(50)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "核算对象name"
+        },
+        "matchFullName": {
+          "type": "String",
+          "rawType": "VARCHAR(2000)",
+          "allowNull": true,
+          "defaultValue": null,
+          "rawDefaultValue": null,
+          "primaryKey": false,
+          "comment": "映射工号全称"
+        }
+      }
+    }
+  ]
+
+  Handlebars.registerHelper("modelGenerator",function () {
+
+  })
+</script>
+
+<script id="model_template" type="text/x-handlebars-template">
+    const Sequelize = require('@mctech/sequelize-impala');
+
+    {{#list city class="green"}}
+        <div style="color:red;">{{firstName}}-----{{lastName}}</div>
+    {{/list}}
+
+    {{log 'this is a simple log output'}}
+    {{log "debug logging" level="debug"}}
+    {{log "info logging" level="info"}}
+    {{log "info logging is the default"}}
+    {{log "logging a warning" level="warn"}}
+    {{log "logging an error" level="error"}}
+</script>
+</body>
+</html>
