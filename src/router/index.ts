@@ -23,6 +23,7 @@ import {LogicFlow} from "@/pages/logicFlow/logicFlow";
 import {UnocssPage} from "@/pages/unocss-page/unocss-page";
 import {ChartPage} from "@/pages/chart/chart";
 import {HocPage} from "@/pages/hoc/hoc";
+import {DemoRefs} from "@/pages/demmo-refs/demo-refs";
 import {TestSelect} from "@/pages/select/test-select";
 import TreeDemo from "@/pages/tree/tree-demo.vue";
 import {DemoPopover} from "@/pages/demo-popover/demo-popover";
@@ -57,6 +58,7 @@ export const routes = [
   {path: '/UnocssPage', component: UnocssPage, title: "UnocssPage"},
   {path: '/chart-page', component: ChartPage, title: "ChartPage"},
   {path: '/hoc-page', component: HocPage, title: "HocPage"},
+  {path: '/demo-refs', component: DemoRefs, title: "DemoRefs"},
   {path: '/TestSelect', component: TestSelect, title: "TestSelect"},
   {path: '/tree-demo', component: TreeDemo, title: "TreeDemo"},
   {path: '/popover-demo', component: DemoPopover, title: "DemoPopover"},
