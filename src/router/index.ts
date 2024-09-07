@@ -28,11 +28,14 @@ import TreeDemo from "@/pages/tree/tree-demo.vue";
 import {DemoPopover} from "@/pages/demo-popover/demo-popover";
 import {VuetifyDemoJsx} from "@/pages/vutify-demo/vuetify-demo.jsx";
 import {DemoArcoDesign} from "@/pages/demo-arco-design/demo-arco-design";
+import {DemoTdesignMobile} from "@/pages/demo-tdesign-mobile/demo-tdesign-mobile";
+import {DemoSearchTree} from "@/pages/demo-search-tree/demo-search-tree";
 
 export const routes = [
   {path: '/', component: MainPage},
   {path: '/formily', component: Formily, title: "formily配置"},
   {path: '/emit', component: TestEmit},
+  {path: '/demo-search-tree', component: DemoSearchTree, title: '搜索树'},
   {path: '/demo', component: Demo},
   {path: '/test', component: Test},
   // {path: '/monaco-editor', component: MonacoEditor, title: '代码编辑器'},
@@ -59,6 +62,7 @@ export const routes = [
   {path: '/popover-demo', component: DemoPopover, title: "DemoPopover"},
   {path: '/vuetify-demo', component: VuetifyDemoJsx, title: "VuetifyDemoJsx"},
   {path: '/demo-arco-design', component: DemoArcoDesign, title: "DemoArcoDesign"},
+  {path: '/demo-tdesign-mobile', component: DemoTdesignMobile, title: "DemoTdesignMobile"},
 ]
 export const router = createRouter({
   // 4. 内部提供了 history 模式的实现。为了简单起见，我们在这里使用 hash 模式。
