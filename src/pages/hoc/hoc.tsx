@@ -1,35 +1,94 @@
-import {defineComponent, ref, reactive} from 'vue';
-// const {ref, defineComponent} = window.Vue;
+import {defineComponent, ref, h} from 'vue';
+import {TestPage} from "./test-page";
+import {createHoc} from "@/pages/hoc/helper";
+import {createForwardRef} from "@/pages/hoc/forward-ref";
 
-console.log(window.Vue);
-export const TestPage =defineComponent({
-  name: 'TestPage',
-  slots: ['default'],
-  setup(props, {slots}) {
+
+const Div = defineComponent({
+  setup() {
+    const age = ref(16);
+
     return () => {
-      return <div class={'full-container'}>
-        {slots.default && slots.default()}
-      </div>;
-    };
+      return <div>
+        age = {age.value}
+      </div>
+    }
   }
-});
+})
+
 export const HocPage = defineComponent({
   name: 'HocPage',
   setup(props) {
-    // data
-    const data = ref<any>({});
-    // methods
-    const methods = {
-      loadData: () => {
-        //
-      },
-    };
+    const pageRef = ref()
+    const instance = ref()
+    const rawRef = ref()
+
+    window.AssemInstance = instance
+    window.AssemRawRef = rawRef
+
+    const override = {
+      // ...
+      id: "test-inner-id",
+      innerAge: 777
+    }
+    // Assign `forwardRef` to the component that needs to be forwarded,
+    // and the first parameter allows you to pass in the ref already defined
+    const forwardRef = createForwardRef(null, override)
+
+    const handleClick = () => {
+      if (!forwardRef)return
+      debugger;
+      forwardRef.value.$props.key = 100
+
+      console.log(forwardRef);
+      debugger;
+    }
     return () => {
-      return <div class={'full-container'}>hoc-page
-        <TestPage>
-          我是test
+
+      return <div>
+        <el-button
+          type="primary"
+          onClick={handleClick}
+        >
+          测试
+        </el-button>
+        <TestPage ref={forwardRef} a={10}>
+          xxx
         </TestPage>
-      </div>;
+      </div>
+
+      /*return <div>
+        <el-button
+          type="primary"
+          onClick={() => {
+            console.log(instance.value);
+            console.log(rawRef.value);
+          }}
+        >
+          测试
+        </el-button>
+        {
+          h(
+            createHoc(Div, {id: "id", class: 'a'}, true),
+            {
+              ref: instance.value
+            }
+          )
+        }
+      </div>*/
+      /*return h(
+        createHoc(
+          Div,
+          {
+            id: 'id',
+            class: 'class'
+          },
+          true
+        ),
+        {
+          ref: instance
+        },
+      )*/
     };
   }
 });

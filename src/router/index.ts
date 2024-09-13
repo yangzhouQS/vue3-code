@@ -31,6 +31,8 @@ import {VuetifyDemoJsx} from "@/pages/vutify-demo/vuetify-demo.jsx";
 import {DemoArcoDesign} from "@/pages/demo-arco-design/demo-arco-design";
 import {DemoTdesignMobile} from "@/pages/demo-tdesign-mobile/demo-tdesign-mobile";
 import {DemoSearchTree} from "@/pages/demo-search-tree/demo-search-tree";
+import {DemoDirectives} from "@/pages/demo-directives/demo-directives";
+import {DemoText} from "@/pages/demo-text/demo-text";
 
 export const routes = [
   {path: '/', component: MainPage},
@@ -39,7 +41,9 @@ export const routes = [
   {path: '/demo-search-tree', component: DemoSearchTree, title: '搜索树'},
   {path: '/demo', component: Demo},
   {path: '/test', component: Test},
+  {path: '/demo-text', component: DemoText, title: '文本测试'},
   // {path: '/monaco-editor', component: MonacoEditor, title: '代码编辑器'},
+  {path: '/demo-directives', component: DemoDirectives, title: '指令测试'},
   {path: '/scroll', component: ScrollBar, title: '滚动条'},
   {path: '/tabs', component: Tabs, title: "tabs组件"},
   {path: '/frame', component: DesignerView, title: "frame测试"},

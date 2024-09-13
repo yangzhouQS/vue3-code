@@ -19,19 +19,21 @@ import 'vuetify/styles'
 import {createVuetify} from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+
+import TinyVue from '@opentiny/vue'
+
 const vuetify = createVuetify({
   components,
   directives,
 })
 
-console.log('---vuetify---', vuetify);
 // import {createFormily} from "@/components/vue-formily";
 
 // const formily = createFormily();
 const app = Vue.createApp(tmpApp)
 
 // app.use(formily, {});
-// app.use(TinyVue)
+app.use(TinyVue)
 app.use(vuetify)
 app.use(router)
 app.use(ElementPlus)
