@@ -33,15 +33,26 @@ import {DemoTdesignMobile} from "@/pages/demo-tdesign-mobile/demo-tdesign-mobile
 import {DemoSearchTree} from "@/pages/demo-search-tree/demo-search-tree";
 import {DemoDirectives} from "@/pages/demo-directives/demo-directives";
 import {DemoText} from "@/pages/demo-text/demo-text";
+import {DemoVirtual} from "@/pages/demo-virtual/demo-virtual";
 
 export const routes = [
-  {path: '/', component: MainPage},
+  {path: '/', component: MainPage, title: "主页"},
   {path: '/formily', component: Formily, title: "formily配置"},
   {path: '/emit', component: TestEmit},
   {path: '/demo-search-tree', component: DemoSearchTree, title: '搜索树'},
   {path: '/demo', component: Demo},
   {path: '/test', component: Test},
   {path: '/demo-text', component: DemoText, title: '文本测试'},
+  {path: '/demo-virtual', component: DemoVirtual, title: '虚拟滚动'},
+  /*{
+    // path: '/demo-wap',
+    // redirect: '/demo-wap/demo-text',
+    title: '演示',
+    children: [
+      {path: '/demo-text', component: DemoText, title: '文本测试'},
+      {path: '/demo-virtual', component: DemoVirtual, title: '虚拟滚动'},
+    ]
+  },*/
   // {path: '/monaco-editor', component: MonacoEditor, title: '代码编辑器'},
   {path: '/demo-directives', component: DemoDirectives, title: '指令测试'},
   {path: '/scroll', component: ScrollBar, title: '滚动条'},
