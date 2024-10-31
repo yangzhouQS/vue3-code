@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+</div>
+<script>
+    async function run() {
+
+      // const ePromise = await navigator.mediaDevices.enumerateDevices();
+      // console.log(ePromise);
+      const result = await navigator.mediaDevices.getDisplayMedia()
+      console.log(result)
+      debugger
+    }
+  run()
+</script>
+</body>
+</html>

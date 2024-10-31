@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
+    console.log('浏览器不支持')
+  }
+  const constraints = {audio: true, video: {width: 1280, height: 720}}
+  navigator.mediaDevices.getUserMedia({
+    audio: true,
+    video: true
+  }).then(result => {
+    console.log(result)
+    debugger
+  }).catch(error => {
+    console.log(error)
+    debugger
+  })
+
+  const ePromise = navigator.mediaDevices.enumerateDevices()
+  ePromise.then(res => {
+    res.forEach(deviceInfo => {
+      console.log(`${deviceInfo.kind}, label=${deviceInfo.label}, deviceId = ${deviceInfo.deviceId},groupId = ${deviceInfo.groupId}`)
+    })
+  }, onerror => {
+    console.log(onerror)
+  })
+</script>
+
+</body>
+</html>
