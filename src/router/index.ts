@@ -34,6 +34,7 @@ import {DemoSearchTree} from "@/pages/demo-search-tree/demo-search-tree";
 import {DemoDirectives} from "@/pages/demo-directives/demo-directives";
 import {DemoText} from "@/pages/demo-text/demo-text";
 import {DemoVirtual} from "@/pages/demo-virtual/demo-virtual";
+import {DemoHooks} from "@/pages/demo-hooks/demo-hooks";
 
 export const routes = [
   {path: '/', component: MainPage, title: "主页"},
@@ -42,6 +43,7 @@ export const routes = [
   {path: '/demo-search-tree', component: DemoSearchTree, title: '搜索树'},
   {path: '/demo', component: Demo},
   {path: '/test', component: Test},
+  {path: '/demo-hooks', component: DemoHooks,title:"hook测试"},
   {path: '/demo-text', component: DemoText, title: '文本测试'},
   {path: '/demo-virtual', component: DemoVirtual, title: '虚拟滚动'},
   /*{
