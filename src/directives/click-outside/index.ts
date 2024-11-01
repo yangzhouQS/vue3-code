@@ -1,5 +1,5 @@
 // Utilities
-import {attachedRoot} from "@/utils/dom";
+import {attachedRoot} from "../../utils/dom";
 
 // Types
 import type { DirectiveBinding } from 'vue'

@@ -3,7 +3,7 @@ import { getCurrentInstance as _getCurrentInstance } from 'vue'
 
 // Types
 import type { ComponentInternalInstance } from 'vue'
-import {toKebabCase} from "@/utils/helpers";
+import {toKebabCase} from "./helpers";
 
 export function getCurrentInstance (name: string, message?: string) {
   const vm = _getCurrentInstance()

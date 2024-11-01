@@ -1,6 +1,6 @@
 import {ref} from 'vue'
 import {createGlobalState} from '@vueuse/core'
-import {Engine} from "@/components/core";
+import {Engine} from "../core";
 
 export const useGlobalContext = createGlobalState(() => {
   const engine = ref<Engine>()

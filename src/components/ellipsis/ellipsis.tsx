@@ -8,13 +8,11 @@ import {
     ref,
 } from 'vue';
 import { isObject } from 'lodash-es';
+const prefixCls = getPrefixCls('ellipsis');
 import Tooltip from '../tooltip';
 import { useTheme } from '../_theme/useTheme';
 import type { ToolTipProps } from '../tooltip';
 import type { ExtractPublicPropTypes } from '../_util/interface';
-import {getPrefixCls} from "@/utils/getPrefixCls";
-
-const prefixCls = getPrefixCls('ellipsis');
 
 
 export const ellipsisProps = {

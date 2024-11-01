@@ -1,7 +1,8 @@
-import {defineComponent, ref, effect, Fragment, onMounted, computed} from 'vue'
-import {usePrefix} from "@/components/vue/hooks/usePrefix";
-import {ComponentInstance, TextWidget} from "@/components/vue";
-import {IconWidget} from "@/components/vue/widgets/IconWidget";
+import {defineComponent, ref, effect, Fragment, computed} from 'vue'
+import {usePrefix} from "../hooks/usePrefix";
+import {IconWidget} from "../widgets/IconWidget";
+import {ComponentInstance} from "../types";
+import {TextWidget} from "../widgets";
 
 
 export interface ICompositePanelProps {

@@ -1,4 +1,4 @@
-import {GlobalRegistry} from "@/components/core";
+import {GlobalRegistry} from "../../core";
 
 export const useRegistry = () => {
   return GlobalRegistry

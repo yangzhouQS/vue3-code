@@ -1,10 +1,10 @@
 import {defineComponent, ref} from 'vue'
-import {usePrefix} from "@/components/vue/hooks/usePrefix";
 import './style.less'
-import {IconWidget} from "@/components/vue/widgets/IconWidget";
-import {TextWidget} from "@/components/vue";
-import {isFn} from "@/components/shared";
-import {IResource, isResourceHost, isResourceList} from "@/components/core";
+import {IResource, isResourceHost, isResourceList} from "../../../core";
+import {usePrefix} from "../../hooks/usePrefix";
+import {IconWidget} from "../IconWidget";
+import {TextWidget} from "../TextWidget";
+import {isFn} from "../../../shared";
 
 export const ResourceWidget = defineComponent({
   name: 'ResourceWidget',

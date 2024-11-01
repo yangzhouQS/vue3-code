@@ -1,11 +1,11 @@
 import {computed, defineComponent, onUnmounted, ref, Transition, watch} from 'vue';
 import PopoverProps from './props'
 import { createPopper, Placement } from '@popperjs/core';
-import {PopoverPropsType} from "@/components/popover/type";
-import {useClickAway, useDefault} from "@/utils/nut-use";
 const prefix = 't';
 const name = `${prefix}-popover`;
 import './style/index.less'
+import {PopoverPropsType} from "./type";
+import {useClickAway, useDefault} from "../../utils/nut-use";
 export const Popover = defineComponent({
   name: 'Popover',
   props: PopoverProps,

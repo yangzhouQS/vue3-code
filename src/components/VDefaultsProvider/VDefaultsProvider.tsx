@@ -1,5 +1,5 @@
 import {defineComponent, PropType, toRefs} from 'vue';
-import {DefaultsOptions, provideDefaults} from "@/composables/default";
+import {DefaultsOptions, provideDefaults} from "../../composables/default";
 
 /**
  * v-defaults-provider组件用于向其范围内的组件提供默认属性。

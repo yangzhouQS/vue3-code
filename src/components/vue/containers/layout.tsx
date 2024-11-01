@@ -1,6 +1,6 @@
 import {defineComponent, effect, watch, Fragment} from 'vue'
-import {useDesignerLayout} from "@/components/vue/hooks/useDesignerLayout";
 import {each as $each} from 'lodash'
+import {useDesignerLayout} from "../hooks/useDesignerLayout";
 
 export const Layout = defineComponent({
   name: "designer",

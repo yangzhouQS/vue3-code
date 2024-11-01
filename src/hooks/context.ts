@@ -3,7 +3,7 @@ import _mergeWith from 'lodash/mergeWith';
 import merge from 'lodash/merge';
 import defaultConfig from './default-config';
 import isArray from 'lodash/isArray';
-import {GlobalConfigProvider} from "@/hooks/useConfig";
+import {GlobalConfigProvider} from "./useConfig";
 
 export enum EAnimationType {
   ripple = 'ripple',

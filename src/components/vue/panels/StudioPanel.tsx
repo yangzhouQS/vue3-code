@@ -1,7 +1,7 @@
 import {defineComponent} from 'vue'
-import {usePrefix} from "@/components/vue/hooks/usePrefix";
-import {usePosition} from "@/components/vue/hooks/usePosition";
-import {Layout} from "@/components/vue";
+import {usePrefix} from "../hooks/usePrefix";
+import {usePosition} from "../hooks/usePosition";
+import {Layout} from "../containers";
 
 export const StudioPanelInternal = defineComponent({
   name: 'StudioPanelInternal',

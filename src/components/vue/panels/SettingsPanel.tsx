@@ -1,8 +1,8 @@
 import {defineComponent, effect, PropType, ComponentPublicInstance, ref} from 'vue'
-import {usePrefix} from "@/components/vue/hooks/usePrefix";
-import {useWorkbench} from "@/components/vue/hooks/useWorkbench";
-import {IconWidget} from "@/components/vue/widgets/IconWidget";
-import {TextWidget} from "@/components/vue";
+import {usePrefix} from "../hooks/usePrefix";
+import {useWorkbench} from "../hooks/useWorkbench";
+import {IconWidget} from "../widgets/IconWidget";
+import {TextWidget} from "../widgets";
 
 export const SettingsPanel = defineComponent({
   name: 'SettingsPanel',

@@ -38,21 +38,23 @@
 </template>
 
 <script setup lang="ts">
-
-import {createDesigner, createResource} from "@/components/core";
-import {Workbench} from "@/components/vue/containers/workbench";
-import {StudioPanel} from "@/components/vue/panels/StudioPanel";
-import {SettingsPanel} from "@/components/vue/panels/SettingsPanel";
-import {WorkspacePanel} from "@/components/vue/panels/WorkspacePanel";
-import {ToolbarPanel} from "@/components/vue/panels/ToolbarPanel";
-import {ViewportPanel} from "@/components/vue/panels/ViewportPanel";
-import {CompositePanel, CompositePanelItem} from "@/components/vue/panels/CompositePanel";
-import {OutlineTreeWidget} from "@/components/vue/widgets/OutlineWidget";
-import {ResourceWidget} from "@/components/vue/widgets/ResourceWidget";
-import {SettingsForm} from "@/components/vue-settings-form/SettingsForm";
-import {DesignerToolsWidget} from "@/components/vue/widgets/DesignerToolsWidget";
 import {ViewPanel, ViewToolsWidget, Designer} from "../components/vue";
 import {Content} from "./content";
+import {createDesigner, createResource} from "../components/core";
+import {
+  OutlineTreeWidget,
+  ResourceWidget,
+  Workbench,
+  DesignerToolsWidget,
+  StudioPanel,
+  SettingsPanel,
+  WorkspacePanel,
+  ViewportPanel,
+  ToolbarPanel,
+  CompositePanel,
+  CompositePanelItem
+} from "../components/vue";
+import {SettingsForm} from "../components/vue-settings-form";
 
 const Input = createResource({
   title: '输入框',

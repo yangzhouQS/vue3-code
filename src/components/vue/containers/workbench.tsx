@@ -1,6 +1,6 @@
 import {defineComponent} from 'vue'
-import {Workspace} from "@/components/vue";
-import {useWorkbench} from "@/components/vue/hooks/useWorkbench";
+import {Workspace} from "./workspace";
+import {useWorkbench} from "../hooks/useWorkbench";
 
 export const Workbench = defineComponent({
   name: "workbench",

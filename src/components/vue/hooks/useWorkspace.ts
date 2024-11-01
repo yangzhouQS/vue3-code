@@ -1,4 +1,4 @@
-import {useDesigner} from "@/components/vue/hooks/useDesigner";
+import {useDesigner} from "./useDesigner";
 
 export const useWorkspace = (id?: string) => {
   const designer = useDesigner()

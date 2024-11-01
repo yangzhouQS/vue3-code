@@ -1,5 +1,5 @@
 import {defineComponent} from 'vue'
-import {WorkspacePanelItem} from "@/components/vue";
+import {WorkspacePanelItem} from "./WorkspacePanel";
 
 export const ToolbarPanel = defineComponent({
   name: 'ToolbarPanel',

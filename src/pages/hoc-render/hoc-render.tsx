@@ -1,7 +1,6 @@
 import {defineComponent, onMounted, ref, h} from "vue"
+import {Hoc} from "../../components/render-test/core/hoc";
 
-import {ElButton} from 'element-plus'
-import {Hoc} from "@/components/render-test/core/hoc";
 
 export const TestButton = defineComponent({
   name: 'TestButton',

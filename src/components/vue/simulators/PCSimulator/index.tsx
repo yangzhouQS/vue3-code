@@ -1,6 +1,6 @@
 import {defineComponent} from 'vue'
-import {usePrefix} from "@/components/vue/hooks/usePrefix";
 import "./styles.less"
+import {usePrefix} from "../../hooks/usePrefix";
 
 export const PCSimulator = defineComponent({
   name: 'PCSimulator',

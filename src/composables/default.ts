@@ -3,7 +3,7 @@ import { computed, inject, provide, ref, shallowRef, unref, watchEffect } from '
 
 // Types
 import type {ComputedRef, InjectionKey, Ref, VNode} from 'vue'
-import {MaybeRef, mergeDeep} from "@/utils/helpers";
+import {MaybeRef, mergeDeep} from "../utils/helpers";
 
 export type DefaultsInstance = undefined | {
   [key: string]: undefined | Record<string, unknown>

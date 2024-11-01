@@ -1,5 +1,5 @@
 import {defineComponent} from 'vue'
-import {usePrefix} from "@/components/vue/hooks/usePrefix";
+import {usePrefix} from "../hooks/usePrefix";
 
 export const WorkspacePanel = defineComponent({
   name: 'WorkspacePanel',

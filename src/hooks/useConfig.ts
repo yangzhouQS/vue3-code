@@ -2,9 +2,9 @@ import {computed, h, inject, getCurrentInstance, ref, provide, ComputedRef} from
 import isFunction from 'lodash/isFunction';
 import cloneDeep from 'lodash/cloneDeep';
 import isString from 'lodash/isString';
-import {AnimationType} from "@/hooks/default-config";
 import {mergeWith} from "lodash";
-import {configProviderInjectKey, defaultGlobalConfig} from "@/hooks/context";
+import {AnimationType} from "./default-config";
+import {configProviderInjectKey, defaultGlobalConfig} from "./context";
 
 export interface GlobalConfigProvider {
   /**

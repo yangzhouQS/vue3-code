@@ -5,7 +5,7 @@ import Ripple from '../'
 import { describe, expect, it } from '@jest/globals'
 import { mount } from '@vue/test-utils'
 import { defineComponent } from 'vue'
-import { keyCodes } from '@/util'
+import {keyCodes} from "../../../utils/helpers";
 
 const testComponent = defineComponent({
   directives: { Ripple },

@@ -1,7 +1,7 @@
 import {defineComponent, Fragment} from 'vue'
-import {useDesigner} from "@/components/vue/hooks/useDesigner";
-import {useCursor} from "@/components/vue/hooks/useCursor";
-import {CursorStatus} from "@/components/core";
+import {useDesigner} from "../../hooks/useDesigner";
+import {useCursor} from "../../hooks/useCursor";
+import {CursorStatus} from "../../../core";
 
 export const GhostWidget = defineComponent({
   name: 'GhostWidget',

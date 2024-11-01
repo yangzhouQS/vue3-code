@@ -5,7 +5,7 @@ import Touch from '../'
 import { describe, expect, it } from '@jest/globals'
 import { mount } from '@vue/test-utils'
 import { nextTick } from 'vue'
-import { touch } from '@/../test'
+// import { touch } from '@/../test'
 
 // Types
 import type { TouchValue } from '../'

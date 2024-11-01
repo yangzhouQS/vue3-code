@@ -1,5 +1,5 @@
 import {defineComponent} from 'vue';
-import {AssemTextEllipsis} from "@/components/assem-text-ellipsis/assem-text-ellipsis";
+import {AssemTextEllipsis} from "../../components/assem-text-ellipsis/assem-text-ellipsis";
 
 export const DemoText = defineComponent({
   name: 'DemoText',

@@ -1,5 +1,4 @@
-import {Element} from "@/components/vue-formily/core/elements";
-import {getElement} from "@/utils/dom/dom";
+import {getElement} from "../../utils/dom/dom";
 
 const scrollTargets = [null, document, document.body, document.scrollingElement, document.documentElement]
 type ScrollCtxType = {

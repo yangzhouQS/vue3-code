@@ -1,9 +1,9 @@
 // Utilities
-import { SUPPORTS_INTERSECTION } from '@/utils/globals'
 // Types
 import type {
   DirectiveBinding,
 } from 'vue'
+import {SUPPORTS_INTERSECTION} from "../../utils/globals";
 
 type ObserveHandler = (
   isIntersecting: boolean,

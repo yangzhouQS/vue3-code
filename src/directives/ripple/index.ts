@@ -2,7 +2,7 @@
 import './VRipple.sass'
 
 // Utilities
-import {keyCodes, isObject} from "@/utils/helpers";
+import {keyCodes,isObject} from "../../utils/helpers";
 
 // Types
 import type {DirectiveBinding} from 'vue'

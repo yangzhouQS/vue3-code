@@ -1,15 +1,14 @@
-import {WorkbenchTypes} from "@/components/core";
+import {defineComponent} from 'vue'
+import {WorkbenchTypes} from "../../../core";
+import {IconWidget} from "../IconWidget";
+import {useWorkbench} from "../../hooks/useWorkbench";
+import {usePrefix} from "../../hooks/usePrefix";
 
 export interface IViewToolsWidget {
   use?: WorkbenchTypes[]
   style?: any
   class?: string
 }
-
-import {defineComponent, ref, reactive} from 'vue'
-import {useWorkbench} from "@/components/vue/hooks/useWorkbench";
-import {usePrefix} from "@/components/vue/hooks/usePrefix";
-import {IconWidget} from "@/components/vue/widgets/IconWidget";
 
 export const ViewToolsWidget = defineComponent({
   name: 'ViewToolsWidget',

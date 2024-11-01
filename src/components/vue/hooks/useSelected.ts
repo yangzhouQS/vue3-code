@@ -1,4 +1,4 @@
-import {useSelection} from "@/components/vue/hooks/useSelection"
+import {useSelection} from "./useSelection";
 
 export const useSelected = (workspaceId?: string) => {
   const selection = useSelection(workspaceId)

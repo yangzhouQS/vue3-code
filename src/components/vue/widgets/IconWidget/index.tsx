@@ -1,8 +1,8 @@
 import {defineComponent, h} from 'vue'
-import {usePrefix} from "@/components/vue/hooks/usePrefix";
-import {useRegistry} from "@/components/vue/hooks/useRegistry";
-import {isFn, isHTMLElement, isPlainObj, isStr} from "@/components/shared";
-import {isVueComponent} from "@/components/shared/utils";
+import {usePrefix} from "../../hooks/usePrefix";
+import {useRegistry} from "../../hooks/useRegistry";
+import {isVueComponent} from "../../../shared/utils";
+import {isFn, isPlainObj, isStr} from "../../../shared";
 
 const isNumSize = (val: any) => /^[\d.]+$/.test(val)
 export const IconWidget = defineComponent({

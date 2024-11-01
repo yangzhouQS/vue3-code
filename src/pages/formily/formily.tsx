@@ -1,5 +1,5 @@
 import {defineComponent, onMounted, ref} from "vue"
-import {defineSchema, useFormily} from "@/components/vue-formily";
+import {defineSchema, useFormily} from "../../components/vue-formily";
 export const Formily = defineComponent({
 	name: 'Formily',
 	props: {

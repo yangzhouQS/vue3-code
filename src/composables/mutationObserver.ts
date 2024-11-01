@@ -3,7 +3,7 @@ import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
 // Types
 import type { ComponentPublicInstance } from 'vue'
-import {refElement} from "@/utils/helpers";
+import {refElement} from "../utils/helpers";
 
 export interface MutationOptions {
   attr?: boolean

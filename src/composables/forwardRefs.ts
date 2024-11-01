@@ -1,6 +1,6 @@
 // Types
 import type { ComponentPublicInstance, Ref, UnwrapRef } from 'vue'
-import type { UnionToIntersection } from '@/utils/helpers'
+import {UnionToIntersection} from "../utils/helpers";
 
 const Refs = Symbol('Forwarded refs')
 

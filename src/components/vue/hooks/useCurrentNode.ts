@@ -1,5 +1,5 @@
-import { useSelected } from '@/components/vue/hooks/useSelected'
-import { useTree } from '@/components/vue/hooks/useTree'
+import {useSelected} from "./useSelected";
+import {useTree} from "./useTree";
 
 export const useCurrentNode = (workspaceId?: string) => {
   const selected = useSelected(workspaceId)

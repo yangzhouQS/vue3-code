@@ -7,14 +7,14 @@ export type IDesignerToolsWidgetProps = {
   style?: any
   use?: DesignerToolsType[]
 }
-import {defineComponent, ref, reactive, Fragment} from 'vue'
-import {useScreen} from "@/components/vue/hooks/useScreen";
-import {useCursor} from "@/components/vue/hooks/useCursor";
-import {useWorkbench} from "@/components/vue/hooks/useWorkbench";
-import {useHistory} from "@/components/vue/hooks/useHistory";
-import {usePrefix} from "@/components/vue/hooks/usePrefix";
-import {IconWidget} from "@/components/vue/widgets/IconWidget";
-import {CursorType, ScreenType} from "@/components/core";
+import {defineComponent, reactive, Fragment} from 'vue'
+import {useScreen} from "../../hooks/useScreen";
+import {useCursor} from "../../hooks/useCursor";
+import {useWorkbench} from "../../hooks/useWorkbench";
+import {useHistory} from "../../hooks/useHistory";
+import {IconWidget} from "../IconWidget";
+import {usePrefix} from "../../hooks/usePrefix";
+import {CursorType, ScreenType} from "../../../core";
 
 export const DesignerToolsWidget = defineComponent({
   name: 'DesignerToolsWidget',

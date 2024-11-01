@@ -1,5 +1,5 @@
 import {defineComponent, Fragment} from 'vue'
-import {isPlainObj, isStr} from "@/components/shared";
+import {isPlainObj, isStr} from "../../../shared";
 
 export const TextWidget = defineComponent({
   name: 'TextWidget',

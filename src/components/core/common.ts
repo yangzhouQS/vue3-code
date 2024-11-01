@@ -1,4 +1,4 @@
-import {IPublicTypeEngineGetResult, IPublicTypeEngineValueKey} from "@/components/core/types";
+import {IPublicTypeEngineGetResult, IPublicTypeEngineValueKey} from "./types";
 
 export class Common {
   constructor() {

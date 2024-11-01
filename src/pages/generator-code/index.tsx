@@ -1,5 +1,5 @@
 import {defineComponent, onMounted, ref} from "vue"
-import request from "@/utils/http";
+import request from "../../utils/http";
 
 export const GeneratorCode = defineComponent({
   name: 'GeneratorCode',

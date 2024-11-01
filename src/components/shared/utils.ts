@@ -1,5 +1,5 @@
-import {Component, defineComponent, h} from 'vue';
-import {isFn, isObj} from "@/components/shared/types";
+import {Component} from 'vue';
+import {isFn, isObj} from "./types";
 
 export function isNil<T>(val: T): val is NonNullable<T> {
   return val !== null && val !== undefined;

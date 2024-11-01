@@ -1,7 +1,7 @@
 import {defineComponent, ref, Fragment} from 'vue'
-import {useWorkbench} from "@/components/vue/hooks/useWorkbench";
-import {useTree} from "@/components/vue/hooks/useTree";
-import {Viewport} from "@/components/vue";
+import {useWorkbench} from "../hooks/useWorkbench";
+import {Viewport} from "../containers";
+import {useTree} from "../hooks/useTree";
 
 
 export type WorkbenchTypes =

@@ -20,8 +20,6 @@
 </template>
 
 <script>
-import pickSubCompSlots from "@/utils/pick-sub-comp-slots";
-import {useSlots} from 'vue'
 
 export default {
   name: "B-slot-demo",

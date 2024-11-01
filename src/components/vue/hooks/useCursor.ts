@@ -1,4 +1,4 @@
-import {useGlobalContext} from "@/components/vue";
+import {useGlobalContext} from "../context";
 
 export const useCursor = () => {
   const {engine} = useGlobalContext()

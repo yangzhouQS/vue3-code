@@ -1,5 +1,6 @@
 import {defineComponent} from 'vue'
-import {Simulator, WorkspacePanelItem} from "@/components/vue";
+import {WorkspacePanelItem} from "./WorkspacePanel";
+import {Simulator} from "../containers";
 
 export const ViewportPanel = defineComponent({
   name: 'ViewportPanel',

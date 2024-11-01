@@ -6,14 +6,11 @@ import {
   shallowRef
 } from "vue"
 import type {
-  Component,
-  ComponentPublicInstance,
-  DefineComponent,
-  ExtractPropTypes,
   PropType,
 } from 'vue';
-import {buildSchema, IPublicTypeNodeSchema, isFragment, SlotSchemaMap} from "@/components/render-test/use";
 import * as ElementPlus from 'element-plus'
+import {buildSchema, IPublicTypeNodeSchema, isFragment, SlotSchemaMap} from "../use";
+
 export const Hoc = defineComponent({
   name: 'Hoc',
   inheritAttrs: false,

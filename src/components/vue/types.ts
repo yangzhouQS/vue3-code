@@ -1,6 +1,6 @@
-import {Engine} from "@/components/core";
 
-import {Component, ComponentPublicInstance, App} from 'vue';
+import {ComponentPublicInstance} from 'vue';
+import {Engine} from "../core";
 
 export type ComponentInstance = ComponentPublicInstance;
 

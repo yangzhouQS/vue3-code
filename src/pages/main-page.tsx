@@ -1,6 +1,6 @@
 import {defineComponent, ref, reactive} from 'vue';
-import {routes} from "@/router";
-import {useRouter} from "@/utils/helpers";
+import {routes} from "../router";
+import {useRouter} from "../utils/helpers";
 
 export const MainPage = defineComponent({
   name: 'MainPage',

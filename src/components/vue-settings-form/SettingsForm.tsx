@@ -1,10 +1,10 @@
 import {defineComponent} from 'vue'
-import {useWorkbench} from "@/components/vue/hooks/useWorkbench";
-import {NodePathWidget} from "@/components/vue";
-import {usePrefix} from "@/components/vue/hooks/usePrefix";
-import {useOperation} from "@/components/vue/hooks/useOperation";
-import {useCurrentNode} from "@/components/vue/hooks/useCurrentNode";
-import {useSelected} from "@/components/vue/hooks/useSelected";
+import {useWorkbench} from "../vue/hooks/useWorkbench";
+import {NodePathWidget} from "../vue";
+import {usePrefix} from "../vue/hooks/usePrefix";
+import {useSelected} from "../vue/hooks/useSelected";
+import {useCurrentNode} from "../vue/hooks/useCurrentNode";
+import {useOperation} from "../vue/hooks/useOperation";
 
 export const SettingsForm = defineComponent({
   name: 'SettingsForm',

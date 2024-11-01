@@ -29,7 +29,6 @@ const vuetify = createVuetify({
 })
 */
 
-// import {createFormily} from "@/components/vue-formily";
 
 // const formily = createFormily();
 const app = Vue.createApp(tmpApp)

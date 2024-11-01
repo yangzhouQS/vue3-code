@@ -1,7 +1,7 @@
 import {defineComponent, Fragment} from 'vue'
-import {useScreen} from "@/components/vue/hooks/useScreen";
-import {ScreenType} from "@/components/core";
-import {PCSimulator} from "@/components/vue";
+import {PCSimulator} from "../simulators";
+import {ScreenType} from "../../core";
+import {useScreen} from "../hooks/useScreen";
 
 export const Simulator = defineComponent({
   name: "simulator",
