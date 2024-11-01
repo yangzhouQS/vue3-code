@@ -5,7 +5,7 @@ import {FlowCanvas} from "./flow-canvas";
 import {FlowNodeProp} from "./flow-node-prop";
 import {configData} from "./flow-test-data";
 import {flowEvent} from "./component/common/flow-event";
-import {NodeUtils} from "@/pages/flow/utils/flow-util";
+import {NodeUtils} from "./utils/flow-util";
 
 // https://github.com/SNFocus/approvalFlow
 export const FlowPage = defineComponent({

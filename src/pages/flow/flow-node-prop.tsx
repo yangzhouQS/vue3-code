@@ -2,8 +2,8 @@ import {defineComponent, ref, reactive, watch} from 'vue';
 import {cloneDeep} from 'lodash'
 import {EditPen} from '@element-plus/icons-vue';
 import {ClickOutside} from 'element-plus'
-import {NodeUtils} from "@/pages/flow/utils/flow-util";
 import {useFlowNodePropStates} from "./node-hook/use-flow-node-prop";
+import {NodeUtils} from "./utils/flow-util";
 
 
 interface IPropStateType {

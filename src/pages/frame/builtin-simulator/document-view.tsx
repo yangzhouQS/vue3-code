@@ -1,5 +1,5 @@
 import {defineComponent, onMounted, ref} from "vue"
-import {BuiltinSimulatorHostView as Simulator} from "@/pages/frame/builtin-simulator/host-view";
+import {BuiltinSimulatorHostView as Simulator } from "./host-view";
 
 export const DocumentView = defineComponent({
 	name: 'DocumentView',

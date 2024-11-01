@@ -1,6 +1,5 @@
-import {NodeType} from "jsonc-parser";
-import {EdgeData, NodeData} from "@/pages/graph-test/types/models";
-import {parser} from "@/pages/graph-test/utils/json/jsonParser";
+import {parser} from "./utils/json/jsonParser";
+import {EdgeData, NodeData} from "./types/models";
 
 
 export interface Graph {

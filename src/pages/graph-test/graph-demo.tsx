@@ -1,9 +1,6 @@
 import {defineComponent, onMounted, ref} from "vue"
-import {useGraph} from "@/pages/graph-test/useGraph";
-import {sampleJson} from "@/pages/graph-test/data";
-import assemData from './assem-data.json'
-// import tableData from './table.json'
 import {tableConfig} from "./table-config"
+import {useGraph} from "./useGraph";
 
 export const GraphDemo = defineComponent({
   name: 'GraphDemo',

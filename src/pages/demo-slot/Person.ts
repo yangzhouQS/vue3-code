@@ -1,5 +1,5 @@
-import {uid} from "@/pages/demo-slot/uid";
 import {observable, define, action} from '@formily/reactive'
+import {uid} from "./uid";
 
 export class TreeNode {
   id: string

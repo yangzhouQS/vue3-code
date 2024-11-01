@@ -1,7 +1,6 @@
-import {} from 'lodash'
-import {IPublicFlowConfig} from "@/pages/flow/types";
 import nodeConfig from "./config.js";
-import {uniqueId} from "@/pages/flow/utils/unique-id";
+import {uniqueId} from "./unique-id";
+import {IPublicFlowConfig} from "../types";
 
 export const hasBranch = (data = []) => {
   return Array.isArray(data) && data.length > 0

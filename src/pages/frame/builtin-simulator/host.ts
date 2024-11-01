@@ -1,5 +1,5 @@
-import {BuiltinSimulatorRenderer} from "@/pages/frame/builtin-simulator/renderer";
-import {createSimulator} from "@/pages/frame/builtin-simulator/create-simulator";
+import {BuiltinSimulatorRenderer} from "./renderer";
+import {createSimulator} from "./create-simulator";
 
 
 export class BuiltinSimulatorHost {

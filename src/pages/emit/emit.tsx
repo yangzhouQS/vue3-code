@@ -11,7 +11,7 @@ import {
   computed
 } from "vue"
 import type {EffectScope} from 'vue'
-import ResourceConsumer from "@/pages/emit/resource-consumer";
+import ResourceConsumer from "./resource-consumer";
 
 interface IViewport {
   get width(): number

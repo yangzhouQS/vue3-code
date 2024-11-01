@@ -1,6 +1,6 @@
 import {defineComponent, onMounted, ref} from "vue"
 import "./designer.less";
-import {ProjectView} from "@/pages/frame/builtin-simulator";
+import {ProjectView} from "../project/project-view";
 
 export const DesignerView = defineComponent({
   name: 'DesignerView',

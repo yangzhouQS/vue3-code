@@ -1,5 +1,5 @@
-import {NodeUtils} from "@/pages/flow/utils/flow-util";
 import {watch, reactive} from 'vue';
+import {NodeUtils} from "../utils/flow-util";
 
 /**
  * 节点操作 hooks

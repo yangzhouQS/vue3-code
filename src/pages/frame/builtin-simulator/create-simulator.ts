@@ -1,5 +1,5 @@
-import {BuiltinSimulatorHost} from "@/pages/frame/builtin-simulator/host";
-import {CSSUrlLibraryAsset, JSUrlLibraryAsset} from "@/pages/frame/config";
+import {BuiltinSimulatorHost} from "./host";
+import {CSSUrlLibraryAsset, JSUrlLibraryAsset} from "../config";
 
 /**
  * 插件渲染器，处理依赖

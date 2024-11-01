@@ -1,5 +1,4 @@
-import {BuiltinSimulatorRenderer} from "@/pages/frame/builtin-simulator/renderer";
-
+import {BuiltinSimulatorRenderer} from "../builtin-simulator/renderer";
 
 export class SimulatorRendererContainer implements BuiltinSimulatorRenderer {
   autoRepaintNode: boolean;

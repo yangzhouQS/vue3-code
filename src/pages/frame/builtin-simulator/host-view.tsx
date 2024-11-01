@@ -1,7 +1,7 @@
 import {defineComponent, onMounted, ref} from "vue"
 import {BemTools} from "./bem-tools";
 import "./host.less"
-import {BuiltinSimulatorHost} from "@/pages/frame/builtin-simulator/host";
+import {BuiltinSimulatorHost} from "./host";
 
 export const HostView = defineComponent({
   name: 'HostView',

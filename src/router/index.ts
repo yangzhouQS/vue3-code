@@ -1,5 +1,5 @@
 import {createRouter, createWebHashHistory} from 'vue-router';
-import Demo from 'pages/demo.vue';
+//import Demo from 'pages/demo.vue';
 import {TestEmit} from "../pages/emit/emit";
 import {Formily} from "../pages/formily/formily";
 import {MainPage} from "../pages/main-page";
@@ -40,7 +40,7 @@ export const routes = [
   {path: '/formily', component: Formily, title: "formily配置"},
   {path: '/emit', component: TestEmit},
   {path: '/demo-search-tree', component: DemoSearchTree, title: '搜索树'},
-  {path: '/demo', component: Demo},
+  //{path: '/demo', component: Demo},
   {path: '/test', component: Test},
   {path: '/demo-hooks', component: DemoHooks,title:"hook测试"},
   {path: '/demo-text', component: DemoText, title: '文本测试'},

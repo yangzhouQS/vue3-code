@@ -39,7 +39,6 @@
 
 <script setup lang="ts">
 
-import {Designer} from "@/components/vue";
 import {createDesigner, createResource} from "@/components/core";
 import {Workbench} from "@/components/vue/containers/workbench";
 import {StudioPanel} from "@/components/vue/panels/StudioPanel";
@@ -52,9 +51,8 @@ import {OutlineTreeWidget} from "@/components/vue/widgets/OutlineWidget";
 import {ResourceWidget} from "@/components/vue/widgets/ResourceWidget";
 import {SettingsForm} from "@/components/vue-settings-form/SettingsForm";
 import {DesignerToolsWidget} from "@/components/vue/widgets/DesignerToolsWidget";
-import {ViewToolsWidget} from "@/components/vue/widgets/ViewToolsWidget";
-import {ViewPanel} from "@/components/vue/panels/ViewPanel";
-import {Content} from "@/pages/content";
+import {ViewPanel, ViewToolsWidget, Designer} from "../components/vue";
+import {Content} from "./content";
 
 const Input = createResource({
   title: '输入框',

@@ -1,13 +1,13 @@
 import {
-  defineComponent, defineProps, onMounted, ref,
+  defineComponent,onMounted,
   PropType, watchEffect, onUnmounted,
   effect,
   provide
 } from 'vue'
-import {Engine, GlobalRegistry} from "@/components/core";
 import {Layout} from "./layout";
-import {GhostWidget} from "../widgets/ghost-widget";
+import {GhostWidget} from "../widgets";
 import * as Icons from "../icons"
+import {Engine, GlobalRegistry} from "../../core";
 
 GlobalRegistry.registerDesignerIcons(Icons)
 // https://markus.oberlehner.net/blog/context-and-provider-pattern-with-the-vue-3-composition-api/

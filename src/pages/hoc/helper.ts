@@ -1,5 +1,5 @@
 import {defineComponent, h} from "vue";
-import {createForwardRef, forwardRef} from "@/pages/hoc/forward-ref";
+import {createForwardRef, forwardRef} from "./forward-ref";
 
 
 export function createHoc(

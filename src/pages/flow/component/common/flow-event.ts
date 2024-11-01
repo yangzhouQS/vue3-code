@@ -1,3 +1,3 @@
-import {createModuleEventBus} from "@/pages/flow/utils/event-bus";
+import {createModuleEventBus} from "../../utils/event-bus";
 
 export const flowEvent = createModuleEventBus('flow')
