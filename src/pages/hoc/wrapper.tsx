@@ -1,5 +1,5 @@
 import {defineComponent} from 'vue';
-import {forwardRef} from "@/pages/hoc/forward-ref";
+import {forwardRef} from "./forward-ref";
 
 export const Wrapper = defineComponent({
   name: 'Wrapper',

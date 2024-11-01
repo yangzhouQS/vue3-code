@@ -1,5 +1,5 @@
 import {defineComponent, ref} from 'vue';
-import {Popover} from "@/components/popover/popover";
+import {Popover} from "../../components/popover/popover";
 
 export const DemoPopover = defineComponent({
   name: 'DemoPopover',

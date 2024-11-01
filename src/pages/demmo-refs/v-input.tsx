@@ -1,6 +1,6 @@
 import {defineComponent, onMounted, ref} from "vue"
-import {useRender} from "@/utils/useRender";
-import {forwardRefs} from "@/composables/forwardRefs";
+import {useRender} from "../../utils/useRender";
+import {forwardRefs} from "../../composables/forwardRefs";
 
 export const VInput = defineComponent({
   name: 'v-input',

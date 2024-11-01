@@ -1,5 +1,6 @@
 import {
-    defineComponent, onMounted, ref, getCurrentInstance,
+    defineComponent,
+    getCurrentInstance,
     type InjectionKey,
     inject,
     provide,
@@ -7,10 +8,10 @@ import {
     watch,
     h
 } from "vue"
-import { RuntimeScope } from "@/pages/demo-proxy/scope";
-import { debounce, initProvide } from "@/pages/demo-proxy/utils";
-import { useRendererContext } from "@/pages/demo-proxy/reneder-context";
-import { leafProps, splitLeafProps } from "@/pages/demo-proxy/use";
+import {RuntimeScope} from "./scope";
+import {debounce} from "./utils";
+import {useRendererContext} from "./reneder-context";
+import {leafProps, splitLeafProps} from "./use";
 
 const HOC_NODE_KEY: InjectionKey<{ rerenderSlots: () => void }> = Symbol('hocNode');
 

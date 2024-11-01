@@ -1,12 +1,10 @@
 import type {
   Component,
-  ComponentPublicInstance,
   DefineComponent,
   ExtractPropTypes,
   PropType,
 } from 'vue';
-import { createObjectSpliter } from "@/pages/demo-proxy/utils";
-import * as ElementPlus from 'element-plus';
+import {createObjectSpliter} from "./utils";
 
 
 

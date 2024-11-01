@@ -1,9 +1,9 @@
 import {defineComponent} from 'vue'
 import {observer} from '@formily/reactive-vue'
 // 定义可观察对象
-import {observable, autorun} from '@formily/reactive'
-import {modelObj as model} from "@/pages/demo-slot/model";
-import {TreeNode, Person} from "@/pages/demo-slot/Person";
+import {autorun} from '@formily/reactive'
+import {modelObj as model} from "./model";
+import {TreeNode, Person} from "./Person";
 
 const person = new Person()
 export const ASlotDemo = observer(defineComponent({

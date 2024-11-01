@@ -1,6 +1,6 @@
 // 规范边初始化数据
-import {EdgeConfig} from "@/pages/logicFlow/type";
 import {pick} from "lodash";
+import {EdgeConfig} from "../type";
 
 export const pickEdgeConfig = (data): EdgeConfig => pick(data, [
   'id',

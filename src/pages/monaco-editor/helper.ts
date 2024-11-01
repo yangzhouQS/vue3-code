@@ -1,7 +1,8 @@
 /* eslint-disable no-empty */
 import React, { useEffect, useState, useRef, CSSProperties } from 'react';
 import { Monaco } from '@monaco-editor/loader';
-import type { editor as oEditor } from '@/pages/monaco-editor';
+// import type { editor as oEditor } from '@/pages/monaco-editor';
+import type { editor as oEditor } from '.';
 import { getMonaco } from './monaco';
 
 // @todo fill type def for monaco editor without refering monaco editor

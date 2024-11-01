@@ -1,7 +1,7 @@
-import {SearchTreeProps, TypeRef} from "@/pages/demo-search-tree/type";
 import {SetupContext, VNode, ToRefs} from "vue";
-import {SearchTreeStore} from "@/pages/demo-search-tree/hook/search-tree-store";
-import {SearchTreeNode} from "@/pages/demo-search-tree/hook/search-tree-node";
+import {SearchTreeStore} from "./hook/search-tree-store";
+import {SearchTreeNode} from "./hook/search-tree-node";
+import {SearchTreeProps, TypeRef} from "./type";
 
 export type TypeSearchTreeStore = SearchTreeStore
 export type TypeSearchTreeNode = SearchTreeNode

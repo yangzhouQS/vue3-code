@@ -1,5 +1,5 @@
 import {defineComponent, onMounted, ref} from "vue"
-import {VInput} from "@/pages/demmo-refs/v-input";
+import {VInput} from "./v-input";
 
 export const DemoRefs = defineComponent({
   name: 'DemoRefs',

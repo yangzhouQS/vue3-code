@@ -1,5 +1,4 @@
-import * as Vue from 'vue';
-import { isArray, isFunction, isString } from "@/components/vue-formily/vue-formily-util";
+import { isArray, isFunction, isString } from "lodash";
 
 const {hasOwnProperty} = Object.prototype;
 export const hasOwn = (object, property) => hasOwnProperty.call(object, property);

@@ -26,9 +26,9 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': resolve('src'),
-      'components': resolve('src/components'),
-      'pages': resolve('src/pages'),
+      // '@': resolve('src'),
+      // 'components': resolve('src/components'),
+      // 'pages': resolve('src/pages'),
     },
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
   },

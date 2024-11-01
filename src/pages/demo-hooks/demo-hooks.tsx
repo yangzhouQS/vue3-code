@@ -1,5 +1,5 @@
 import {defineComponent, onMounted, ref} from "vue"
-import useRipple from "@/hooks/useRipple";
+import useRipple from "../../hooks/useRipple";
 
 export const DemoHooks = defineComponent({
   name: 'demo-hooks',

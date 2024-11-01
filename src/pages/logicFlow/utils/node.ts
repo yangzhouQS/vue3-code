@@ -1,5 +1,5 @@
 import {pick} from 'lodash';
-import {NodeConfig} from "@/pages/logicFlow/type";
+import {NodeConfig} from "../type";
 
 
 /**

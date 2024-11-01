@@ -1,5 +1,5 @@
 import {defineComponent, ref} from 'vue'
-import TestDemo from "@/pages/test-demo";
+import TestDemo from "./test-demo";
 import {observable} from '@formily/reactive'
 import {observer} from '@formily/reactive-vue'
 

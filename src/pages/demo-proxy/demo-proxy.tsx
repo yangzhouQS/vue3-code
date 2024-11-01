@@ -1,5 +1,5 @@
 import { defineComponent, onMounted, ref, computed } from "vue"
-import { ProxyWarp } from "@/pages/demo-proxy/ProxyWarp";
+import {ProxyWarp} from "./ProxyWarp";
 
 
 export const PageButton = defineComponent({

@@ -3,7 +3,7 @@ import type {editor} from 'monaco-editor';
 import * as monaco from 'monaco-editor'
 import './index.css'
 import "monaco-editor/min/vs/loader"
-import {getSingletonMonaco} from "@/pages/monaco-editor/get-singleton-monaco";
+import {getSingletonMonaco} from "./monaco-editor";
 
 // require.config("monaco-editor/min/vs")
 export const MonacoEditor = defineComponent({

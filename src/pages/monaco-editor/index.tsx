@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useRef, useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames';
-import type { editor } from '@/pages/monaco-editor';
+import type { editor } from './monaco-editor';
 import {
   ISingleMonacoEditorProps,
   WORD_EDITOR_INITIALIZING,
