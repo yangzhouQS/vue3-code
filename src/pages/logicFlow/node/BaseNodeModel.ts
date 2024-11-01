@@ -1,9 +1,9 @@
-import {IBaseModel} from "@/pages/logicFlow/BaseModel";
-import {ElementType} from "@/pages/logicFlow/constant/constant";
-import {NodeConfig, NodeData, TextConfig} from "@/pages/logicFlow/type";
-import {GraphModel} from "@/pages/logicFlow/GraphModel";
+import {IBaseModel} from "../BaseModel";
+import {NodeConfig, NodeData, TextConfig} from "../type";
 import {assign} from 'lodash'
-import {pickNodeConfig} from "@/pages/logicFlow/utils/node";
+import {ElementType} from "../constant/constant";
+import {GraphModel} from "../GraphModel";
+import {pickNodeConfig} from "../utils/node";
 
 interface IBaseNodeModel extends IBaseModel {
   /**

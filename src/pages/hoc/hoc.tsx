@@ -1,7 +1,6 @@
 import {defineComponent, ref, h} from 'vue';
 import {TestPage} from "./test-page";
-import {createHoc} from "@/pages/hoc/helper";
-import {createForwardRef} from "@/pages/hoc/forward-ref";
+import {createForwardRef} from "./forward-ref";
 
 
 const Div = defineComponent({

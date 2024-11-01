@@ -1,5 +1,4 @@
-import {defineComponent, ref, reactive} from 'vue';
-import {data} from "@/pages/logicFlow/approve/config";
+import {defineComponent, ref} from 'vue';
 
 export const LogicFlow = defineComponent({
   name: 'LogicFlow',

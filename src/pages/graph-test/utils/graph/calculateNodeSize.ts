@@ -1,4 +1,4 @@
-import {useGraph} from "@/pages/graph-test/useGraph";
+import {useGraph} from "../../useGraph";
 
 
 type Text = string | [string, string][];

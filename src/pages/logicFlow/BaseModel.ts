@@ -1,5 +1,4 @@
-import {TextConfig} from "@/pages/logicFlow/type";
-
+import {TextConfig} from "./type";
 
 export interface IBaseModel {
   /**

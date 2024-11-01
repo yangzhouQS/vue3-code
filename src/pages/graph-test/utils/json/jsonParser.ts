@@ -1,9 +1,9 @@
 import {parseTree} from "jsonc-parser";
-import {EdgeData, NodeData} from "@/pages/graph-test/types/models";
-import {traverse} from "@/pages/graph-test/utils/core/traverse";
-import {addNodeToGraph} from "@/pages/graph-test/utils/core/addNodeToGraph";
-import {addEdgeToGraph} from "@/pages/graph-test/utils/core/addEdgeToGraph";
-import {getNodePath} from "@/pages/graph-test/utils/json/getNodePath";
+import {addNodeToGraph} from "../core/addNodeToGraph";
+import {addEdgeToGraph} from "../core/addEdgeToGraph";
+import {traverse} from "../core/traverse";
+import {getNodePath} from "./getNodePath";
+import {EdgeData, NodeData} from "../../types/models";
 
 export type Graph = {
   nodes: NodeData[];

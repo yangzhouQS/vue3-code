@@ -1,4 +1,4 @@
-import {EdgeData, NodeData} from "@/pages/graph-test/types/models";
+import {EdgeData, NodeData} from "../../types/models";
 
 
 /**

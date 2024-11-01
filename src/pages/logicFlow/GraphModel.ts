@@ -1,8 +1,7 @@
-import BaseNodeModel from "@/pages/logicFlow/node/BaseNodeModel";
-import BaseEdgeModel from "@/pages/logicFlow/edge/BaseEdgeModel";
-import {IBaseModel} from "@/pages/logicFlow/BaseModel";
-import {Definition} from "@/pages/logicFlow/type/options";
-import {GraphConfigData} from "@/pages/logicFlow/type";
+import BaseNodeModel from "./node/BaseNodeModel";
+import BaseEdgeModel from "./edge/BaseEdgeModel";
+import {Definition} from "./type/options";
+import {GraphConfigData} from "./type";
 import EventEmitter from 'eventemitter2';
 import {map} from "lodash";
 type BaseNodeModelId = string; // 节点ID

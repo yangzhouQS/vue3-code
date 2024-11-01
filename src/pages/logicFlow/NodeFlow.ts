@@ -1,9 +1,9 @@
-import {GraphModel} from "@/pages/logicFlow/GraphModel";
-import {Definition} from "@/pages/logicFlow/type/options";
-import {EdgeConfig, EdgeData, GraphConfigData, NodeConfig, RegisterConfig} from "@/pages/logicFlow/type";
-import {formatData} from "@/pages/logicFlow/utils/compatible";
-import BaseNodeModel from "@/pages/logicFlow/node/BaseNodeModel";
-import BaseEdgeModel from "@/pages/logicFlow/edge/BaseEdgeModel";
+import {GraphModel} from "./GraphModel";
+import {Definition} from "./type/options";
+import {EdgeConfig, EdgeData, GraphConfigData, NodeConfig, RegisterConfig} from "./type";
+import {formatData} from "./utils/compatible";
+import BaseNodeModel from "./node/BaseNodeModel";
+import BaseEdgeModel from "./edge/BaseEdgeModel";
 
 
 class NodeFlow {

@@ -1,11 +1,10 @@
-import {IBaseModel} from "@/pages/logicFlow/BaseModel";
-import {EdgeConfig, EdgeData, TextConfig} from "@/pages/logicFlow/type";
-import {ElementType} from "@/pages/logicFlow/constant/constant";
-import {GraphModel} from "@/pages/logicFlow/GraphModel";
 import {assign, isObject} from "lodash";
-import {pickEdgeConfig} from "@/pages/logicFlow/utils/edge";
-import BaseNodeModel from "@/pages/logicFlow/node/BaseNodeModel";
-import {formatData} from "@/pages/logicFlow/utils/compatible";
+import {IBaseModel} from "../BaseModel";
+import {formatData} from "../utils/compatible";
+import {pickEdgeConfig} from "../utils/edge";
+import {GraphModel} from "../GraphModel";
+import {ElementType} from "../constant/constant";
+import {EdgeConfig, EdgeData, TextConfig} from "../type";
 
 export interface IBaseEdgeModel extends IBaseModel {
   sourceNodeId: string;
