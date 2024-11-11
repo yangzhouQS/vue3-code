@@ -34,6 +34,7 @@ import {ChartPage} from "../pages/chart/chart";
 import {UnocssPage} from "../pages/unocss-page/unocss-page";
 import {LogicFlow} from "../pages/logicFlow/logicFlow";
 import {FlowPage} from "../pages/flow/flow";
+import {DemoTreeSelect} from "../pages/demo-tree-select/demo-tree-select";
 
 export const routes = [
   {path: '/', component: MainPage, title: "主页"},
@@ -65,6 +66,7 @@ export const routes = [
   {path: '/graph-demo', component: GraphDemo, title: "graph图结构"},
   {path: '/generator-code', component: GeneratorCode, title: "代码生成"},
   {path: '/demo-proxy', component: DemoProxy, title: "代理"},
+  {path: '/demo-tree-select', component: DemoTreeSelect, title: "下拉选择树"},
   {path: '/scena-ruler', component: ScenaRuler},
   {path: '/gesto', component: gesto},
   {path: '/table-page', component: TablePage, title: "表格"},

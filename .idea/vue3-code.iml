@@ -19,5 +19,6 @@
     <orderEntry type="library" name="vue" level="project" />
     <orderEntry type="library" name="@types/lodash" level="application" />
     <orderEntry type="library" name="vue-type" level="project" />
+    <orderEntry type="library" name="types" level="project" />
   </component>
 </module>

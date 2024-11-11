@@ -54,7 +54,6 @@ export function parser(jsonStr: string): Graph {
     const parsedJsonTree = parseTree(jsonStr);
 
     console.log(parsedJsonTree);
-    debugger;
     if (!parsedJsonTree) {
       throw new Error("Invalid document");
     }

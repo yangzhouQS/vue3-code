@@ -68,7 +68,9 @@ export const useGraph = {
   ...initialStates,
   setGraph: (data: string, options?: any) => {
     const result = parser(data)
-    console.log(result);
+    console.log('ret = ',result);
+    useGraph.nodes = result.nodes
+    useGraph.edges = result.edges
   },
   getState: () => {
     return {

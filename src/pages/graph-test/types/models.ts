@@ -2,10 +2,17 @@
 import { NodeType } from "jsonc-parser";
 
 export interface NodeData {
+  /**
+   * 节点id
+   */
   id: string;
+
+  /**
+   * 节点名称
+   */
   text: string | [string, string][];
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
   path?: string;
 
   /**
