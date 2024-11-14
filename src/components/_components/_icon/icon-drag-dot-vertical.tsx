@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-import SvgIcon from "../../vue/icons/svg-icon";
+import SvgIcon from "../../../utils/svg-icon";
 export const IconDragDotVertical = defineComponent({
   name: "IconDragDotVertical",
   setup() {

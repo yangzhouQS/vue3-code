@@ -49,13 +49,14 @@ export default defineComponent({
     };
 
     watch(element, (_element) => {
+      console.log('_element');
       if (resizeObserver) destroyResizeObserver();
       if (_element) createResizeObserver(_element);
-    });
+    },{immediate: true});
 
     onMounted(() => {
       if (element.value) {
-        createResizeObserver(element.value);
+        // createResizeObserver(element.value);
       }
     });
 

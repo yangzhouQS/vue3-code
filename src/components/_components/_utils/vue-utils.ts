@@ -9,7 +9,7 @@ import type {
   RenderFunction,
 } from 'vue';
 import { cloneVNode, Fragment, isVNode } from 'vue';
-import { Data, RenderContent } from './types';
+import { Data, RenderContent } from '../types';
 import { isArray, isFunction, isNumber, isObject, isString } from './is';
 import { toCamelCase, toKebabCase } from './convert-case';
 

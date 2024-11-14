@@ -1,6 +1,5 @@
 <template>
-  <component
-    :is="component"
+  <div
     ref="wrapperRef"
     :class="classNames"
     v-bind="$attrs"
@@ -20,7 +19,7 @@
       "
       @resize="
         (entry) => {
-          onTiggerResize(direction, entry);
+          onTriggerResize(direction, entry);
         }
       "
     >
@@ -33,7 +32,7 @@
         <slot name="resize-trigger-icon" :direction="direction" />
       </template>
     </ResizeTrigger>
-  </component>
+  </div>
 </template>
 <script lang="ts">
 import {
@@ -103,14 +102,6 @@ export default defineComponent({
      */
     height: {
       type: Number,
-    },
-    /**
-     * @zh 伸缩框的 html 标签
-     * @en The html tag of the telescopic box
-     */
-    component: {
-      type: String,
-      default: 'div',
     },
     /**
      * @zh 可以进行伸缩的边，有上、下、左、右可以使用
@@ -294,7 +285,7 @@ export default defineComponent({
         : 'col-resize';
     }
 
-    function onTiggerResize(
+    function onTriggerResize(
       direction: DirectionType,
       entry: ResizeObserverEntry
     ) {
@@ -314,7 +305,7 @@ export default defineComponent({
       onMoveStart,
       isHorizontal,
       allowDirections,
-      onTiggerResize,
+      onTriggerResize,
     };
   },
 });

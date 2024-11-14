@@ -26,4 +26,4 @@ dist-ssr
 warkspace.xml
 yarn-error.log
 yarn.lock
-.idea
+package-lock.json
