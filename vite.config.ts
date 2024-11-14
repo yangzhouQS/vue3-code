@@ -54,8 +54,8 @@ export default defineConfig({
   },
   server: {
     // 服务器主机名，如果允许外部访问，可设置为 "0.0.0.0"
-    // host: "0.0.0.0",
-    host: "127.0.0.1",
+    host: "0.0.0.0",
+    // host: "127.0.0.1",
     port: 3333,
     // open: viteEnv.VITE_OPEN,
     cors: true,

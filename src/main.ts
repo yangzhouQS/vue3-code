@@ -3,12 +3,11 @@ import tmpApp from './App.vue'
 import * as Vue from 'vue'
 import './style.css'
 import './styles/base.css'
-import AppContainer from './App.vue'
 import {router} from "./router";
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-// import ArcoVue from '@arco-design/web-vue';
-// import '@arco-design/web-vue/dist/arco.css';
+import ArcoVue from '@arco-design/web-vue';
+import '@arco-design/web-vue/dist/arco.css';
 // import TDesignPc from 'tdesign-vue-next';
 // 引入组件库的少量全局样式变量
 // import 'tdesign-vue-next/es/style/index.css';
@@ -21,6 +20,8 @@ import 'element-plus/dist/index.css'
 // import * as directives from 'vuetify/directives'
 
 import TinyVue from '@opentiny/vue'
+import WujieVue3 from 'wujie-vue3'
+const { setupApp, preloadApp, bus } = WujieVue3;
 
 /*
 const vuetify = createVuetify({
@@ -33,12 +34,13 @@ const vuetify = createVuetify({
 // const formily = createFormily();
 const app = Vue.createApp(tmpApp)
 
+app.use(WujieVue3)
 // app.use(formily, {});
 app.use(TinyVue)
 // app.use(vuetify)
 app.use(router)
 app.use(ElementPlus)
-// app.use(ArcoVue)
+app.use(ArcoVue)
 // app.use(TDesignPc)
 // app.use(TDesignMobile)
 
