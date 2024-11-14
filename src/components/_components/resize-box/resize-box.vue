@@ -44,11 +44,11 @@ import {
   ref,
   reactive,
 } from 'vue';
-import ResizeTrigger from '../_components/resize-trigger.vue';
+import "./style.less"
+import ResizeTrigger from '../resize-trigger.vue';
 import useMergeState from '../_hooks/use-merge-state';
-import { getPrefixCls } from '../_utils/global-config';
 import { isNumber } from '../_utils/is';
-import { off, on } from '../_utils/dom';
+import {off, on} from "../../../utils/dom";
 
 export type DirectionType = 'left' | 'right' | 'top' | 'bottom';
 
@@ -179,7 +179,7 @@ export default defineComponent({
       Partial<Record<PaddingCSSProperties, string>>
     >({});
 
-    const prefixCls = getPrefixCls('resizebox');
+    const prefixCls = 'resizebox';
     const classNames = computed(() => [prefixCls]);
     const styles = computed(() => {
       return {

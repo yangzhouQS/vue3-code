@@ -1,5 +1,6 @@
+
 <template>
-  <a-resize-box
+  <ResizeBox
       :directions="['right', 'bottom']"
       :style="{ width: '500px', minWidth: '100px', maxWidth: '100%', height: '200px', textAlign: 'center' }"
   >
@@ -11,5 +12,9 @@
     </a-typography-paragraph>
     <a-divider>ByteDance</a-divider>
     <a-typography-paragraph>Yiming Zhang is the founder and CEO of ByteDance.</a-typography-paragraph>
-  </a-resize-box>
+  </ResizeBox>
 </template>
+
+<script setup lang="ts">
+import ResizeBox from "../../components/_components/resize-box/resize-box.vue";
+</script>

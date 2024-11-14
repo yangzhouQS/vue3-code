@@ -16,9 +16,9 @@
 </template>
 <script lang="tsx">
 import {computed, defineComponent, PropType, toRefs} from 'vue';
-import IconDragDot from './_icon/drag-dot.svg';
-import IconDragDotVertical from './_icon/drag-dot-vertical.svg';
 import ResizeObserver from './resize-observer';
+import {IconDragDot} from "./_icon/icon-drag-dot";
+import {IconDragDotVertical} from "./_icon/icon-drag-dot-vertical";
 
 export default defineComponent({
   name: 'ResizeTrigger',
