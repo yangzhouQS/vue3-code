@@ -36,6 +36,7 @@ import {LogicFlow} from "../pages/logicFlow/logicFlow";
 import {FlowPage} from "../pages/flow/flow";
 import {DemoTreeSelect} from "../pages/demo-tree-select/demo-tree-select";
 import {DemoResizeBox} from "../pages/demo-resize-box/demo-resize-box";
+import {DemoClassRelation} from "../pages/demo-class-relation/demo-class-relation";
 
 export const routes = [
   {path: '/', component: MainPage, title: "主页"},
@@ -48,6 +49,7 @@ export const routes = [
   {path: '/demo-text', component: DemoText, title: '文本测试'},
   {path: '/demo-virtual', component: DemoVirtual, title: '虚拟滚动'},
   {path: '/demo-resize-box', component: DemoResizeBox, title: '伸缩框 ResizeBox'},
+  {path: '/demo-class-relation', component: DemoClassRelation, title: '响应式对象测试'},
   /*{
     // path: '/demo-wap',
     // redirect: '/demo-wap/demo-text',

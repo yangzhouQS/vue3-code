@@ -1,5 +1,4 @@
-import {defineComponent, onMounted, ref} from "vue";
-import {onUpdated} from "../../../public/lib/vue/vue.esm-browser";
+import {defineComponent, onMounted, ref, onUpdated} from "vue";
 
 export const TestPage = defineComponent({
   name: 'TestPage',
@@ -10,10 +9,10 @@ export const TestPage = defineComponent({
   setup(props, {slots}) {
     const innerAge = ref(22)
 
-    onMounted(()=>{
+    onMounted(() => {
       console.log('onMounted');
     })
-    onUpdated(()=>{
+    onUpdated(() => {
       console.log('onUpdated');
     })
     return () => {

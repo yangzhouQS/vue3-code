@@ -36,10 +36,10 @@ export default defineConfig({
     assetsDir: 'public',
     outDir: 'dist',
     rollupOptions: {
-      external: ['vue'],
+      external: [],
       output: {
         globals: {
-          vue: 'Vue',
+          // vue: 'Vue',
         },
         manualChunks(id) {
           if (id.includes("node_modules")) {

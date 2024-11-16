@@ -1,6 +1,4 @@
-import {defineComponent, onMounted, ref} from "vue"
-import {groupBy} from 'lodash'
-import {reactive} from "../../../public/lib/vue/vue.esm-browser";
+import {defineComponent, onMounted, ref, reactive} from "vue"
 
 export const DemoWebrtc = defineComponent({
   name: 'demo-webrtc',

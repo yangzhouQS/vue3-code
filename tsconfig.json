@@ -26,10 +26,9 @@
       "vitest/globals",
       "node",
       "vite/client",
-      "./node_modules/@types/lodash"
+      "./node_modules/@types"
     ],
     "typeRoots": [
-      "components.d.ts",
       "./node_modules/vue/types",
       "./node_modules/@types/lodash",
       "./node_modules/@element-plus/icons-vue/dist/types",
