@@ -37,6 +37,7 @@ import {FlowPage} from "../pages/flow/flow";
 import {DemoTreeSelect} from "../pages/demo-tree-select/demo-tree-select";
 import {DemoResizeBox} from "../pages/demo-resize-box/demo-resize-box";
 import {DemoClassRelation} from "../pages/demo-class-relation/demo-class-relation";
+import {DemoDropdown} from "../pages/demo-dropdown/demo-dropdown";
 
 export const routes = [
   {path: '/', component: MainPage, title: "主页"},
@@ -45,6 +46,7 @@ export const routes = [
   {path: '/demo-search-tree', component: DemoSearchTree, title: '搜索树'},
   //{path: '/demo', component: Demo},
   {path: '/test', component: Test},
+  {path: '/demo-dropdown', component: DemoDropdown,title:"下拉菜单测试"},
   {path: '/demo-hooks', component: DemoHooks,title:"hook测试"},
   {path: '/demo-text', component: DemoText, title: '文本测试'},
   {path: '/demo-virtual', component: DemoVirtual, title: '虚拟滚动'},
