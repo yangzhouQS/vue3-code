@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "chrome-remove-dom-plugin-V3",
+  "version": "0.0.1",
+  "description": "页面指定DOM结构移除插件",
+  "homepage_url": "https://www.baidu.com",
+  "icons": {
+    "16": "browser/images/acrobat_dc_appicon_16.png",
+    "24": "browser/images/acrobat_dc_appicon_24.png",
+    "48": "browser/images/acrobat_dc_appicon_48.png",
+    "128": "browser/images/acrobat_dc_appicon_128.png"
+  },
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "nativeMessaging",
+    "webNavigation",
+    "storage",
+    "scripting"
+  ],
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "exclude_matches": [
+        "http://10.12.10.13:30880/",
+        "http://10.12.10.201:9001/"
+      ],
+      "js": [
+        "page-scripts/page-content.js",
+        "lib/jquery.js",
+        "js/content-script-start.js",
+        "lib/message/js/message.min.js"
+      ],
+      "css": [
+        "lib/message/css/message.css"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}

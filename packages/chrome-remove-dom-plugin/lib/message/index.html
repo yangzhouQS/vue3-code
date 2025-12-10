@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message.js</title>
+    <link rel="stylesheet" href="./css/message.css">
+</head>
+<body>
+    <style>
+        .box{
+            margin-top: 400px;
+            text-align: center;
+        }
+    </style>
+    <div class="box">
+        
+        <div class="types">
+            <button class="btn" data-type='info'>info提示</button>
+            <button class="btn" data-type='error'>error提示</button>
+            <button class="btn" data-type='success'>success提示</button>
+            <button class="btn" data-type='warning'>warning提示</button>
+            <button class="btn" data-type='loading'>loading提示,需要手动关闭</button>
+        </div>
+        <div class="settings" style="margin-top: 50px;">
+            <button class="show-close">显示关闭按钮</button>
+            <button class="hide-close">不显示关闭按钮</button>
+            <button class="close-all">立即关闭全部</button>
+        </div>
+        <div class="settings" style="margin-top: 50px;">
+            <button class="create-loading">创建一个loading</button>
+            <button class="close-loading">关闭这个loading</button>
+        </div>
+    </div>
+    <script src="./js/message.min.js"></script>
+    <script>
+        console.log(Qmsg)
+        var $types = document.querySelector(".types");
+        var btns = $types.querySelectorAll(".btn");
+        for(var i =0,btn;btn=btns[i];i++){
+            btn.addEventListener("click",function(e){
+                var type = this.getAttribute("data-type");
+                var txt = this.innerText;
+                Qmsg[type](txt);
+            })
+        }
+        document.querySelector(".show-close").onclick = function(){
+            Qmsg.config({
+                showClose:true
+            })
+        }
+        document.querySelector(".hide-close").onclick = function(){
+            Qmsg.config({
+                showClose:false
+            })
+        }
+        document.querySelector(".close-all").onclick = function(){
+            Qmsg.closeAll();
+        }
+        var loading;
+        document.querySelector(".create-loading").onclick = function(){
+            loading = Qmsg.loading("小鸭子,游呀游~",{
+                onClose:function(){
+                    console.log(this)
+                }
+            });
+        }
+        document.querySelector(".close-loading").onclick = function(){
+            loading && loading.close();
+        }
+    </script>
+</body>
+</html>

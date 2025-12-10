@@ -1,7 +1,7 @@
 import {defineComponent, onMounted, ref} from "vue"
 import {tableConfig} from "./table-config"
 import {useGraph} from "./useGraph";
-import {assemData} from "./assem-data";
+import assemData from "./assem-data.json";
 import {getNodePath} from "./utils/core/getNodePath";
 import {getParentsForNodeId} from "./utils/graph/graphHelpers";
 
