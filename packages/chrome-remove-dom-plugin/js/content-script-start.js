@@ -1,4 +1,13 @@
 $(function () {
+
+	function innerRemoveClassList(list) {
+		if (list && Array.isArray(list)) {
+			list.forEach(item => {
+				$(item).remove();
+			})
+		}
+	}
+
 	const hostList = ['help.primeton.com', "juejin.cn"]
 	const $openButton = $("<button>remove</button>");
 	$openButton.css({
@@ -73,9 +82,8 @@ $(function () {
 			}
 
 			removeBefore();
-			[".article-suspended-panel", '.main-header', '.sidebar', '.comment-box-common', '.recommended-area', '.suspension-panel'].forEach(dom => {
-				$(dom).remove()
-			})
+			innerRemoveClassList([".article-suspended-panel",
+				'.main-header', '.sidebar', '.comment-box-common', '.recommended-area', '.suspension-panel'])
 		},
 	}
 
