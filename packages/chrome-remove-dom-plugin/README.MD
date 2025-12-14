@@ -1,3 +1,14 @@
+"permissions": [
+"tabs",
+"activeTab",
+"nativeMessaging",
+"webNavigation",
+"storage",
+"scripting"
+]
+
+## 默认配置
+```
 {
   "manifest_version": 3,
   "name": "chrome-remove-dom-plugin-V3",
@@ -28,6 +39,7 @@
         "http://10.12.10.201:9001/"
       ],
       "js": [
+        "page-scripts/page-content.js",
         "lib/jquery.js",
         "js/content-script-start.js",
         "lib/message/js/message.min.js"
@@ -39,3 +51,7 @@
     }
   ]
 }
+
+```
+
+
